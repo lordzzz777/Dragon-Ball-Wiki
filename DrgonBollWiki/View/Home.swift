@@ -9,30 +9,65 @@ import SwiftUI
 
 struct Home: View {
 
+    @State var isShow: Int = 2
+    @State var isShow2: Int = 1
 
+    @State private var offset: CGFloat = 0
+    @State private var scrollSpeed: CGFloat = 0
+    
     let isPerson = ["Shenlong":"Dragon" , "Goku":"GokuPeque", "Mutenroy": "Mutenroy"]
+    let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     var body: some View {
         NavigationStack{
             ZStack{
                 Image("Dragon").resizable()
+                    .scaledToFit()
+                
                     .frame(width: 600, height: 800)
                     .opacity(0.3)
                 
-                ScrollView{
-                    VStack{
-                      
-                            ForEach(1..<4) {_ in
-                                Section{
-                                    ForEach(isPerson.sorted(by: {$0.key<$1.key}), id: \.key ){ (key, value) in
-                                        
-                                        Image(value).resizable().frame(width: 40, height: 40)
+                if liveScrol(isShow) {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(1..<4) { _ in
+                                Section {
+                                    ForEach(isPerson.sorted(by: { $0.key < $1.key }), id: \.key) { (key, value) in
+                                        VStack {
+                                            ParallaxHeder {
+                                                Image(value).resizable().scaledToFit()
+                                            }
+                                            .frame(width: 200, height: 400)
+                                            Text(key).font(.title).bold()
+                                        }
+                                    }
+                                    
+                                }
+                                .padding(.vertical, 100)
+                            }
+                        }
+                    }
+                    
+                }else if liveScrol(isShow2) {
+                    ScrollView{
+                        ForEach(1..<4) {_ in
+                            Section{
+                                ForEach(isPerson.sorted(by: {$0.key<$1.key}), id: \.key ){ (key, value) in
+                                    VStack{
+                                        ParallaxHeder{
+                                            Image(value).resizable()
+                                                .scaledToFit()
+                                        }
+                                        .frame(width: 200, height: 400)
                                         Text(key ).font(.title).bold()
+                                            .backgroundStyle(Material.regular)
                                     }
                                 }
-                            }.padding()
-                        
-                    }.padding()
+                            }
+                        }.padding()
+                    }
                 }
+                
+               
                 VStack{
                     Spacer()
                     HStack(alignment: .top){
@@ -46,22 +81,26 @@ struct Home: View {
                     }
                 }
             }
+
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Menu{
-                        Button(action: {
-                            // Acción del botón de la barra de herramientas
+                        Button(action: { 
+                            isShow = 2
+                            isShow2 = 1
                         }) {
-                            Text("Imet 0")
+                            Text("Cambiar Scrol 1")
                             Image( "Boll7")
                                 .resizable()
                                 .frame(width: 10, height: 10)
                         }
                         
-                        Button(action: {
-                            // Acción del botón de la barra de herramientas
+                        Button(action: {                     
+                            isShow = 1
+                            isShow2 = 2
                         }) {
-                            Text("Imet 1")
+                            Text("Cambiar Scrol 2")
+
                             Image( "Dragon")
                                 .resizable()
                                 .frame(width: 10, height: 10)
@@ -70,8 +109,9 @@ struct Home: View {
                         Button(action: {
                             // Acción del botón de la barra de herramientas
                         }) {
-                          //  Image(systemName: "person")
-                            Text("Imet 2")
+
+                            //  Image(systemName: "person")
+                            Text("item 3")
                             Image( "Mutenroy")
                                 .resizable()
                                 .frame(width: 10, height: 10)
@@ -90,9 +130,21 @@ struct Home: View {
                             .frame(width: 40, height: 50)
                     }
 
+                    
                 }
             }
             
+        }
+    }
+
+    func liveScrol(_ index: Int) -> Bool {
+        switch index {
+        case 1:
+           return true
+        case 2:
+            return false
+        default:
+            return false
         }
     }
 }
