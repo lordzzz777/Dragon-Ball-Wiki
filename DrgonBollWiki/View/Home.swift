@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Home: View {
-    
+
     @State var isShow: Int = 2
     @State var isShow2: Int = 1
 
@@ -17,7 +17,6 @@ struct Home: View {
     
     let isPerson = ["Shenlong":"Dragon" , "Goku":"GokuPeque", "Mutenroy": "Mutenroy"]
     let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
-
     var body: some View {
         NavigationStack{
             ZStack{
@@ -68,7 +67,7 @@ struct Home: View {
                     }
                 }
                 
-                
+               
                 VStack{
                     Spacer()
                     HStack(alignment: .top){
@@ -82,16 +81,13 @@ struct Home: View {
                     }
                 }
             }
-            
+
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Menu{
-                        Button(action: {
-                            
+                        Button(action: { 
                             isShow = 2
                             isShow2 = 1
-                        
-                            
                         }) {
                             Text("Cambiar Scrol 1")
                             Image( "Boll7")
@@ -99,12 +95,12 @@ struct Home: View {
                                 .frame(width: 10, height: 10)
                         }
                         
-                        Button(action: {
-                       
+                        Button(action: {                     
                             isShow = 1
                             isShow2 = 2
                         }) {
                             Text("Cambiar Scrol 2")
+
                             Image( "Dragon")
                                 .resizable()
                                 .frame(width: 10, height: 10)
@@ -113,6 +109,7 @@ struct Home: View {
                         Button(action: {
                             // Acción del botón de la barra de herramientas
                         }) {
+
                             //  Image(systemName: "person")
                             Text("item 3")
                             Image( "Mutenroy")
@@ -132,6 +129,7 @@ struct Home: View {
                         Image("logoGoku").resizable()
                             .frame(width: 40, height: 50)
                     }
+
                     
                 }
             }
