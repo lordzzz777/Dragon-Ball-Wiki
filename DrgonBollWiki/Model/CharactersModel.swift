@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Character
-struct Character: Codable {
+struct Characters: Codable {
     let items: [Item]
     let meta: Meta
     let links: Links
