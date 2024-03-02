@@ -39,6 +39,9 @@ final class DragonballAPIService {
     }
     
     
+    ///Obtiene los datos de un solo personaje basandose en el id
+    /// - Parameters: id del personaje
+    /// - Returns: Una instancia de `SingleCharacter` la cual contiene toda la información de un personaje en específico
     func getSingleCharacter(id: Int) async throws -> SingleCharacter {
         do {
             let singleCharacterEndPoint = "https://dragonball-api.com/api/characters/\(id)"
