@@ -12,6 +12,7 @@
 		6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17722B92473400C8AB2E /* Assets.xcassets */; };
 		6E2E17762B92473400C8AB2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */; };
 		6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E177D2B9247B500C8AB2E /* Home.swift */; };
+		6E2E17822B9280E300C8AB2E /* ParallaxHeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E17812B9280E300C8AB2E /* ParallaxHeder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		6E2E17722B92473400C8AB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6E2E177D2B9247B500C8AB2E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		6E2E17812B9280E300C8AB2E /* ParallaxHeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxHeder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,8 @@
 		6E2E176D2B92473000C8AB2E /* DrgonBollWiki */ = {
 			isa = PBXGroup;
 			children = (
-				6E2E177D2B9247B500C8AB2E /* Home.swift */,
+				6E2E17802B927F6200C8AB2E /* Model */,
+				6E2E177F2B927F4400C8AB2E /* View */,
 				6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */,
 				6E2E17702B92473000C8AB2E /* ContentView.swift */,
 				6E2E17722B92473400C8AB2E /* Assets.xcassets */,
@@ -68,6 +71,22 @@
 				6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6E2E177F2B927F4400C8AB2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E2E177D2B9247B500C8AB2E /* Home.swift */,
+				6E2E17812B9280E300C8AB2E /* ParallaxHeder.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E2E17802B927F6200C8AB2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +162,7 @@
 				6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */,
 				6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */,
 				6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */,
+				6E2E17822B9280E300C8AB2E /* ParallaxHeder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
