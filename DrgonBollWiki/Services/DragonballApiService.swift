@@ -63,7 +63,8 @@ final class DragonballAPIService {
         }
     }
     
-    
+    ///Obtiene tla información básica de todos los planetas
+    /// - Returns: Una instancia de `Planets` la cual contiene toda la información básica de cada planeta
     func getPlanets() async throws -> Planets {
         do {
             let allPlanetsURL = "https://dragonball-api.com/api/planets?page=1&limit=30"
