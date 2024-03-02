@@ -2,7 +2,7 @@
 //  ParallaxHeder.swift
 //  DrgonBollWiki
 //
-//  Created by Esteban Perez Castillejo on 1/3/24.
+//  Created by Grupo de Estudio on 1/3/24.
 //
 
 import SwiftUI
@@ -26,6 +26,7 @@ struct ParallaxHeder<Content:View>: View {
         
         
     }
+    
     func liveScrol(_ index: Int) -> Bool {
         switch index {
         case 1:
