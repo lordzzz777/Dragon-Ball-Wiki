@@ -74,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				5AA8B5CC2B92908600F9D008 /* Services */,
-				6E2E17802B927F6200C8AB2E /* Model */,
 				6E2E177F2B927F4400C8AB2E /* View */,
 				6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */,
 				6E2E17702B92473000C8AB2E /* ContentView.swift */,
@@ -99,13 +98,6 @@
 				6E2E17812B9280E300C8AB2E /* ParallaxHeder.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		6E2E17802B927F6200C8AB2E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
