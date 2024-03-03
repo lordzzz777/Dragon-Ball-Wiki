@@ -34,7 +34,6 @@ xcuserdata/
 ### Xcode Patch ###
 *.xcuserstate
 *.xcodeproj/*
-*.pbxproj
 !roject.pbxproj*.xcodeproj/p
 !*.xcodeproj/xcshareddata/
 !*.xcodeproj/project.xcworkspace/
