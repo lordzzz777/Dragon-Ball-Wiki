@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct Home: View {
-    @StateObject private var apiService = DragonballAPIService()
-    @State private var characters: Characters?
-    @State private var isLoading = false
+    @State private var homeViewModel: HomeViewModel
     @State private var selectedCharacter: Character?
     
     @State var isShow: Int = 2
@@ -21,6 +19,11 @@ struct Home: View {
     
     let isPerson = ["Shenlong":"Dragon" , "Goku":"GokuPeque", "Mutenroy": "Mutenroy"]
     let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
+    
+    init(allCaractersDataService: AllCharactersProtocol) {
+        _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
+    }
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -31,9 +34,9 @@ struct Home: View {
                     .opacity(0.3)
                 
                 if liveScrol(isShow2) {
-                    if isLoading{
+                    if homeViewModel.isLoading{
                         ProgressView()
-                    }else if let characters = characters{
+                    }else if let characters = homeViewModel.allCharacters {
                         ScrollView(.horizontal){
                             HStack{
                                 
@@ -96,18 +99,6 @@ struct Home: View {
                             .padding(.bottom, -300)
                             .shadow(radius: 8)
                         Spacer()
-                    }
-                }
-            }
-            .onAppear{
-                isLoading = true
-                Task{
-                    do{
-                        characters = try await apiService.getCharacters()
-                        isLoading = false
-                    }catch{
-                        print("Error: \(error)")
-                        isLoading = false
                     }
                 }
             }
@@ -179,5 +170,7 @@ struct Home: View {
 }
 
 #Preview {
-    Home()
+    //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
+    //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
+    Home(allCaractersDataService: MockAllCharactersDataService(data: nil))
 }

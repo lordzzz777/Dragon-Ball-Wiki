@@ -17,6 +17,9 @@
 		5AEB4FFD2B94E34E007C51B2 /* Home2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FFC2B94E34E007C51B2 /* Home2.swift */; };
 		5AEB50022B94FE5F007C51B2 /* AllCharactersDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50012B94FE5F007C51B2 /* AllCharactersDataService.swift */; };
 		5AEB50052B94FEDB007C51B2 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50042B94FEDB007C51B2 /* APIError.swift */; };
+		5AEB50072B950040007C51B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50062B950040007C51B2 /* HomeViewModel.swift */; };
+		5AEB500A2B952A79007C51B2 /* MockAllCharactersDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50092B952A79007C51B2 /* MockAllCharactersDataService.swift */; };
+		5AEB500C2B952B57007C51B2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB500B2B952B57007C51B2 /* Protocols.swift */; };
 		6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */; };
 		6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E17702B92473000C8AB2E /* ContentView.swift */; };
 		6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17722B92473400C8AB2E /* Assets.xcassets */; };
@@ -35,6 +38,9 @@
 		5AEB4FFC2B94E34E007C51B2 /* Home2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home2.swift; sourceTree = "<group>"; };
 		5AEB50012B94FE5F007C51B2 /* AllCharactersDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCharactersDataService.swift; sourceTree = "<group>"; };
 		5AEB50042B94FEDB007C51B2 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		5AEB50062B950040007C51B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		5AEB50092B952A79007C51B2 /* MockAllCharactersDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAllCharactersDataService.swift; sourceTree = "<group>"; };
+		5AEB500B2B952B57007C51B2 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrgonBollWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrgonBollWikiApp.swift; sourceTree = "<group>"; };
 		6E2E17702B92473000C8AB2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +63,7 @@
 		5AA8B5CC2B92908600F9D008 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5AEB500D2B9531B1007C51B2 /* Mocks */,
 				5AA8B5D12B92A38800F9D008 /* DragonballAPIService.swift */,
 				5AEB50012B94FE5F007C51B2 /* AllCharactersDataService.swift */,
 			);
@@ -93,6 +100,7 @@
 		5AEB4FFE2B94FA9D007C51B2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5AEB50062B950040007C51B2 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -101,8 +109,17 @@
 			isa = PBXGroup;
 			children = (
 				5AEB50042B94FEDB007C51B2 /* APIError.swift */,
+				5AEB500B2B952B57007C51B2 /* Protocols.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5AEB500D2B9531B1007C51B2 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5AEB50092B952A79007C51B2 /* MockAllCharactersDataService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		6E2E17622B92473000C8AB2E = {
@@ -228,6 +245,7 @@
 			files = (
 				5AEB4FF62B94E1E0007C51B2 /* SinglePlanetModel.swift in Sources */,
 				6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */,
+				5AEB500A2B952A79007C51B2 /* MockAllCharactersDataService.swift in Sources */,
 				5AA8B5D22B92A38800F9D008 /* DragonballAPIService.swift in Sources */,
 				6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */,
 				5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */,
@@ -235,10 +253,12 @@
 				5AEB4FF92B94E2DC007C51B2 /* ParallaxHeder.swift in Sources */,
 				6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */,
 				5AEB4FFB2B94E314007C51B2 /* Card.swift in Sources */,
+				5AEB50072B950040007C51B2 /* HomeViewModel.swift in Sources */,
 				5AEB4FF42B94E19B007C51B2 /* PlanetsModel.swift in Sources */,
 				5AEB4FF22B94E159007C51B2 /* SingleCharacterModel.swift in Sources */,
 				5AEB4FFD2B94E34E007C51B2 /* Home2.swift in Sources */,
 				5AEB50052B94FEDB007C51B2 /* APIError.swift in Sources */,
+				5AEB500C2B952B57007C51B2 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

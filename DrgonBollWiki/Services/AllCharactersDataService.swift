@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AllCharactersDataService {
+class AllCharactersDataService: AllCharactersProtocol {
     private let allCharactersEndPoint = "https://dragonball-api.com/api/characters?page=1&limit=58"
     
     ///Obtiene todos los personajes de Dragonball API
