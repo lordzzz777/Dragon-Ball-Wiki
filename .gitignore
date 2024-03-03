@@ -32,7 +32,6 @@ xcuserdata/
 *.xcscmblueprint
 *.xccheckout
 ### Xcode Patch ###
-*.pbxproj
 !roject.pbxproj*.xcodeproj/p
 !*.xcodeproj/xcshareddata/
 !*.xcodeproj/project.xcworkspace/
