@@ -27,7 +27,6 @@ class HomeViewModel {
     func getAllCharacters() async {
         do {
             allCharacters = try await allCaractersDataService.getCharacters()
-            print(allCharacters ?? String(""))
         } catch {
             print(error)
             errorMessage = "Error al intentar obtener los datos del servidor"

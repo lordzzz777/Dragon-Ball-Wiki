@@ -10,3 +10,7 @@ import Foundation
 protocol AllCharactersProtocol {
     func getCharacters() async throws -> Characters
 }
+
+protocol SingleCharacterProtocol {
+    func getSingleCharacter(id: Int) async throws -> SingleCharacter
+}
