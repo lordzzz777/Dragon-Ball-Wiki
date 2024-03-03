@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class DragonballAPIService {
+final class DragonballAPIService: ObservableObject {
     private let allCharactersEndPoint = "https://dragonball-api.com/api/characters?page=1&limit=58"
     
     private enum ApiError: Error {

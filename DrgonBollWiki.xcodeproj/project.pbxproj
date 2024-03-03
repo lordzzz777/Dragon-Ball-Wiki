@@ -12,12 +12,14 @@
 		5AEB4FF22B94E159007C51B2 /* SingleCharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FF12B94E159007C51B2 /* SingleCharacterModel.swift */; };
 		5AEB4FF42B94E19B007C51B2 /* PlanetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FF32B94E19B007C51B2 /* PlanetsModel.swift */; };
 		5AEB4FF62B94E1E0007C51B2 /* SinglePlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FF52B94E1E0007C51B2 /* SinglePlanetModel.swift */; };
+		5AEB4FF92B94E2DC007C51B2 /* ParallaxHeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FF82B94E2DC007C51B2 /* ParallaxHeder.swift */; };
+		5AEB4FFB2B94E314007C51B2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FFA2B94E314007C51B2 /* Card.swift */; };
+		5AEB4FFD2B94E34E007C51B2 /* Home2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FFC2B94E34E007C51B2 /* Home2.swift */; };
 		6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */; };
 		6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E17702B92473000C8AB2E /* ContentView.swift */; };
 		6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17722B92473400C8AB2E /* Assets.xcassets */; };
 		6E2E17762B92473400C8AB2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */; };
 		6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E177D2B9247B500C8AB2E /* Home.swift */; };
-		6E2E17822B9280E300C8AB2E /* ParallaxHeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E17812B9280E300C8AB2E /* ParallaxHeder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,13 +28,15 @@
 		5AEB4FF12B94E159007C51B2 /* SingleCharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCharacterModel.swift; sourceTree = "<group>"; };
 		5AEB4FF32B94E19B007C51B2 /* PlanetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsModel.swift; sourceTree = "<group>"; };
 		5AEB4FF52B94E1E0007C51B2 /* SinglePlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlanetModel.swift; sourceTree = "<group>"; };
+		5AEB4FF82B94E2DC007C51B2 /* ParallaxHeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxHeder.swift; sourceTree = "<group>"; };
+		5AEB4FFA2B94E314007C51B2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5AEB4FFC2B94E34E007C51B2 /* Home2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home2.swift; sourceTree = "<group>"; };
 		6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrgonBollWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrgonBollWikiApp.swift; sourceTree = "<group>"; };
 		6E2E17702B92473000C8AB2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6E2E17722B92473400C8AB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6E2E177D2B9247B500C8AB2E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		6E2E17812B9280E300C8AB2E /* ParallaxHeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxHeder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,15 @@
 				5AEB4FF52B94E1E0007C51B2 /* SinglePlanetModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5AEB4FF72B94E2B8007C51B2 /* FX_Styles */ = {
+			isa = PBXGroup;
+			children = (
+				5AEB4FF82B94E2DC007C51B2 /* ParallaxHeder.swift */,
+				5AEB4FFA2B94E314007C51B2 /* Card.swift */,
+			);
+			path = FX_Styles;
 			sourceTree = "<group>";
 		};
 		6E2E17622B92473000C8AB2E = {
@@ -114,8 +127,9 @@
 		6E2E177F2B927F4400C8AB2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5AEB4FF72B94E2B8007C51B2 /* FX_Styles */,
 				6E2E177D2B9247B500C8AB2E /* Home.swift */,
-				6E2E17812B9280E300C8AB2E /* ParallaxHeder.swift */,
+				5AEB4FFC2B94E34E007C51B2 /* Home2.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,10 +209,12 @@
 				5AA8B5D22B92A38800F9D008 /* DragonballAPIService.swift in Sources */,
 				6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */,
 				5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */,
+				5AEB4FF92B94E2DC007C51B2 /* ParallaxHeder.swift in Sources */,
 				6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */,
+				5AEB4FFB2B94E314007C51B2 /* Card.swift in Sources */,
 				5AEB4FF42B94E19B007C51B2 /* PlanetsModel.swift in Sources */,
-				6E2E17822B9280E300C8AB2E /* ParallaxHeder.swift in Sources */,
 				5AEB4FF22B94E159007C51B2 /* SingleCharacterModel.swift in Sources */,
+				5AEB4FFD2B94E34E007C51B2 /* Home2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
