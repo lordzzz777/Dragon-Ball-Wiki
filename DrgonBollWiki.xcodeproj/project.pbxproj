@@ -15,6 +15,8 @@
 		5AEB4FF92B94E2DC007C51B2 /* ParallaxHeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FF82B94E2DC007C51B2 /* ParallaxHeder.swift */; };
 		5AEB4FFB2B94E314007C51B2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FFA2B94E314007C51B2 /* Card.swift */; };
 		5AEB4FFD2B94E34E007C51B2 /* Home2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FFC2B94E34E007C51B2 /* Home2.swift */; };
+		5AEB50022B94FE5F007C51B2 /* AllCharactersDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50012B94FE5F007C51B2 /* AllCharactersDataService.swift */; };
+		5AEB50052B94FEDB007C51B2 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50042B94FEDB007C51B2 /* APIError.swift */; };
 		6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */; };
 		6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E17702B92473000C8AB2E /* ContentView.swift */; };
 		6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17722B92473400C8AB2E /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		5AEB4FF82B94E2DC007C51B2 /* ParallaxHeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxHeder.swift; sourceTree = "<group>"; };
 		5AEB4FFA2B94E314007C51B2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5AEB4FFC2B94E34E007C51B2 /* Home2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home2.swift; sourceTree = "<group>"; };
+		5AEB50012B94FE5F007C51B2 /* AllCharactersDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCharactersDataService.swift; sourceTree = "<group>"; };
+		5AEB50042B94FEDB007C51B2 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrgonBollWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrgonBollWikiApp.swift; sourceTree = "<group>"; };
 		6E2E17702B92473000C8AB2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				5AA8B5D12B92A38800F9D008 /* DragonballAPIService.swift */,
+				5AEB50012B94FE5F007C51B2 /* AllCharactersDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -85,6 +90,21 @@
 			path = FX_Styles;
 			sourceTree = "<group>";
 		};
+		5AEB4FFE2B94FA9D007C51B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5AEB50032B94FEBE007C51B2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5AEB50042B94FEDB007C51B2 /* APIError.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		6E2E17622B92473000C8AB2E = {
 			isa = PBXGroup;
 			children = (
@@ -105,9 +125,11 @@
 		6E2E176D2B92473000C8AB2E /* DrgonBollWiki */ = {
 			isa = PBXGroup;
 			children = (
+				5AEB50032B94FEBE007C51B2 /* Utils */,
 				5AA8B5CC2B92908600F9D008 /* Services */,
 				5AEB4FEE2B94E0E1007C51B2 /* Model */,
 				6E2E177F2B927F4400C8AB2E /* View */,
+				5AEB4FFE2B94FA9D007C51B2 /* ViewModel */,
 				6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */,
 				6E2E17702B92473000C8AB2E /* ContentView.swift */,
 				6E2E17722B92473400C8AB2E /* Assets.xcassets */,
@@ -209,12 +231,14 @@
 				5AA8B5D22B92A38800F9D008 /* DragonballAPIService.swift in Sources */,
 				6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */,
 				5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */,
+				5AEB50022B94FE5F007C51B2 /* AllCharactersDataService.swift in Sources */,
 				5AEB4FF92B94E2DC007C51B2 /* ParallaxHeder.swift in Sources */,
 				6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */,
 				5AEB4FFB2B94E314007C51B2 /* Card.swift in Sources */,
 				5AEB4FF42B94E19B007C51B2 /* PlanetsModel.swift in Sources */,
 				5AEB4FF22B94E159007C51B2 /* SingleCharacterModel.swift in Sources */,
 				5AEB4FFD2B94E34E007C51B2 /* Home2.swift in Sources */,
+				5AEB50052B94FEDB007C51B2 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
