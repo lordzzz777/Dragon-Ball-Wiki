@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5AA8B5D22B92A38800F9D008 /* DragonballAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA8B5D12B92A38800F9D008 /* DragonballAPIService.swift */; };
+		5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FEF2B94E113007C51B2 /* CharactersModel.swift */; };
 		6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */; };
 		6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E17702B92473000C8AB2E /* ContentView.swift */; };
 		6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17722B92473400C8AB2E /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		5AA8B5D12B92A38800F9D008 /* DragonballAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonballAPIService.swift; sourceTree = "<group>"; };
+		5AEB4FEF2B94E113007C51B2 /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 		6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrgonBollWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrgonBollWikiApp.swift; sourceTree = "<group>"; };
 		6E2E17702B92473000C8AB2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		5AEB4FEE2B94E0E1007C51B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5AEB4FEF2B94E113007C51B2 /* CharactersModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6E2E17622B92473000C8AB2E = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				5AA8B5CC2B92908600F9D008 /* Services */,
+				5AEB4FEE2B94E0E1007C51B2 /* Model */,
 				6E2E177F2B927F4400C8AB2E /* View */,
 				6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */,
 				6E2E17702B92473000C8AB2E /* ContentView.swift */,
@@ -173,6 +184,7 @@
 				6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */,
 				5AA8B5D22B92A38800F9D008 /* DragonballAPIService.swift in Sources */,
 				6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */,
+				5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */,
 				6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */,
 				6E2E17822B9280E300C8AB2E /* ParallaxHeder.swift in Sources */,
 			);
