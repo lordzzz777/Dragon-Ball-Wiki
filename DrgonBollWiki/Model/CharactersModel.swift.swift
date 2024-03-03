@@ -9,13 +9,13 @@ import Foundation
 
 // MARK: - Character
 struct Characters: Codable {
-    let items: [Item]
+    let items: [Character]
     let meta: Meta
     let links: Links
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Character: Codable {
     let id: Int
     let name, ki, maxKi, race: String
     let gender, description: String
