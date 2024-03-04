@@ -2,14 +2,17 @@
 
 Aplicación iOS de aprendizaje/colaborativa creada por participantes del grupo de estudio **[100 días de Swift con MoureDev!](https://discord.com/channels/729672926432985098/1164618377973727263)** del servidor de discord de **[MoureDev](https://discord.gg/mouredev)**
 
-## 🎯 Objetivo del proyecto
+## 🟢 Estado actual del proyecto: En desarrollo
+https://github.com/yeikobu/DrgonBollWiki/assets/69016178/cad5f7c0-e680-4953-a57c-57853d3ba5d4
 
-El objetivo de este proyecto es comenzar a aplicar lo aprendido por los integrantes del grupo de estudio en un proyecto utilizadno una API de [Dragon Ball](https://web.dragonball-api.com/), Swift y SwiftUI. Y también, aprender a colaborar utilizando Git y Github.
+
+## 🎯 Objetivo del proyecto
+El objetivo este proyecto es comenzar a aplicar lo aprendido por los integrantes del grupo de estudio en un proyecto utilizadno una API de [Dragon Ball](https://web.dragonball-api.com/), Swift y SwiftUI. Y también, aprender a colaborar utilizando Git y Github.
 
 ## 🤝 Cómo contribuir a este repositorio
 #### Desde ya te invitamos a unirte al grupo de estudio **[100 días de Swift con MoureDev!](https://discord.com/channels/729672926432985098/1164618377973727263)** en Discord si necesitas ayuda para contribuir a este proyecto.
 
-1. Haz un fork de este proyecto para que sea agregado a tu perfil de github.
+1. Haz un fork de este para que sea agregado a tu perfil de github.
 2. Clona el repostirio que has agregado a tu perfil para descargarlo en tu mac. 
 3. Abre el proyecto con Xcode y agrega tus nuevas funcionalidades o tus suluciones de errores.
 4. Crea una nueva rama.
