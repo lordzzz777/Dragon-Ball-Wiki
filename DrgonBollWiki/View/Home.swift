@@ -11,6 +11,7 @@ struct Home: View {
     @State private var homeViewModel: HomeViewModel
     @State private var selectedCharacter: Character?
     
+    
     @State var isShow: Int = 2
     @State var isShow2: Int = 1
     
@@ -19,19 +20,25 @@ struct Home: View {
     
     let isPerson = ["Shenlong":"Dragon" , "Goku":"GokuPeque", "Mutenroy": "Mutenroy"]
     let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
+
     
     init(allCaractersDataService: AllCharactersProtocol) {
         _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
     }
     
+    let defaultBackgroundImage = "Dragon"
+    
     var body: some View {
         NavigationStack{
             ZStack{
+                LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .edgesIgnoringSafeArea(.all)
                 Image("Dragon").resizable()
                     .scaledToFit()
                 
                     .frame(width: 600, height: 800)
-                    .opacity(0.3)
+                    .opacity(0.6)
+            
                 
                 if liveScrol(isShow2) {
                     if homeViewModel.isLoading{
@@ -41,37 +48,44 @@ struct Home: View {
                             HStack{
                                 
                                 ForEach(characters.items, id:\.id){ character in
-                                    // Card(character: character).padding()
                                     Card(character: character)
-                                        .padding()
-                                        .background(BlurView(style: .systemMaterial))
-                                        .cornerRadius(20)
-                                        .padding(.horizontal)
-                                        .padding(.vertical, 5)
-                                    //                                        AsyncImage(url: URL(string: character.image)) { image in
-                                    //                                            image.resizable()
-                                    //                                                .scaledToFit()
-                                    //                                            // .aspectRatio(contentMode: .fit)
-                                    //                                            Text(character.name).font(.title).bold()
-                                    //                                        } placeholder: {
-                                    //                                            ProgressView()
-                                    //                                        }
-                                    //
-                                    //                                    }
-                                    //                                    .frame(width: 200, height: 400)
+                                     .padding()
+                                     
+                                }.contextMenu(ContextMenu(menuItems: {
+                                    Button(action: {
+                                        // logica
+                                    }, label: {
+                                        Text("Guardar en favoritos")
+                                        Image(systemName: "star.fill")
+                                    })
                                     
-                                }
-                                Spacer()
-                            }
-                        }
+                                    Button(action: {
+                                        // logica
+                                    }, label: {
+                                        Text("Compartir")
+                                        Image(systemName: "square.and.arrow.up")
+                                    })
+                                    
+                                    Button(action: {
+                                        // logica
+                                    }, label: {
+                                        Text("Copiar")
+                                        Image(systemName: "doc.on.doc")
+                                    })
+                                 
+                                }))
+                              
+                            }.scrollTargetLayout()
+                            .padding(.horizontal)
+                        } .scrollTargetBehavior(.viewAligned)
+                        .padding(.horizontal, 100)
                     }else {
                         Text("No se encuentra el personaje")
                     }
                     
                 }else if liveScrol(isShow) {
                     ScrollView{
-                        ForEach(1..<4) {_ in
-                            Section{
+                        VStack(spacing: 0){
                                 ForEach(isPerson.sorted(by: {$0.key<$1.key}), id: \.key ){ (key, value) in
                                     VStack{
                                         ParallaxHeder{
@@ -84,10 +98,11 @@ struct Home: View {
                                     }
                                 }
                             }
-                        }.padding()
+                        .padding()
+                        
                     }
+                   
                 }
-                
                 
                 VStack{
                     Spacer()
