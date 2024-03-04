@@ -9,8 +9,12 @@ import SwiftUI
 
 //Vista pra pribar que la API Funciona
 struct Home2: View {
+<<<<<<< Updated upstream
     @State private var apiService = DragonballAPIService()
     @State private var singleCharacter: SingleCharacter?
+=======
+    @State private var apiService: HomeViewModel
+>>>>>>> Stashed changes
     @State private var characters: Characters?
     @State private var planetes: Planets?
     @State private var isLoading = false
@@ -76,5 +80,5 @@ struct Home2: View {
 }
 
 #Preview {
-    Home2()
+    Home(allCaractersDataService: MockAllCharactersDataService(data: nil))
 }
