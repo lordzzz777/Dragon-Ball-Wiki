@@ -9,8 +9,9 @@ import SwiftUI
 
 //Vista pra pribar que la API Funciona
 struct Home2: View {
-    @State private var apiService = DragonballAPIService()
-    @State private var characters: Characters?
+    @State private var homeViewModel = HomeViewModel(allCaractersDataService: AllCharactersDataService())
+    @State private var selectedCharacter: Character?
+    
     @State private var planetes: Planets?
     @State private var isLoading = false
     
@@ -19,9 +20,8 @@ struct Home2: View {
             VStack{
                 if isLoading{
                     ProgressView()
-                }else if let characters = characters{
+                }else if let characters = homeViewModel.allCharacters {
                     List(characters.items, id:\.id){ character in
-                      
                             VStack(alignment: .leading){
                                 AsyncImage(url: URL(string: character.image)) { image in
                                     image.resizable()
@@ -29,7 +29,6 @@ struct Home2: View {
                                 } placeholder: {
                                     ProgressView()
                                 }
-                        
                             .frame(width: 100, height: 100)
                             Text(character.name).font(.title)
                             Text(character.description)
@@ -45,18 +44,6 @@ struct Home2: View {
                 }
             }
         }.navigationTitle("Dragon Ball Charaters")
-            .onAppear{
-                isLoading = true
-                Task{
-                    do{
-                        characters = try await apiService.getCharacters()
-                        isLoading = false
-                    }catch{
-                        print("Error: \(error)")
-                        isLoading = false
-                    }
-                }
-            }
     }
 }
 
