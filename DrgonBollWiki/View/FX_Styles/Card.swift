@@ -6,11 +6,34 @@
 //
 
 import SwiftUI
+import AVFoundation
+import AVFAudio
+
 
 struct Card: View {
     let character: Character
     @State private var isFlipped = false
     @State private var isOpaciti = true
+    
+    /// Decta una intacia de `AVAudioPlayer`
+    var  audioPlayer: AVAudioPlayer?
+    
+    init(character: Character) {
+        self.character = character
+        
+        /// ## Cargar el Archivo de Audioo
+        if let soundURL = Bundle.main.url(forResource: "cardFx.mp3", withExtension: "mp3") {
+        
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                print("reproducir \(soundURL)")
+            }catch let error as NSError{
+                print("Error al cargar el archivo de audio: -> ", error.localizedDescription)
+            }
+        }else {
+           print("No se pudo cargar el archivo de audio")
+        }
+    }
     
     
     var body: some View {
@@ -63,6 +86,10 @@ struct Card: View {
         .onTapGesture {
             withAnimation {
                 isFlipped.toggle()
+                
+                if isFlipped {
+                    audioPlayer?.play()
+                }
             }
         }
     }
