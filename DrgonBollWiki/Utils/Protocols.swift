@@ -14,3 +14,7 @@ protocol AllCharactersProtocol {
 protocol SingleCharacterProtocol {
     func getSingleCharacter(id: Int) async throws -> SingleCharacter
 }
+
+protocol PlanetsProtocol {
+    func getPlanets() async throws -> Planets
+}

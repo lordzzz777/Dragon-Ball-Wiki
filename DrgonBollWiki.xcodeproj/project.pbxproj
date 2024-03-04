@@ -23,6 +23,9 @@
 		5AEB500F2B95332B007C51B2 /* SingleCharacterDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB500E2B95332B007C51B2 /* SingleCharacterDataService.swift */; };
 		5AEB50112B9533F6007C51B2 /* SingleCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50102B9533F6007C51B2 /* SingleCharacterViewModel.swift */; };
 		5AEB50132B953651007C51B2 /* MockSingleCharacterDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50122B953650007C51B2 /* MockSingleCharacterDataService.swift */; };
+		5AEB50152B954860007C51B2 /* PlanetsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50142B954860007C51B2 /* PlanetsDataService.swift */; };
+		5AEB50172B955492007C51B2 /* PlanetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50162B955492007C51B2 /* PlanetsViewModel.swift */; };
+		5AEB50192B9554B3007C51B2 /* MockPlanetsDataServcice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB50182B9554B3007C51B2 /* MockPlanetsDataServcice.swift */; };
 		6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */; };
 		6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E17702B92473000C8AB2E /* ContentView.swift */; };
 		6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17722B92473400C8AB2E /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		5AEB500E2B95332B007C51B2 /* SingleCharacterDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCharacterDataService.swift; sourceTree = "<group>"; };
 		5AEB50102B9533F6007C51B2 /* SingleCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCharacterViewModel.swift; sourceTree = "<group>"; };
 		5AEB50122B953650007C51B2 /* MockSingleCharacterDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSingleCharacterDataService.swift; sourceTree = "<group>"; };
+		5AEB50142B954860007C51B2 /* PlanetsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsDataService.swift; sourceTree = "<group>"; };
+		5AEB50162B955492007C51B2 /* PlanetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewModel.swift; sourceTree = "<group>"; };
+		5AEB50182B9554B3007C51B2 /* MockPlanetsDataServcice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlanetsDataServcice.swift; sourceTree = "<group>"; };
 		6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrgonBollWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrgonBollWikiApp.swift; sourceTree = "<group>"; };
 		6E2E17702B92473000C8AB2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 				5AA8B5D12B92A38800F9D008 /* DragonballAPIService.swift */,
 				5AEB50012B94FE5F007C51B2 /* AllCharactersDataService.swift */,
 				5AEB500E2B95332B007C51B2 /* SingleCharacterDataService.swift */,
+				5AEB50142B954860007C51B2 /* PlanetsDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 			children = (
 				5AEB50062B950040007C51B2 /* HomeViewModel.swift */,
 				5AEB50102B9533F6007C51B2 /* SingleCharacterViewModel.swift */,
+				5AEB50162B955492007C51B2 /* PlanetsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -127,6 +135,7 @@
 			children = (
 				5AEB50092B952A79007C51B2 /* MockAllCharactersDataService.swift */,
 				5AEB50122B953650007C51B2 /* MockSingleCharacterDataService.swift */,
+				5AEB50182B9554B3007C51B2 /* MockPlanetsDataServcice.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -253,14 +262,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AEB4FF62B94E1E0007C51B2 /* SinglePlanetModel.swift in Sources */,
+				5AEB50172B955492007C51B2 /* PlanetsViewModel.swift in Sources */,
 				6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */,
 				5AEB50112B9533F6007C51B2 /* SingleCharacterViewModel.swift in Sources */,
 				5AEB500A2B952A79007C51B2 /* MockAllCharactersDataService.swift in Sources */,
 				5AA8B5D22B92A38800F9D008 /* DragonballAPIService.swift in Sources */,
+				5AEB50152B954860007C51B2 /* PlanetsDataService.swift in Sources */,
 				6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */,
 				5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */,
 				5AEB500F2B95332B007C51B2 /* SingleCharacterDataService.swift in Sources */,
 				5AEB50022B94FE5F007C51B2 /* AllCharactersDataService.swift in Sources */,
+				5AEB50192B9554B3007C51B2 /* MockPlanetsDataServcice.swift in Sources */,
 				5AEB4FF92B94E2DC007C51B2 /* ParallaxHeder.swift in Sources */,
 				6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */,
 				5AEB4FFB2B94E314007C51B2 /* Card.swift in Sources */,

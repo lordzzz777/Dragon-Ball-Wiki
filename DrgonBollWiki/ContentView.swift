@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Home(allCaractersDataService: AllCharactersDataService(), singleCharacterViewModel: SingleCharacterDataService())
+        Home(allCaractersDataService: AllCharactersDataService())
     }
 }
 
