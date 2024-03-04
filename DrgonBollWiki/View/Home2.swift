@@ -5,6 +5,7 @@
 //  Created by Esteban Perez Castillejo on 3/3/24.
 //
 
+
 import SwiftUI
 
 //Vista pra pribar que la API Funciona
@@ -49,36 +50,4 @@ struct Home2: View {
 
 #Preview {
     Home2()
-}
-                                Text(character.affiliation)
-                                Text(character.gender)
-                                Text(character.ki)
-                                Text(character.maxKi)
-                            }
-                            
-                        }
-                    }
-                }else{
-                    Text("No cherate available")
-                }
-            }
-        }.navigationTitle("Dragon Ball Charaters")
-            .onAppear{
-                isLoading = true
-                Task{
-                    do{
-                        planetes = try await apiService.getPlanets()
-                        characters = try await apiService.getCharacters()
-                        isLoading = false
-                    }catch{
-                        print("Error: \(error)")
-                        isLoading = false
-                    }
-                }
-            }
-    }
-}
-
-#Preview {
-    Home(allCaractersDataService: MockAllCharactersDataService(data: nil))
 }
