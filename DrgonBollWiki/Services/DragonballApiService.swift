@@ -6,10 +6,12 @@
 //
 
 import Foundation
+//import Observation
 
 
-Development
-final class DragonballAPIService: ObservableObject {
+@Observable
+final class DragonballAPIService {
+
     private let allCharactersEndPoint = "https://dragonball-api.com/api/characters?page=1&limit=58"
     
     private enum ApiError: Error {
