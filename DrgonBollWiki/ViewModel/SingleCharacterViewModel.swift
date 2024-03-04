@@ -29,7 +29,7 @@ class SingleCharacterViewModel {
             }
         } catch {
             print(error)
-            errorMessage = "Error al intentar obtener los del personaje desde el servidor"
+            errorMessage = "Error al intentar obtener los datos del personaje desde el servidor"
             showErrorMessage.toggle()
         }
     }
