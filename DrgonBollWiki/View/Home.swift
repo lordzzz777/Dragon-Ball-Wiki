@@ -9,8 +9,9 @@ import SwiftUI
 
 struct Home: View {
     @State private var homeViewModel: HomeViewModel
+    @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character?
-    
+    @State private var isShowDetails = false
     
     @State var isShow: Int = 2
     @State var isShow2: Int = 1
@@ -22,9 +23,11 @@ struct Home: View {
     let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
 
     
-    init(allCaractersDataService: AllCharactersProtocol) {
+    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol) {
         _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
+        _planetsViewModel = State(wrappedValue: PlanetsViewModel(planetsDataSevice: planetsDataSevice))
     }
+    
     
     let defaultBackgroundImage = "Dragon"
     
@@ -38,43 +41,51 @@ struct Home: View {
                 
                     .frame(width: 600, height: 800)
                     .opacity(0.6)
-            
-                
                 if liveScrol(isShow2) {
                     if homeViewModel.isLoading{
                         ProgressView()
                     }else if let characters = homeViewModel.allCharacters {
                         ScrollView(.horizontal){
                             HStack{
-                                
                                 ForEach(characters.items, id:\.id){ character in
-                                    Card(character: character)
-                                     .padding()
-                                     
-                                }.contextMenu(ContextMenu(menuItems: {
-                                    Button(action: {
-                                        // logica
-                                    }, label: {
-                                        Text("Guardar en favoritos")
-                                        Image(systemName: "star.fill")
-                                    })
                                     
-                                    Button(action: {
-                                        // logica
-                                    }, label: {
-                                        Text("Compartir")
-                                        Image(systemName: "square.and.arrow.up")
-                                    })
+                                        Card(character: character)
+                                            .padding()
+                                        
+                                    .contextMenu(ContextMenu(menuItems: {
+                                        Button(action: {
+                                            isShowDetails = true
+                                        }, label: {
+                                            Text("Saber Mas")
+                                            Image(systemName: "book")
+                                        })
+                                        Button(action: {
+                                            // logica
+                                        }, label: {
+                                            Text("Guardar en favoritos")
+                                            Image(systemName: "star.fill")
+                                        })
+                                        
+                                        Button(action: {
+                                            // logica
+                                        }, label: {
+                                            Text("Compartir")
+                                            Image(systemName: "square.and.arrow.up")
+                                        })
+                                        
+                                        Button(action: {
+                                            // logica
+                                        }, label: {
+                                            Text("Copiar")
+                                            Image(systemName: "doc.on.doc")
+                                        })
+                                        
+                                    }))
                                     
-                                    Button(action: {
-                                        // logica
-                                    }, label: {
-                                        Text("Copiar")
-                                        Image(systemName: "doc.on.doc")
+                                    .sheet(isPresented: $isShowDetails, content: {
+                                        DetailsView(characterId: character.id)
                                     })
-                                 
-                                }))
-                              
+                                }
                             }.scrollTargetLayout()
                             .padding(.horizontal)
                         } .scrollTargetBehavior(.viewAligned)
@@ -187,5 +198,5 @@ struct Home: View {
 #Preview {
     //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
     //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
-    Home(allCaractersDataService: MockAllCharactersDataService(data: nil))
+    Home(allCaractersDataService: MockAllCharactersDataService(data: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil))
 }

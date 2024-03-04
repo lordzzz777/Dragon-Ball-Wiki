@@ -7,14 +7,12 @@
 
 import SwiftUI
 import AVFoundation
-import AVFAudio
-
 
 struct Card: View {
     let character: Character
     @State private var isFlipped = false
     @State private var isOpaciti = true
-    
+    @State private var show = false
     /// Decta una intacia de `AVAudioPlayer`
     var  audioPlayer: AVAudioPlayer?
     
@@ -22,12 +20,12 @@ struct Card: View {
         self.character = character
         
         /// ## Cargar el Archivo de Audioo
-        if let soundURL = Bundle.main.url(forResource: "cardFx.mp3", withExtension: "mp3") {
-        
+        if let soundURL = Bundle.main.path(forResource: "cardFx", ofType: "mp3") {
+            
             do{
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(filePath: soundURL))
                 print("reproducir \(soundURL)")
-            }catch let error as NSError{
+            }catch {
                 print("Error al cargar el archivo de audio: -> ", error.localizedDescription)
             }
         }else {
@@ -74,15 +72,24 @@ struct Card: View {
                                 .scaledToFit()
                                 .frame(width: 30, height: 30).padding(.top, 24)
                             Text(character.name).font(.title).bold().padding(.top, 20)
+                        
+                            Button(action: {
+                                show = true
+                            }, label: {
+                                Text("Saber mas")
+                            }).padding(.top, 20)
                         }
                         Text(character.description)
                             .font(.body)
                             .frame(width: 270)
                             .padding(5)
+                       
                     }
                 }
             }
-        }
+        }.sheet(isPresented: $show, content: {
+            DetailsView(characterId: character.id)
+        })
         .onTapGesture {
             withAnimation {
                 isFlipped.toggle()
