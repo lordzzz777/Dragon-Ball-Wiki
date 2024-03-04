@@ -33,6 +33,7 @@
 		6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17722B92473400C8AB2E /* Assets.xcassets */; };
 		6E2E17762B92473400C8AB2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */; };
 		6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E177D2B9247B500C8AB2E /* Home.swift */; };
+		6EC9345E2B956A3500E8D45F /* ViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9345D2B956A3500E8D45F /* ViewDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		6E2E17722B92473400C8AB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6E2E177D2B9247B500C8AB2E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		6EC9345D2B956A3500E8D45F /* ViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				5AEB4FF72B94E2B8007C51B2 /* FX_Styles */,
 				6E2E177D2B9247B500C8AB2E /* Home.swift */,
 				5AEB4FFC2B94E34E007C51B2 /* Home2.swift */,
+				6EC9345D2B956A3500E8D45F /* ViewDetail.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,8 +271,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AEB4FF62B94E1E0007C51B2 /* SinglePlanetModel.swift in Sources */,
+<<<<<<< Updated upstream
 				5AEB50172B955492007C51B2 /* PlanetsViewModel.swift in Sources */,
 				5AEB501B2B956530007C51B2 /* SinglePlanetDataService.swift in Sources */,
+=======
+				6EC9345E2B956A3500E8D45F /* ViewDetail.swift in Sources */,
+>>>>>>> Stashed changes
 				6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */,
 				5AEB50112B9533F6007C51B2 /* SingleCharacterViewModel.swift in Sources */,
 				5AEB500A2B952A79007C51B2 /* MockAllCharactersDataService.swift in Sources */,
