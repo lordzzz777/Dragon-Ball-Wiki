@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AVFAudio
 
 //Vista pra pribar que la API Funciona
 struct Home2: View {
