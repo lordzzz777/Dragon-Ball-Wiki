@@ -18,6 +18,10 @@ class PlanetsViewModel {
     
     init(planetsDataSevice: PlanetsProtocol) {
         self.planetsDataSevice = planetsDataSevice
+        
+        Task {
+            await getAllPlanets()
+        }
     }
     
     ///Obtiene la información de los plantas y los guardda en la variable `allPlanets` de la clase `PlanetsViewModel`
