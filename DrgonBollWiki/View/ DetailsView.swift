@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct DetailsView: View {
-    @State private var singleCharacterViewModel = SingleCharacterViewModel(singleCharacterDataService: SingleCharacterDataService())
-   var characterId: Int?
+    @State private var singleCharacterViewModel: SingleCharacterViewModel
+    var characterId: Int
+    
+    init(singleCharactersDataService: SingleCharacterProtocol, characterId: Int) {
+        _singleCharacterViewModel = State(wrappedValue: SingleCharacterViewModel(singleCharacterDataService: singleCharactersDataService))
+        self.characterId = characterId
+    }
     
    
     
@@ -17,16 +22,13 @@ struct DetailsView: View {
      
     var body: some View {
         Text(singleCharacterViewModel.character?.name ?? "").task {
-            if let id = characterId {
-                await singleCharacterViewModel.getCharacterInformation(characterID: id )
-            }
-            
+            await singleCharacterViewModel.getCharacterInformation(characterID: characterId )
         }
     }
 }
 
 #Preview {
-    DetailsView(characterId: 1)
+    DetailsView(singleCharactersDataService: MockSingleCharacterDataService(testData: nil), characterId: 1)
 }
 
 
