@@ -13,6 +13,7 @@ struct Home: View {
     @State private var selectedCharacter: Character?
     @State private var selectedCharacterId: Int?
     @State private var isShowDetails = false
+    @State private var isProgress = 0.6
     
     @State var isShow: Int = 2
     @State var isShow2: Int = 1
@@ -91,7 +92,13 @@ struct Home: View {
                         } .scrollTargetBehavior(.viewAligned)
                         .padding(.horizontal, 100)
                     }else {
-                        Text("No se encuentra el personaje")
+                        VStack{
+                            ProgressView(value: isProgress).progressViewStyle(.circular)
+                            Text("Please wait ...")
+                                .font(.title).bold()
+                                .foregroundStyle(Color.white).shadow(radius: 10)
+                        }
+                        
                     }
                     
                 }else if liveScrol(isShow) {
