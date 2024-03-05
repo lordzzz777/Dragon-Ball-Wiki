@@ -88,7 +88,7 @@ struct Card: View {
                 }
             }
         }.sheet(isPresented: $show, content: {
-            DetailsView(characterId: character.id)
+            DetailsView(singleCharactersDataService: SingleCharacterDataService(), characterId: character.id)
         })
         .onTapGesture {
             withAnimation {
