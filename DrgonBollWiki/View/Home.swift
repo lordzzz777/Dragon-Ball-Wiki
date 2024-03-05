@@ -11,7 +11,9 @@ struct Home: View {
     @State private var homeViewModel: HomeViewModel
     @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character?
+    @State private var selectedCharacterId: Int?
     @State private var isShowDetails = false
+    @State private var isProgress = 0.6
     
     @State var isShow: Int = 2
     @State var isShow2: Int = 1
@@ -49,49 +51,54 @@ struct Home: View {
                             HStack{
                                 ForEach(characters.items, id:\.id){ character in
                                     
-                                        Card(character: character)
-                                            .padding()
-                                        
-                                    .contextMenu(ContextMenu(menuItems: {
-                                        Button(action: {
-                                            isShowDetails = true
-                                        }, label: {
-                                            Text("Saber Mas")
-                                            Image(systemName: "book")
+                                    Card(character: character)
+                                        .padding()
+                                        .contextMenu(ContextMenu(menuItems: {
+                                            Button(action: {
+                                                selectedCharacterId = character.id
+                                                isShowDetails = true
+                                            }, label: {
+                                                Text("Saber Mas")
+                                                Image(systemName: "book")
+                                            })
+                                            Button(action: {
+                                                // logica
+                                            }, label: {
+                                                Text("Guardar en favoritos")
+                                                Image(systemName: "star.fill")
+                                            })
+                                            
+                                            Button(action: {
+                                                // logica
+                                            }, label: {
+                                                Text("Compartir")
+                                                Image(systemName: "square.and.arrow.up")
+                                            })
+                                            
+                                            Button(action: {
+                                                // logica
+                                            }, label: {
+                                                Text("Copiar")
+                                                Image(systemName: "doc.on.doc")
+                                            })
+                                            
+                                        }))
+                                        .sheet(isPresented: $isShowDetails, content: {
+                                            DetailsView(singleCharactersDataService: SingleCharacterDataService(), characterId: selectedCharacterId ?? 1)
                                         })
-                                        Button(action: {
-                                            // logica
-                                        }, label: {
-                                            Text("Guardar en favoritos")
-                                            Image(systemName: "star.fill")
-                                        })
-                                        
-                                        Button(action: {
-                                            // logica
-                                        }, label: {
-                                            Text("Compartir")
-                                            Image(systemName: "square.and.arrow.up")
-                                        })
-                                        
-                                        Button(action: {
-                                            // logica
-                                        }, label: {
-                                            Text("Copiar")
-                                            Image(systemName: "doc.on.doc")
-                                        })
-                                        
-                                    }))
-                                    
-                                    .sheet(isPresented: $isShowDetails, content: {
-                                        DetailsView(characterId: character.id)
-                                    })
                                 }
                             }.scrollTargetLayout()
                             .padding(.horizontal)
                         } .scrollTargetBehavior(.viewAligned)
                         .padding(.horizontal, 100)
                     }else {
-                        Text("No se encuentra el personaje")
+                        VStack{
+                            ProgressView(value: isProgress).progressViewStyle(.circular)
+                            Text("Please wait ...")
+                                .font(.title).bold()
+                                .foregroundStyle(Color.white).shadow(radius: 10)
+                        }
+                        
                     }
                     
                 }else if liveScrol(isShow) {

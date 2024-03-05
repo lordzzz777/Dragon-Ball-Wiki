@@ -34,6 +34,10 @@
 		6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17722B92473400C8AB2E /* Assets.xcassets */; };
 		6E2E17762B92473400C8AB2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */; };
 		6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E177D2B9247B500C8AB2E /* Home.swift */; };
+		6E5082DF2B976A99008509E2 /* cardFx04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E5082DB2B976A99008509E2 /* cardFx04.mp3 */; };
+		6E5082E02B976A99008509E2 /* cardFx02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E5082DC2B976A99008509E2 /* cardFx02.mp3 */; };
+		6E5082E12B976A99008509E2 /* cardFx03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E5082DD2B976A99008509E2 /* cardFx03.mp3 */; };
+		6E5082E22B976A99008509E2 /* cardFx01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E5082DE2B976A99008509E2 /* cardFx01.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,10 @@
 		6E2E17722B92473400C8AB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6E2E177D2B9247B500C8AB2E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		6E5082DB2B976A99008509E2 /* cardFx04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFx04.mp3; sourceTree = "<group>"; };
+		6E5082DC2B976A99008509E2 /* cardFx02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFx02.mp3; sourceTree = "<group>"; };
+		6E5082DD2B976A99008509E2 /* cardFx03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFx03.mp3; sourceTree = "<group>"; };
+		6E5082DE2B976A99008509E2 /* cardFx01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFx01.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,7 @@
 		5AEB4FED2B94DE9D007C51B2 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				6E5082DA2B976A99008509E2 /* SoundFX */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -200,6 +209,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E5082DA2B976A99008509E2 /* SoundFX */ = {
+			isa = PBXGroup;
+			children = (
+				6E5082DB2B976A99008509E2 /* cardFx04.mp3 */,
+				6E5082DC2B976A99008509E2 /* cardFx02.mp3 */,
+				6E5082DD2B976A99008509E2 /* cardFx03.mp3 */,
+				6E5082DE2B976A99008509E2 /* cardFx01.mp3 */,
+			);
+			path = SoundFX;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,7 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E5082E02B976A99008509E2 /* cardFx02.mp3 in Resources */,
+				6E5082DF2B976A99008509E2 /* cardFx04.mp3 in Resources */,
 				6E2E17762B92473400C8AB2E /* Preview Assets.xcassets in Resources */,
+				6E5082E22B976A99008509E2 /* cardFx01.mp3 in Resources */,
+				6E5082E12B976A99008509E2 /* cardFx03.mp3 in Resources */,
 				6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

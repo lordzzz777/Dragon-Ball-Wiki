@@ -9,22 +9,25 @@ import SwiftUI
 import AVFoundation
 
 struct Card: View {
+    
     let character: Character
+    var sound = ""
     @State private var isFlipped = false
     @State private var isOpaciti = true
     @State private var show = false
+    
     /// Decta una intacia de `AVAudioPlayer`
     var  audioPlayer: AVAudioPlayer?
     
     init(character: Character) {
         self.character = character
-        
+       
         /// ## Cargar el Archivo de Audioo
-        if let soundURL = Bundle.main.path(forResource: "cardFx", ofType: "mp3") {
+        if let soundURL = Bundle.main.url(forResource: "cardFx03", withExtension: "mp3") {
             
             do{
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(filePath: soundURL))
-                print("reproducir \(soundURL)")
+                self.audioPlayer = try AVAudioPlayer(contentsOf:  soundURL)
+                
             }catch {
                 print("Error al cargar el archivo de audio: -> ", error.localizedDescription)
             }
@@ -88,13 +91,15 @@ struct Card: View {
                 }
             }
         }.sheet(isPresented: $show, content: {
-            DetailsView(characterId: character.id)
+            DetailsView(singleCharactersDataService: SingleCharacterDataService(), characterId: character.id)
         })
         .onTapGesture {
             withAnimation {
                 isFlipped.toggle()
                 
-                if isFlipped {
+                if !isFlipped {
+                    audioPlayer?.play()
+                }else {
                     audioPlayer?.play()
                 }
             }
