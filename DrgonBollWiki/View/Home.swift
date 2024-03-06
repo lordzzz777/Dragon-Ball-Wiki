@@ -12,6 +12,7 @@ struct Home: View {
     @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character?
     @State private var selectedCharacterId: Int?
+    @State private var isFlipped = false
     @State private var isShowDetails = false
     @State private var isProgress = 0.6
     
@@ -51,8 +52,14 @@ struct Home: View {
                             HStack{
                                 ForEach(characters.items, id:\.id){ character in
                                     
-                                    Card(character: character)
+                                    Card(character: character, playSound: {
+                                        homeViewModel.playCardSound() })
                                         .padding()
+                                        .onTapGesture {
+                                            withAnimation {
+                                                isFlipped.toggle()
+                                            }
+                                        }
                                         .contextMenu(ContextMenu(menuItems: {
                                             Button(action: {
                                                 selectedCharacterId = character.id
