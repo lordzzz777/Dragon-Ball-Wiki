@@ -212,5 +212,5 @@ struct Home: View {
 #Preview {
     //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
     //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
-    Home(allCaractersDataService: MockAllCharactersDataService(data: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil))
+    Home(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil))
 }
