@@ -12,6 +12,7 @@ struct Home: View {
     @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character?
     @State private var selectedCharacterId: Int?
+    @State private var isFlipped = false
     @State private var isShowDetails = false
     @State private var isProgress = 0.6
     
@@ -51,8 +52,14 @@ struct Home: View {
                             HStack{
                                 ForEach(characters.items, id:\.id){ character in
                                     
-                                    Card(character: character)
+                                    Card(character: character, playSound: {
+                                        homeViewModel.playCardSound() })
                                         .padding()
+                                        .onTapGesture {
+                                            withAnimation {
+                                                isFlipped.toggle()
+                                            }
+                                        }
                                         .contextMenu(ContextMenu(menuItems: {
                                             Button(action: {
                                                 selectedCharacterId = character.id
@@ -205,5 +212,5 @@ struct Home: View {
 #Preview {
     //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
     //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
-    Home(allCaractersDataService: MockAllCharactersDataService(data: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil))
+    Home(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil))
 }
