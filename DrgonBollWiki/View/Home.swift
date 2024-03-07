@@ -190,7 +190,6 @@ struct Home: View {
                             .frame(width: 40, height: 50)
                     }
                     
-                    
                 }
             }
             

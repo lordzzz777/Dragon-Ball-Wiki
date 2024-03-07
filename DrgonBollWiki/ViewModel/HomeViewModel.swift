@@ -12,6 +12,7 @@ import AVFoundation
 class HomeViewModel {
     private let allCaractersDataService: AllCharactersProtocol
     var allCharacters: Characters?
+    var searchedCharacters: [Character] = []
     var isLoading: Bool = false
     var showErrorMessage: Bool = false
     var errorMessage: String = ""
@@ -50,6 +51,15 @@ class HomeViewModel {
             errorMessage = "Error al intentar obtener los datos del servidor"
             showErrorMessage.toggle()
         }
+    }
+    
+    ///Permite buscar un personaje por el nombre y lo guarda en la propiedad `searchedCharacters` qué es un array de Character del la clase `HomeViewModel`
+    func searchCharacter(characterName name: String) {
+        guard let matchedCharacters = allCharacters?.items.filter({ $0.name == name.capitalized }) else {
+            return
+        }
+        
+        searchedCharacters = matchedCharacters
     }
     
     ///Permite reproducir el audio de giro de una card
