@@ -40,6 +40,7 @@ class HomeViewModel {
         }
     }
     
+    ///Obtiene todos los caracteres y los almancena en la propiedad `allCharacters` de la clase `HomeViewModel`
     @MainActor
     func getAllCharacters() async {
         do {
@@ -51,6 +52,7 @@ class HomeViewModel {
         }
     }
     
+    ///Permite reproducir el audio de giro de una card
     func playCardSound() {
         guard let player = audioPlayer else { return }
         
