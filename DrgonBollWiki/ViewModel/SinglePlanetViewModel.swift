@@ -20,6 +20,8 @@ class SinglePlanetViewModel {
         self.singlePlanetDataService = singlePlanetDataService
     }
     
+    ///Obtiene la información de un planeta a través de su ID y lo almacena en la propiedad `planet` de la clase `SinglePlanetViewModel`
+    /// - Parameters: `id: Int`
     @MainActor
     func getPlanetInformation(planetID id: Int) async {
         do {

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import AVFoundation
+//import AVFoundation
 
 struct Card: View {
     
@@ -15,25 +15,12 @@ struct Card: View {
     @State private var isFlipped = false
     @State private var isOpaciti = true
     @State private var show = false
+    var playCardSound: () -> Void //Recibiendo un closure como parametro para ejecutar el sonido cuando se gire la card
     
-    /// Decta una intacia de `AVAudioPlayer`
-    var  audioPlayer: AVAudioPlayer?
-    
-    init(character: Character) {
+    //El closure debe ser con escape para que sea asíncrono y no bloquee la ejecución de la UI en el hilo principal (Lo sugirió Xcode)
+    init(character: Character, playSound: @escaping () -> Void) {
         self.character = character
-       
-        /// ## Cargar el Archivo de Audioo
-        if let soundURL = Bundle.main.url(forResource: "cardFx03", withExtension: "mp3") {
-            
-            do{
-                self.audioPlayer = try AVAudioPlayer(contentsOf:  soundURL)
-                
-            }catch {
-                print("Error al cargar el archivo de audio: -> ", error.localizedDescription)
-            }
-        }else {
-           print("No se pudo cargar el archivo de audio")
-        }
+        self.playCardSound = playSound
     }
     
     
@@ -97,11 +84,7 @@ struct Card: View {
             withAnimation {
                 isFlipped.toggle()
                 
-                if !isFlipped {
-                    audioPlayer?.play()
-                }else {
-                    audioPlayer?.play()
-                }
+                isFlipped ? playCardSound() : playCardSound()
             }
         }
     }
