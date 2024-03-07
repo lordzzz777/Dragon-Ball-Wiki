@@ -20,6 +20,8 @@ class SingleCharacterViewModel {
         self.singleCharacterDataService = singleCharacterDataService
     }
     
+    ///Obtiene la información de un personaje a través de su ID y lo almacena en la propiedad `character` de la clase `SingleCharacterViewModel`
+    /// - Parameters: `id: Int`
     @MainActor
     func getCharacterInformation(characterID id: Int) async {
         do {
