@@ -25,12 +25,16 @@ struct DetailsView: View {
             await singleCharacterViewModel.getCharacterInformation(characterID: characterId )
         }
     }
+   
 }
 
 #Preview {
     DetailsView(singleCharactersDataService: MockSingleCharacterDataService(testData: nil), characterId: 1)
 }
 
+extension DetailsView {
+
+}
 
 /*
  struct DetailsView: View {

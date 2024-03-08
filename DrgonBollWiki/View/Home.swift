@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct Home: View {
+    @State var dbSwiftDataModel: [DbSwiftDataModel]?
     @State private var homeViewModel: HomeViewModel
     @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character?
     @State private var selectedCharacterId: Int?
     @State private var isFlipped = false
     @State private var isShowDetails = false
+    @State private var favoritesStar = false
     @State private var isProgress = 0.6
     
     @State var isShow: Int = 2
@@ -22,13 +24,15 @@ struct Home: View {
     @State private var offset: CGFloat = 0
     @State private var scrollSpeed: CGFloat = 0
     
+    @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
     let isPerson = ["Shenlong":"Dragon" , "Goku":"GokuPeque", "Mutenroy": "Mutenroy"]
     let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
 
     
-    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol) {
+    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
         _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
         _planetsViewModel = State(wrappedValue: PlanetsViewModel(planetsDataSevice: planetsDataSevice))
+        _dbSwiftDataModel = State(initialValue: dbSwiftDataModel)
     }
     
     
@@ -69,7 +73,8 @@ struct Home: View {
                                                 Image(systemName: "book")
                                             })
                                             Button(action: {
-                                                // logica
+                                                favoritesStar = true
+                                                viewModelisFavorites.saveFavorites(character.id, favoritesStar)
                                             }, label: {
                                                 Text("Guardar en favoritos")
                                                 Image(systemName: "star.fill")
@@ -211,5 +216,5 @@ struct Home: View {
 #Preview {
     //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
     //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
-    Home(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil))
+    Home(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [])
 }
