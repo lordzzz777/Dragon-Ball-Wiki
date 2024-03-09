@@ -36,3 +36,14 @@ struct Meta: Codable {
     let totalItems, itemCount, itemsPerPage, totalPages: Int
     let currentPage: Int
 }
+
+
+// MARK: - View Card
+extension [Character]{
+    func zIndex(_ item: Character) -> CGFloat {
+        if let index = firstIndex(where: { $0.id == item.id}){
+            return CGFloat(count) - CGFloat(index)
+        }
+        return .zero
+    }
+}

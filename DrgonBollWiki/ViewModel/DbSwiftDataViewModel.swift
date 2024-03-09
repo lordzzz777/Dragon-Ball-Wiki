@@ -54,7 +54,7 @@ final class DbSwiftDataViewModel: Observable {
             favorites = []
             getFavorites()
             
-            print("Guardado con exito id: \(id)")
+            print("Guardado con exito id: \(id), y es: \(isFavorites)")
         }catch let error as NSError{
             print("No se a guardado -> ", error.localizedDescription)
         }

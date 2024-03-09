@@ -12,6 +12,7 @@ struct Card: View {
     
     let character: Character
     var sound = ""
+    
     @State private var isFlipped = false
     @State private var isOpaciti = true
     @State private var show = false
@@ -28,26 +29,35 @@ struct Card: View {
         
         VStack {
             if !isFlipped {
-                AsyncImage(url: URL(string: character.image)) { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fit)
-                } placeholder: {
-                    ProgressView()
+                ZStack{
+                    Text(character.name)
+                        .font(.custom("Saiyan.ttf", size: 52)).bold().padding(.top, 175).padding(.horizontal, -110)
+                        .rotationEffect(Angle(degrees: -90.0)).foregroundStyle(.bar).shadow(color: .yellow, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    
+                    AsyncImage(url: URL(string: character.image)) { image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(width: 400, height: 400)
+                    .cornerRadius(10)
+                    .padding(.bottom, 10)
+                    
+                    
                 }
-                .frame(width: 400, height: 400)
-                .cornerRadius(10)
-                .padding(.bottom, 10)
-                
-                Text(character.name)
-                    .font(.title).bold()
-            } 
+            }
         }
+       // .fill(Color.gray.gradient)
+        .frame(width: 250, height: 400)
+        .cornerRadius(20)
         .frame(width: 300, height: 460)
         .padding()
-        .background(isFlipped && isOpaciti ?  Color.white.opacity(0.8) : Color.clear )
-        .border(isFlipped && isOpaciti ? Color.black : Color.clear, width: 3)
-        .cornerRadius(20)
-        .shadow(radius: 5)
+        
+  //      .background(isFlipped && isOpaciti ?  Color.white.opacity(0.8) : Color.clear )
+//        .border(isFlipped && isOpaciti ? Color.black : Color.clear, width: 3)
+//        .cornerRadius(20)
+//        .shadow(radius: 5)
         .rotation3DEffect(
             .degrees(isFlipped ? 180 : 0),
             axis: (x: 0.0, y: 1.0, z: 0.0)
@@ -61,8 +71,8 @@ struct Card: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 30, height: 30).padding(.top, 24)
-                            Text(character.name).font(.title).bold().padding(.top, 20)
-                        
+                            Text(character.name).font(.custom("Saiyan.ttf", size: 30)).bold().padding(.top, 20)
+                               
                             Button(action: {
                                 show = true
                             }, label: {
@@ -75,7 +85,7 @@ struct Card: View {
                             .padding(5)
                        
                     }
-                }
+                }.padding(.horizontal, 70)
             }
         }.sheet(isPresented: $show, content: {
             DetailsView(singleCharactersDataService: SingleCharacterDataService(), characterId: character.id)
@@ -102,3 +112,14 @@ struct BlurView: UIViewRepresentable {
     func updateUIView(_ uiView: UIVisualEffectView, context: Context) {}
 }
 
+struct ColorView: View {
+    
+    var color: Color
+    
+    var body: some View {
+        Rectangle()
+            .fill(color.gradient)
+            .frame(width: 270, height: 400)
+            .cornerRadius(20)
+    }
+}
