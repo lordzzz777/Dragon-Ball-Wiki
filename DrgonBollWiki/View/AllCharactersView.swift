@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AllCharactersView: View {
-    @State var dbSwiftDataModel: [DbSwiftDataModel]
-    @State var dbSwiftDataViewModel: DbSwiftDataViewModel
+    @State var dbSwiftDataModel: [FavoriteModel]
+    @State var dbSwiftDataViewModel: FavoritesViewModel
     @State private var homeViewModel: HomeViewModel
     @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character?
@@ -38,11 +38,11 @@ struct AllCharactersView: View {
     let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     
     
-    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel], dbSwiftDataViewModel: DbSwiftDataViewModel) {
+    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [FavoriteModel], dbSwiftDataViewModel: FavoritesViewModel) {
         _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
         _planetsViewModel = State(wrappedValue: PlanetsViewModel(planetsDataSevice: planetsDataSevice))
         _dbSwiftDataModel = State(initialValue: dbSwiftDataModel)
-        _dbSwiftDataViewModel = State(initialValue: DbSwiftDataViewModel())
+        _dbSwiftDataViewModel = State(initialValue: FavoritesViewModel())
     }
     
     
@@ -337,5 +337,5 @@ struct AllCharactersView: View {
 #Preview {
     //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
     //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
-    AllCharactersView(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
+    AllCharactersView(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [], dbSwiftDataViewModel: FavoritesViewModel())
 }

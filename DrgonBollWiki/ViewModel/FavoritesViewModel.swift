@@ -10,20 +10,20 @@ import SwiftData
 import Observation
 
 @Observable
-final class DbSwiftDataViewModel: Observable {
-    let container = try! ModelContainer(for: DbSwiftDataModel.self)
+final class FavoritesViewModel: Observable {
+    let container = try! ModelContainer(for: FavoriteModel.self)
     
     @MainActor
     var context: ModelContext{
         container.mainContext
     }
     
-    var favorites: [DbSwiftDataModel] = []
+    var favorites: [FavoriteModel] = []
     
     // MARK: - Se impemeta el metodo de predicado para el orden de lista
     @MainActor
     func getFavorites(){
-        let fetchDescripttor = FetchDescriptor(predicate: nil, sortBy: [SortDescriptor <DbSwiftDataModel>(\DbSwiftDataModel.orden) ])
+        let fetchDescripttor = FetchDescriptor(predicate: nil, sortBy: [SortDescriptor <FavoriteModel>(\FavoriteModel.orden) ])
         do{
             favorites = try context.fetch(fetchDescripttor)
         }catch let error as NSError {
@@ -46,7 +46,7 @@ final class DbSwiftDataViewModel: Observable {
     // MARK: - Guardar favorito
     @MainActor
     func saveFavorites(_ id: Int, _ isFavorites: Bool){
-        let newFavorites = DbSwiftDataModel(id: id, isFavorites: isFavorites)
+        let newFavorites = FavoriteModel(id: id, isFavorites: isFavorites)
         context.insert(newFavorites)
         
         do{

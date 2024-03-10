@@ -10,7 +10,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-class DbSwiftDataModel {
+class FavoriteModel {
     var idFavorites: String
     var id: Int
     var orden: Int
