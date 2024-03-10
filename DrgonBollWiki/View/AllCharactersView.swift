@@ -35,7 +35,6 @@ struct AllCharactersView: View {
     //@Environment (dbSwiftDataViewModel.self) var viewModelisFavorites
     
     let color: [Color] = [.red, .blue, .cyan, .yellow]
-    let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     
     
     init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [FavoriteModel], dbSwiftDataViewModel: FavoritesViewModel) {
