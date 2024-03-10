@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Home(allCaractersDataService: AllCharactersDataService(), planetsDataSevice: PlanetsDataService(), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
+        AllCharactersView(allCaractersDataService: AllCharactersDataService(), planetsDataSevice: PlanetsDataService(), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct AllCharactersView: View {
     @State var dbSwiftDataModel: [DbSwiftDataModel]
     @State var dbSwiftDataViewModel: DbSwiftDataViewModel
     @State private var homeViewModel: HomeViewModel
@@ -337,5 +337,5 @@ struct Home: View {
 #Preview {
     //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
     //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
-    Home(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
+    AllCharactersView(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
 }
