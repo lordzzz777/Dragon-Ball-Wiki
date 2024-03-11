@@ -54,8 +54,12 @@ struct DetailsView: View {
                 
                 Text("\(selectedCharacter.description)")
                 
-                Text("Transformaciones ")
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                if let transformation = singleCharacterViewModel.character?.transformations {
+                    if transformation.count > 0 {
+                        Text("Transformaciones ")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
                 
                 ScrollView(.horizontal) {
                     if let character = singleCharacterViewModel.character {
