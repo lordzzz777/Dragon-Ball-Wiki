@@ -30,21 +30,19 @@ struct Card: View {
         VStack {
             if !isFlipped {
                 ZStack{
-                    Text(character.name)
-                        .font(.custom("Saiyan.ttf", size: 52)).bold().padding(.top, 175).padding(.horizontal, -110)
-                        .rotationEffect(Angle(degrees: -90.0)).foregroundStyle(.bar).shadow(color: .yellow, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    
                     AsyncImage(url: URL(string: character.image)) { image in
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
                     } placeholder: {
                         ProgressView()
-                    }
-                    .frame(width: 400, height: 400)
+                    }.shadow(color: .yellow, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    .frame(width: 320, height: 320)
                     .cornerRadius(10)
                     .padding(.bottom, 10)
-                    
-                    
+
+                    Text(character.name)
+                        .font(.custom("Saiyan.ttf", size: 42)).bold().padding(.top, 175).padding(.horizontal, -110)
+                        .rotationEffect(Angle(degrees: -90.0)).foregroundStyle(.white).shadow(color: .purple, radius: 5 )
                 }
             }
         }
@@ -85,7 +83,10 @@ struct Card: View {
                             .padding(5)
                        
                     }
-                }.padding(.horizontal, 70)
+                }.padding(15)
+                    .background(.bar, in: .rect(cornerRadius: 10))
+                    .padding( 15)
+               
             }
         }.sheet(isPresented: $show, content: {
             DetailsView(singleCharactersDataService: SingleCharacterDataService(), characterId: character.id)

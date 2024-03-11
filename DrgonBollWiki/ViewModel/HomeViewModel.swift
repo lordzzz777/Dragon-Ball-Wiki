@@ -68,4 +68,16 @@ class HomeViewModel {
         
         player.play()
     }
+    
+    /// Permite que el usuaria cambie entre la vista de cartas y la de carrusel ...
+    func liveScrol(_ index: Int) -> Bool {
+        switch index {
+        case 1:
+           return true
+        case 2:
+            return false
+        default:
+            return false
+        }
+    }
 }
