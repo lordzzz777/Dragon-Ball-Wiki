@@ -11,26 +11,32 @@ struct ContentView: View {
     
     @State private var isSplashScreenFinish: Bool = false
     @State private var animation: Bool = false
+    var shape: any Shape {
+        animation ? Circle() : Rectangle()
+    }
     
     var body: some View {
         ZStack {
-            Home(allCaractersDataService: AllCharactersDataService(), planetsDataSevice: PlanetsDataService(), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
-            
             SplashScreenView()
-                .cornerRadius(animation ? 400 : 30)
+                .offset(x: 0, y: animation ? -1400 : 0)
+//                .cornerRadius(animation ? 400 : 0)
 //                .animation(.easeIn, value: 0.8)
-                .scaleEffect(animation ? 0 : 1)
-                .offset(x: 0, y: animation ? 400 : 0)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            Home(allCaractersDataService: AllCharactersDataService(), planetsDataSevice: PlanetsDataService(), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
+                .offset(x: 0, y: animation ? 0 : 1400)
+//                .cornerRadius(animation ? 0 : 300)
+//                .scaleEffect(animation ? 1 : 0)
         }
         .ignoresSafeArea()
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                withAnimation(.spring(response: 1, dampingFraction: 0.9)) {
+                withAnimation(.easeInOut(duration: 1)) {
                     animation = true
                 }
             }
         }
+        .preferredColorScheme(.dark)
     }
 }
 
