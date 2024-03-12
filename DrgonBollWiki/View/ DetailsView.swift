@@ -31,6 +31,7 @@ struct DetailsView: View {
                 
                 VStack {
                     Text("\(selectedCharacter.name)")
+                        .font(.custom("SaiyanSans", size: 40))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
