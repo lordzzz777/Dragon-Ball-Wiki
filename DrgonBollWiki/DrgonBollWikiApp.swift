@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct DrgonBollWikiApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(DbSwiftDataViewModel())
         }
     }
 }
