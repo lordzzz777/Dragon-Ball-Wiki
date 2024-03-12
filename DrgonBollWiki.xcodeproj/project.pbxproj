@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A8ECD0E2B9FCFD70027BAA2 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */; };
+		5A8ECD1E2BA0EB060027BAA2 /* SaiyanSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A8ECD1D2BA0EB060027BAA2 /* SaiyanSans.ttf */; };
 		5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FEF2B94E113007C51B2 /* CharactersModel.swift */; };
 		5AEB4FF22B94E159007C51B2 /* SingleCharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FF12B94E159007C51B2 /* SingleCharacterModel.swift */; };
 		5AEB4FF42B94E19B007C51B2 /* PlanetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FF32B94E19B007C51B2 /* PlanetsModel.swift */; };
@@ -47,8 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A8E38AF2B9A4D8F00B2B235 /* Saiyan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Saiyan.ttf; sourceTree = "<group>"; };
 		5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		5A8ECD1D2BA0EB060027BAA2 /* SaiyanSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SaiyanSans.ttf; sourceTree = "<group>"; };
+		5A8ECD1F2BA0ED430027BAA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AEB4FEF2B94E113007C51B2 /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 		5AEB4FF12B94E159007C51B2 /* SingleCharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCharacterModel.swift; sourceTree = "<group>"; };
 		5AEB4FF32B94E19B007C51B2 /* PlanetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsModel.swift; sourceTree = "<group>"; };
@@ -70,7 +72,7 @@
 		5AEB501A2B956530007C51B2 /* SinglePlanetDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlanetDataService.swift; sourceTree = "<group>"; };
 		5AEB501C2B9565D2007C51B2 /* MockSinglePlanetDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSinglePlanetDataService.swift; sourceTree = "<group>"; };
 		5AEB501E2B9567BF007C51B2 /* SinglePlanetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlanetViewModel.swift; sourceTree = "<group>"; };
-		6E12F59F2B963C7000110633 /*  DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " DetailsView.swift"; sourceTree = "<group>"; };
+		6E12F59F2B963C7000110633 /*  DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " DetailsView.swift"; sourceTree = "<group>"; usesTabs = 0; };
 		6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrgonBollWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrgonBollWikiApp.swift; sourceTree = "<group>"; };
 		6E2E17702B92473000C8AB2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 		5A8E38AE2B9A4D7300B2B235 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				5A8E38AF2B9A4D8F00B2B235 /* Saiyan.ttf */,
+				5A8ECD1D2BA0EB060027BAA2 /* SaiyanSans.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -203,6 +205,7 @@
 		6E2E176D2B92473000C8AB2E /* DrgonBollWiki */ = {
 			isa = PBXGroup;
 			children = (
+				5A8ECD1F2BA0ED430027BAA2 /* Info.plist */,
 				6E95BA522B9E95660030D28C /* Cajon_Desastre */,
 				5AEB50032B94FEBE007C51B2 /* Utils */,
 				5AA8B5CC2B92908600F9D008 /* Services */,
@@ -320,6 +323,7 @@
 				6E5082E22B976A99008509E2 /* cardFx01.mp3 in Resources */,
 				6E5082E12B976A99008509E2 /* cardFx03.mp3 in Resources */,
 				6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */,
+				5A8ECD1E2BA0EB060027BAA2 /* SaiyanSans.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +501,7 @@
 				DEVELOPMENT_TEAM = 6Z8MU97UL5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DrgonBollWiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -526,6 +531,7 @@
 				DEVELOPMENT_TEAM = 6Z8MU97UL5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DrgonBollWiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
