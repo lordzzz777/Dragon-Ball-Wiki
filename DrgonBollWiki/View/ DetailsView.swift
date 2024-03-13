@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailsView: View {
     @State private var singleCharacterViewModel: SingleCharacterViewModel
     @State private var selectedCharacter: Character
+    @State private var idTranformation = 0
     
     init(singleCharactersDataService: SingleCharacterProtocol, selectedCharacter: Character) {
         _singleCharacterViewModel = State(wrappedValue: SingleCharacterViewModel(singleCharacterDataService: singleCharactersDataService))
@@ -27,11 +28,11 @@ struct DetailsView: View {
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(height: 500)
+                .frame(height: 490).shadow(color: .orange , radius: 15, x: 0, y: 0 ).padding(.top, 10)
                 
                 VStack {
                     Text("\(selectedCharacter.name)")
-                        .font(.custom("SaiyanSans", size: 40))
+                        .font(.custom("SaiyanSans", size: 40)).shadow(color: .blue , radius: 15, x: 0, y: 0 )
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -62,28 +63,47 @@ struct DetailsView: View {
                     }
                 }
                 
-                ScrollView(.horizontal) {
+            //    ScrollView(.horizontal) {
                     if let character = singleCharacterViewModel.character {
-                        HStack {
-                            ForEach(character.transformations, id: \.id) { transformation in
-                                AsyncImage(url: URL(string: transformation.image)) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                } placeholder: {
-                                    ProgressView()
+                        VStack {
+                          
+                                ForEach(character.transformations, id: \.id) { transformation in
+                                    if transformation.id == idTranformation {
+                                        AsyncImage(url: URL(string: transformation.image)) { image in
+                                            image
+                                                .resizable()
+                                                .scaledToFit()
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        .frame(height: 450).shadow(color: .orange , radius: 15, x: 0, y: 0 ).padding(.top, 10)
+                                       
+                                    }
+                                    
                                 }
-                                .frame(height: 300)
-                            }
+                            Picker(" ", selection: $idTranformation){
+                                ForEach(character.transformations, id: \.id){ item in
+                                    Text( item.ki).tag(item.id)
+                                }
+                            } .pickerStyle(.palette).padding()
+                                .font(.custom("SaiyanSans", size: 40)).shadow(color: .blue , radius: 15, x: 0, y: 0 )
                         }
                     }
-                }
+                    
+               // }
                 
             }
             .padding(.horizontal)
         }
         .task {
             await singleCharacterViewModel.getCharacterInformation(characterID: selectedCharacter.id)
+            
+            guard let character = singleCharacterViewModel.character else {
+                return
+            }
+            if character.transformations.count > 0 {
+                idTranformation = character.transformations [0].id
+            }
         }
     }
    
