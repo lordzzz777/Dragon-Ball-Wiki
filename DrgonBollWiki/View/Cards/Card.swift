@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-//import AVFoundation
 
 struct Card: View {
     
@@ -46,16 +45,10 @@ struct Card: View {
                 }
             }
         }
-       // .fill(Color.gray.gradient)
         .frame(width: 250, height: 400)
         .cornerRadius(20)
         .frame(width: 300, height: 460)
         .padding()
-        
-  //      .background(isFlipped && isOpaciti ?  Color.white.opacity(0.8) : Color.clear )
-//        .border(isFlipped && isOpaciti ? Color.black : Color.clear, width: 3)
-//        .cornerRadius(20)
-//        .shadow(radius: 5)
         .rotation3DEffect(
             .degrees(isFlipped ? 180 : 0),
             axis: (x: 0.0, y: 1.0, z: 0.0)
