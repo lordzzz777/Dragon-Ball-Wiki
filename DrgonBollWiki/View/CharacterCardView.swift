@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct CharacterCardView: View {
-    let character: Character
+    @State var character: Character
     
     @State private var characterKiColor: Color = .yellow
     @State private var characterRace = Race.saiyan
+    @State private var isAnimated: Bool = false
     
     init(character: Character) {
         self.character = character
@@ -41,7 +42,7 @@ struct CharacterCardView: View {
                 image
                     .resizable()
                     .scaledToFit()
-                    .shadow(color: characterKiColor , radius: 5, x: 0, y: 0 )
+                    .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
             } placeholder: {
                 ProgressView()
             }
@@ -56,11 +57,13 @@ struct CharacterCardView: View {
                     Spacer()
                     
                     Button {
-                        
+                        withAnimation {
+                            isAnimated.toggle()
+                        }
                     } label: {
-                        Image(systemName: "star")
+                        Image(systemName: "star.fill")
                             .font(.title2)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(!isAnimated ? .gray : .yellow)
                     }
 
                 }
@@ -76,14 +79,6 @@ struct CharacterCardView: View {
             }
             .padding()
         }
-//        .background {
-//            Image("Dragon")
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: 600, height: 800)
-//                .opacity(0.6)
-//                .ignoresSafeArea()
-//        }
         .task {
             switch character.race {
             case "Evil":
