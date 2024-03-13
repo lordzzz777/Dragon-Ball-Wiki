@@ -11,7 +11,6 @@ struct Home: View {
     
     // MARK: - Se intacia SwiftData
     @State var dbSwiftDataModel: [DbSwiftDataModel]
-    @State var dbSwiftDataViewModel: DbSwiftDataViewModel
     
     @State private var homeViewModel: HomeViewModel
     @State private var planetsViewModel: PlanetsViewModel
@@ -32,11 +31,10 @@ struct Home: View {
     let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     
     
-    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel], dbSwiftDataViewModel: DbSwiftDataViewModel) {
+    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
         _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
         _planetsViewModel = State(wrappedValue: PlanetsViewModel(planetsDataSevice: planetsDataSevice))
         _dbSwiftDataModel = State(initialValue: dbSwiftDataModel)
-        _dbSwiftDataViewModel = State(initialValue: DbSwiftDataViewModel())
     }
     
     
@@ -57,8 +55,7 @@ struct Home: View {
                     
                     // MARK: - View the CardView
                     CardView(allCaractersDataService: AllCharactersDataService(),
-                             dbSwiftDataModel: [],
-                             dbSwiftDataViewModel: DbSwiftDataViewModel()).padding(.horizontal ,105)
+                             dbSwiftDataModel: []).padding(.horizontal ,105)
                     
                     
                 }else if homeViewModel.liveScrol(isShow2) {
@@ -66,8 +63,8 @@ struct Home: View {
                     // MARK: - View the CardViewCarousel
                     CardViewCarousel(allCaractersDataService: AllCharactersDataService(),
                                      planetsDataSevice: PlanetsDataService(),
-                                     dbSwiftDataModel: [],
-                                     dbSwiftDataViewModel: DbSwiftDataViewModel())
+                                     dbSwiftDataModel: []
+                                    )
                 }
                 
                 VStack{
@@ -163,5 +160,5 @@ struct Home: View {
 #Preview {
     //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
     //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
-    Home(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
+    Home(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [])
 }

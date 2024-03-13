@@ -12,8 +12,7 @@ struct CardView: View {
     
     // MARK: - Se intacia SwiftData
     @State var dbSwiftDataModel: [DbSwiftDataModel]
-    @State var dbSwiftDataViewModel: DbSwiftDataViewModel
-   // @Environment (dbSwiftDataModel.self) var viewModelisFavorites
+    @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
     
     // MARK: - Se intacias modelos y el ViewModel de Personajes
     @State private var homeViewModel: HomeViewModel
@@ -25,14 +24,15 @@ struct CardView: View {
     @State private var isRotationEnabled: Bool = true
     @State private var showIndicator: Bool = false
     @State private var isShowDetails = false
+    @State private var favoritesStar = false
     
     let color: [Color] = [.red, .blue, .cyan, .yellow, .gray, .green, .indigo]
     let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     
-    init(allCaractersDataService: AllCharactersProtocol, dbSwiftDataModel: [DbSwiftDataModel], dbSwiftDataViewModel: DbSwiftDataViewModel) {
+    init(allCaractersDataService: AllCharactersProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
         _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
         _dbSwiftDataModel = State(initialValue: dbSwiftDataModel)
-        _dbSwiftDataViewModel = State(initialValue: DbSwiftDataViewModel())
+       
     }
     
     var body: some View {
@@ -51,6 +51,13 @@ struct CardView: View {
                                         Card(character: character, playSound: {
                                             homeViewModel.playCardSound() }).shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                                     }.contextMenu(ContextMenu(menuItems: {
+                                        Button(action: {
+                                            favoritesStar = true
+                                            viewModelisFavorites.saveFavorites(character.id, favoritesStar)
+                                        }, label: {
+                                            Text("Guardar en favoritos")
+                                            Image(systemName: "star.fill")
+                                        })
                                         
                                         Button(action: {
                                             withAnimation{
@@ -68,13 +75,6 @@ struct CardView: View {
                                         }, label: {
                                             Text("Saber Mas")
                                             Image(systemName: "book")
-                                        })
-                                        Button(action: {
-                                            //favoritesStar = true
-                                            //viewModelisFavorites.saveFavorites(character.id, favoritesStar)
-                                        }, label: {
-                                            Text("Guardar en favoritos")
-                                            Image(systemName: "star.fill")
                                         })
                                         
                                         Button(action: {
@@ -178,7 +178,7 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(allCaractersDataService: AllCharactersDataService(), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
+    CardView(allCaractersDataService: AllCharactersDataService(), dbSwiftDataModel: [])
 }
 
 

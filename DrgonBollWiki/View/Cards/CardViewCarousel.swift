@@ -11,8 +11,7 @@ struct CardViewCarousel: View {
     
     // MARK: - Se intacia SwiftData
     @State var dbSwiftDataModel: [DbSwiftDataModel]
-    @State var dbSwiftDataViewModel: DbSwiftDataViewModel
-    // @Environment (dbSwiftDataModel.self) var viewModelisFavorites
+    @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
     
     // MARK: - Se intacias modelos y el ViewModel de Personajes
     @State private var homeViewModel: HomeViewModel
@@ -25,17 +24,17 @@ struct CardViewCarousel: View {
     @State private var isRotationEnabled: Bool = true
     @State private var showIndicator: Bool = false
     @State private var isShowDetails = false
-    
+    @State private var favoritesStar = false
     @State private var isFlipped = false
     @State private var isProgress = 0.6
     
     
     
-    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel], dbSwiftDataViewModel: DbSwiftDataViewModel) {
+    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
         _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
         _planetsViewModel = State(wrappedValue: PlanetsViewModel(planetsDataSevice: planetsDataSevice))
         _dbSwiftDataModel = State(initialValue: dbSwiftDataModel)
-        _dbSwiftDataViewModel = State(initialValue: DbSwiftDataViewModel())
+      //  _dbSwiftDataViewModel = State(initialValue: DbSwiftDataViewModel())
     }
     
     let color: [Color] = [.red, .blue, .cyan, .yellow, .gray, .green, .indigo]
@@ -61,14 +60,14 @@ struct CardViewCarousel: View {
                         .contextMenu(ContextMenu(menuItems: {
                             Button(action: {
                                 selectedCharacterId = character.id
-                               
+                                isShowDetails = true
                             }, label: {
                                 Text("Saber Mas")
                                 Image(systemName: "book")
                             })
                             Button(action: {
-                                //                                                favoritesStar = true
-                                //                                                viewModelisFavorites.saveFavorites(character.id, favoritesStar)
+                               favoritesStar = true
+                                viewModelisFavorites.saveFavorites(character.id, favoritesStar)
                             }, label: {
                                 Text("Guardar en favoritos")
                                 Image(systemName: "star.fill")
@@ -89,7 +88,9 @@ struct CardViewCarousel: View {
                             })
                             
                         }))
-                      
+                        .sheet(isPresented: $isShowDetails, content: {
+                            DetailsView(singleCharactersDataService: SingleCharacterDataService(), selectedCharacter: character)
+                        })
                     }
                 }.scrollTargetLayout()
                     .padding(.horizontal)
@@ -108,5 +109,5 @@ struct CardViewCarousel: View {
 }
 
 #Preview {
-    CardViewCarousel(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [], dbSwiftDataViewModel: DbSwiftDataViewModel())
+    CardViewCarousel(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [])
 }

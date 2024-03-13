@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct DrgonBollWikiApp: App {
@@ -13,6 +14,7 @@ struct DrgonBollWikiApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(DbSwiftDataViewModel())
         }
     }
 }
