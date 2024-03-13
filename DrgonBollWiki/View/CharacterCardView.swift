@@ -27,9 +27,9 @@ struct CharacterCardView: View {
         ZStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 30)
-                    .fill(Color.black.gradient)
+                    .fill(.black)
+                    .opacity(0.9)
                     .blur(radius: 1)
-                    .opacity(0.8)
                 
                 RoundedRectangle(cornerRadius: 30)
                     .fill(.ultraThinMaterial)
@@ -45,12 +45,12 @@ struct CharacterCardView: View {
             } placeholder: {
                 ProgressView()
             }
-            .padding(40)
+            .padding(20)
             
             VStack {
                 HStack {
                     Text(character.ki)
-                        .font(.title2)
+                        .font(.body)
                         .fontWeight(.bold)
                         
                     Spacer()
@@ -76,7 +76,14 @@ struct CharacterCardView: View {
             }
             .padding()
         }
-        .frame(height: 400)
+//        .background {
+//            Image("Dragon")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: 600, height: 800)
+//                .opacity(0.6)
+//                .ignoresSafeArea()
+//        }
         .task {
             switch character.race {
             case "Evil":
