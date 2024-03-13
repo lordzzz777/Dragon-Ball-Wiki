@@ -15,20 +15,19 @@ struct Home: View {
     @State private var homeViewModel: HomeViewModel
     @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character?
-    @State private var selectedCharacterId: Int?
-    
     
     @State private var favoritesStar = false
     @State private var isTribute = false
     
-    // MARK: - Numero de incice para el cambio de vistas
-    @State var isShow: Int = 2
-    @State var isShow2: Int = 1
+    // MARK: - Controla que vista se muestra
+    @State private var selectedView = SelectedView.carousel
     
     @State private var offset: CGFloat = 0
     @State private var scrollSpeed: CGFloat = 0
     
-    let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
+    enum SelectedView {
+        case carousel, cards, heroAnimation
+    }
     
     
     init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
@@ -43,28 +42,26 @@ struct Home: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .edgesIgnoringSafeArea(.all)
-                Image("Dragon").resizable()
-                    .scaledToFit()
+                if selectedView != .heroAnimation {
+                    LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        .edgesIgnoringSafeArea(.all)
+                    Image("Dragon").resizable()
+                        .scaledToFit()
+                        .frame(width: 600, height: 800)
+                        .opacity(0.6)
+                }
                 
-                    .frame(width: 600, height: 800)
-                    .opacity(0.6)
-                
-                if homeViewModel.liveScrol(isShow) {
-                    
-                    // MARK: - View the CardView
-                    CardView(allCaractersDataService: AllCharactersDataService(),
-                             dbSwiftDataModel: []).padding(.horizontal ,105)
-                    
-                    
-                }else if homeViewModel.liveScrol(isShow2) {
-                    
-                    // MARK: - View the CardViewCarousel
+                switch selectedView {
+                case .carousel:
                     CardViewCarousel(allCaractersDataService: AllCharactersDataService(),
                                      planetsDataSevice: PlanetsDataService(),
-                                     dbSwiftDataModel: []
-                                    )
+                                     dbSwiftDataModel: [])
+                case .cards:
+                    CardView(allCaractersDataService: AllCharactersDataService(),
+                             dbSwiftDataModel: [])
+                    .padding(.horizontal, 105)
+                case .heroAnimation:
+                    AllCharactersView(allCharacters: homeViewModel.allCharacters?.items ?? [])
                 }
                 
                 VStack{
@@ -84,19 +81,25 @@ struct Home: View {
                 ToolbarItem(placement: .automatic) {
                     Menu{
                         Button(action: {
-                            isShow = 2
-                            isShow2 = 1
+                            selectedView = .carousel
                         }) {
                           //  Image(systemName: (isShow == 1) ? "" : "checkmark")
                             Text("Vista de carrusel")
                             Image( "Boll7")
                                 .resizable()
                                 .frame(width: 10, height: 10)
-                        }.disabled((((isShow == 2) ? 2 : 1) == 2))
+                        }
+                        .disabled(selectedView == .carousel)
+                        
+                        Button {
+                            selectedView = .heroAnimation
+                        } label: {
+                            Text("Hero animation")
+                        }
+                        .disabled(selectedView == .heroAnimation)
                         
                         Button(action: {
-                            isShow = 1
-                            isShow2 = 2
+                            selectedView = .cards
                         }) {
                            // Image(systemName: (isShow == 2) ? "" : "checkmark")
                             Text("Vista de cartas")
@@ -104,7 +107,8 @@ struct Home: View {
                             Image( "Dragon")
                                 .resizable()
                                 .frame(width: 10, height: 10)
-                        }.disabled((((isShow == 1) ? 1 : 2) == 1))
+                        }
+                        .disabled(selectedView == .cards)
                         
                         Button(action: {
                             //Acer algo
@@ -130,6 +134,7 @@ struct Home: View {
                     } label: {
                         Image("logoGoku").resizable()
                             .frame(width: 40, height: 50)
+                            .foregroundStyle(Color.white)
                     }
                 }
                 ToolbarItem(placement: .navigation) {
