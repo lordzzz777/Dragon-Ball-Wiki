@@ -28,8 +28,6 @@ struct Home: View {
     @State private var offset: CGFloat = 0
     @State private var scrollSpeed: CGFloat = 0
     
-    let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
-    
     
     init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
         _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
