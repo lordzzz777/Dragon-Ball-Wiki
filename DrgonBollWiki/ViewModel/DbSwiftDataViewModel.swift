@@ -46,7 +46,7 @@ final class DbSwiftDataViewModel: Observable {
     // MARK: - Guardar favorito
     @MainActor
     func saveFavorites(_ id: Int, _ isFavorites: Bool){
-        let newFavorites = DbSwiftDataModel(id: id, isFavorites: isFavorites)
+        let newFavorites = DbSwiftDataModel(id: id)
         context.insert(newFavorites)
         
         do{
@@ -54,7 +54,7 @@ final class DbSwiftDataViewModel: Observable {
             favorites = []
             getFavorites()
             
-            print("Guardado con exito id: \(id), y es: \(isFavorites)")
+            print("Guardado con exito id: \(id)")
         }catch let error as NSError{
             print("No se a guardado -> ", error.localizedDescription)
         }
