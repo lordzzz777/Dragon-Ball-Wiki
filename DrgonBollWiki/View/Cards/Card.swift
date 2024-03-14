@@ -67,7 +67,7 @@ struct Card: View {
                             Button(action: {
                                 show = true
                             }, label: {
-                                Text("Saber mas")
+                                Text("Saber mas").modifier(CustomFond(size: 20, shadow: 10, colorShadow: .blue, colorFont: .red))
                                 Image(systemName: "info.circle")
                             }).padding(.top, 20)
                         
