@@ -14,7 +14,7 @@ struct Home: View {
     
     @State private var homeViewModel: HomeViewModel
     @State private var planetsViewModel: PlanetsViewModel
-    @State private var selectedCharacter: Character?
+    @State private var selectedCharacter: Character = Character(id: 0, name: "", ki: "", maxKi: "", race: "", gender: "", description: "", image: "", affiliation: "", deletedAt: nil)
     
     @State private var favoritesStar = false
     @State private var isTribute = false
@@ -24,6 +24,10 @@ struct Home: View {
     
     @State private var offset: CGFloat = 0
     @State private var scrollSpeed: CGFloat = 0
+    
+    @Namespace var animation
+    @State var showCharacterDetails: Bool = false
+    @State private var selectedKiColor: Color = .yellow
     
     enum SelectedView {
         case carousel, cards, heroAnimation
@@ -61,7 +65,7 @@ struct Home: View {
                              dbSwiftDataModel: [])
                     .padding(.horizontal, 105)
                 case .heroAnimation:
-                    AllCharactersView(allCharacters: homeViewModel.allCharacters?.items ?? [])
+                    AllCharactersView(allCharacters: homeViewModel.allCharacters?.items ?? [], animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter)
                 }
                 
                 VStack{
@@ -158,6 +162,11 @@ struct Home: View {
             .sheet(isPresented: $isTribute, content: {
                 CardViewTribute()
             })
+        }
+        .overlay {
+            if showCharacterDetails {
+                CharacterDetailView(singleCharacterViewModel: SingleCharacterDataService(), selectedCharacter: selectedCharacter, selectedCharacterKiColor: $selectedKiColor, animation: animation, showDetails: $showCharacterDetails)
+            }
         }
     }
 }
