@@ -35,7 +35,7 @@ struct AllCharactersView: View {
                                     .frame(width: itemWidth, height: 500)
                                     .onTapGesture {
                                         selectedCharacter = character
-                                        withAnimation(.spring(response: 0.5, dampingFraction: 0.9)) {
+                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
                                             showDetails = true
                                         }
                                     }

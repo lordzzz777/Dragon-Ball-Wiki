@@ -6,26 +6,15 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CharacterCardView: View {
     @State var character: Character
-    
     @State private var characterKiColor: Color = .yellow
-    @State private var characterRace = Race.saiyan
     @State private var isAnimated: Bool = false
     
     var animation: Namespace.ID
     @Binding var showDetail: Bool
-    
-//    init(character: Character) {
-//        self.character = character
-//    }
-    
-    //Razas:
-    //["Evil", "Android", "Majin", "Nucleico", "Namekian", "Saiyan", "Jiren Race", "Frieza Race", "Nucleico benigno", "Human", "Angel", "God", "Unknown"]
-    enum Race: String {
-        case evil = "Evil", android = "Android", majin = "Majin", nucleico = "Nucleico", namekian = "Namekian", saiyan = "Saiyan", jirenRace = "Jiren Race", friezaRace = "Frieza Race", nucleicoBenigno = "Nucleico benigno", human = "Human", angel = "Angel", god = "God", unknown = "Unknown"
-    }
     
     var body: some View {
         ZStack {
@@ -40,22 +29,25 @@ struct CharacterCardView: View {
                     .blur(radius: 1)
                     .opacity(0.8)
             }
+            .matchedGeometryEffect(id: "background\(character.id)", in: animation)
             
-            AsyncImage(url: URL(string: character.image)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
-            } placeholder: {
-                ProgressView()
-            }
-            .padding(20)
+            KFImage(URL(string: character.image))
+                .resizable()
+                .placeholder {
+                    ProgressView()
+                }
+                .matchedGeometryEffect(id: "image\(character.id)", in: animation)
+                .scaledToFit()
+                .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
+                .frame(height: 400)
+                .padding(.top, 20)
             
             VStack {
                 HStack {
                     Text(character.ki)
                         .font(.body)
                         .fontWeight(.bold)
+                        .matchedGeometryEffect(id: "ki\(character.id)", in: animation)
                         
                     Spacer()
                     
@@ -78,10 +70,12 @@ struct CharacterCardView: View {
                     .foregroundStyle(Color.yellow)
                     .shadow(color: .black, radius: 0, x: 1, y: 1)
                     .shadow(color: .white, radius: 0, x: -1, y: -1)
+                    .matchedGeometryEffect(id: "characterName\(character.id)", in: animation)
 //                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
         }
+        .matchedGeometryEffect(id: "allView\(character.id)", in: animation)
         .task {
             switch character.race {
             case "Evil":
@@ -114,6 +108,8 @@ struct CharacterCardView: View {
                 characterKiColor = .white
             }
         }
+//        .matchedGeometryEffect(id: "background\(character.id)", in: animation)
+        
     }
 }
 

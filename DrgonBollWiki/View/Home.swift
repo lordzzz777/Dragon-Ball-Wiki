@@ -27,7 +27,6 @@ struct Home: View {
     
     @Namespace var animation
     @State var showCharacterDetails: Bool = false
-    @State private var selectedKiColor: Color = .yellow
     
     enum SelectedView {
         case carousel, cards, heroAnimation
@@ -165,7 +164,7 @@ struct Home: View {
         }
         .overlay {
             if showCharacterDetails {
-                CharacterDetailView(singleCharacterViewModel: SingleCharacterDataService(), selectedCharacter: selectedCharacter, selectedCharacterKiColor: $selectedKiColor, animation: animation, showDetails: $showCharacterDetails)
+                CharacterDetailView(singleCharacterViewModel: SingleCharacterDataService(), selectedCharacter: $selectedCharacter, animation: animation, showDetails: $showCharacterDetails)
             }
         }
     }
