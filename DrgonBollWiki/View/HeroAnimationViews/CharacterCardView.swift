@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct CharacterCardView: View {
     @State var character: Character
@@ -28,16 +27,17 @@ struct CharacterCardView: View {
             }
             .matchedGeometryEffect(id: "background\(character.id)", in: animation)
             
-            KFImage(URL(string: character.image))
-                .resizable()
-                .placeholder {
-                    ProgressView()
-                }
-                .matchedGeometryEffect(id: "image\(character.id)", in: animation)
-                .scaledToFit()
-                .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
-                .frame(height: 400)
-                .padding(.top, 20)
+            AsyncImage(url: URL(string: character.image)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .matchedGeometryEffect(id: "image\(character.id)", in: animation)
+                    .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(height: 400)
+            .padding(.top, 20)
             
             VStack {
                 HStack {
@@ -60,11 +60,11 @@ struct CharacterCardView: View {
                     .shadow(color: .black, radius: 0, x: 1, y: 1)
                     .shadow(color: .white, radius: 0, x: -1, y: -1)
                     .matchedGeometryEffect(id: "characterName\(character.id)", in: animation)
-//                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
         }
         .matchedGeometryEffect(id: "allView\(character.id)", in: animation)
+        .frame(minWidth: 300, maxHeight: 500)
         .task {
             switch character.race {
             case "Evil":
@@ -97,8 +97,6 @@ struct CharacterCardView: View {
                 characterKiColor = .white
             }
         }
-//        .matchedGeometryEffect(id: "background\(character.id)", in: animation)
-        
     }
 }
 
