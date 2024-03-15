@@ -20,6 +20,7 @@ struct AllCharactersView: View {
         GeometryReader { proxy in
             ZStack {
                 VStack {
+                    
                     Text("Personajes")
                         .font(.custom("SaiyanSans", size: 60))
                         .foregroundStyle(Color.red)
