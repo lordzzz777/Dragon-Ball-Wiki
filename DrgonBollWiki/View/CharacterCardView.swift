@@ -61,9 +61,8 @@ struct CharacterCardView: View {
                     
                     Button {
                         animateFavorite = true
+                        
                         withAnimation(.easeIn(duration: favoriteAnimationDuration)) {
-                            
-                            
                             DispatchQueue.main.asyncAfter(deadline: .now() + favoriteAnimationDuration) {
                                 isFavorite.toggle()
                                 animateFavorite = false
