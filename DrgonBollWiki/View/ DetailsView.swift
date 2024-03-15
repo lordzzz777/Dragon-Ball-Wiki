@@ -89,7 +89,7 @@ struct DetailsView: View {
                                             if idTranformation == 4 {
                                                 Image("SuperShayan4")
                                                     .resizable()
-                                                    .frame(height: 450)
+                                                    .frame(width: 300, height: 450)
                                                     .shadow(color: .orange, radius: 15, x: 0, y: 0)
                                                     .padding(.top, 10)
                                             } else {
