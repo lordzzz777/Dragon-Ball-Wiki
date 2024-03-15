@@ -21,13 +21,10 @@ struct CharacterCardView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 30)
                     .fill(.black)
-                    .opacity(0.9)
-                    .blur(radius: 1)
+                    .opacity(0.45)
                 
                 RoundedRectangle(cornerRadius: 30)
                     .fill(.ultraThinMaterial)
-                    .blur(radius: 1)
-                    .opacity(0.8)
             }
             .matchedGeometryEffect(id: "background\(character.id)", in: animation)
             

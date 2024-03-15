@@ -29,15 +29,12 @@ struct CharacterDetailView: View {
     var body: some View {
         ZStack {
             ZStack {
-                RoundedRectangle(cornerRadius: 30)
+                RoundedRectangle(cornerRadius: 0)
                     .fill(.black)
-                    .opacity(0.9)
-                    .blur(radius: 1)
-                
-                RoundedRectangle(cornerRadius: 30)
+                    .opacity(0.45)
+//                
+                RoundedRectangle(cornerRadius: 0)
                     .fill(.ultraThinMaterial)
-                    .blur(radius: 1)
-                    .opacity(0.8)
             }
             .matchedGeometryEffect(id: "background\(selectedCharacter.id)", in: animation)
             
