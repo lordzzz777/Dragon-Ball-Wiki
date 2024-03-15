@@ -11,7 +11,15 @@ import Kingfisher
 struct CharacterCardView: View {
     @State var character: Character
     @State private var characterKiColor: Color = .yellow
-    @State private var isAnimated: Bool = false
+    
+    @State private var isFavorite: Bool = false
+    private let favoriteAnimationDuration: Double = 0.12
+
+    private var favoriteAnimationScale: CGFloat {
+        isFavorite ? 0.7 : 1.5
+    }
+    
+    @State private var animateFavorite: Bool = false
     
     var animation: Namespace.ID
     @Binding var showDetail: Bool
@@ -52,15 +60,22 @@ struct CharacterCardView: View {
                     Spacer()
                     
                     Button {
-                        withAnimation {
-                            isAnimated.toggle()
+                        animateFavorite = true
+                        withAnimation(.easeIn(duration: favoriteAnimationDuration)) {
+                            
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + favoriteAnimationDuration) {
+                                isFavorite.toggle()
+                                animateFavorite = false
+                            }
                         }
                     } label: {
                         Image(systemName: "star.fill")
-                            .font(.title2)
-                            .foregroundStyle(!isAnimated ? .gray : .yellow)
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundStyle(isFavorite ? .yellow : .gray)
                     }
-
+                    .scaleEffect(animateFavorite ? favoriteAnimationScale : 1)
                 }
                 
                 Spacer()
