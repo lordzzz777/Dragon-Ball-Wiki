@@ -135,9 +135,18 @@ struct Home: View {
                         }
                         
                     } label: {
-                        Image("logoGoku").resizable()
-                            .frame(width: 40, height: 50)
-                            .foregroundStyle(Color.white)
+                        // Logica que cambia el color de boton, segun seleccion 
+                        if selectedView == .heroAnimation {
+                            Image("logoGoku").resizable()
+                                .renderingMode(.template)
+                                .foregroundColor(.white).shadow(color:.blue, radius: 10)
+                                .frame(width: 40, height: 50)
+                                
+                        }else{
+                            Image("logoGoku").resizable()
+                                .frame(width: 40, height: 50)
+                                .shadow(color: .yellow, radius: 10)
+                        }
                     }
                 }
                 ToolbarItem(placement: .navigation) {
