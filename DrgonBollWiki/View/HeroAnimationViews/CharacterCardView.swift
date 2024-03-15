@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct CharacterCardView: View {
     @State var character: Character
     @State private var characterKiColor: Color = .yellow
-    @State private var isAnimated: Bool = false
+    @State private var isFavorite: Bool = false
     
     var animation: Namespace.ID
     @Binding var showDetail: Bool
@@ -21,26 +20,24 @@ struct CharacterCardView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 30)
                     .fill(.black)
-                    .opacity(0.9)
-                    .blur(radius: 1)
+                    .opacity(0.45)
                 
                 RoundedRectangle(cornerRadius: 30)
                     .fill(.ultraThinMaterial)
-                    .blur(radius: 1)
-                    .opacity(0.8)
             }
             .matchedGeometryEffect(id: "background\(character.id)", in: animation)
             
-            KFImage(URL(string: character.image))
-                .resizable()
-                .placeholder {
-                    ProgressView()
-                }
-                .matchedGeometryEffect(id: "image\(character.id)", in: animation)
-                .scaledToFit()
-                .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
-                .frame(height: 400)
-                .padding(.top, 20)
+            AsyncImage(url: URL(string: character.image)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .matchedGeometryEffect(id: "image\(character.id)", in: animation)
+                    .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(height: 400)
+            .padding(.top, 20)
             
             VStack {
                 HStack {
@@ -51,16 +48,8 @@ struct CharacterCardView: View {
                         
                     Spacer()
                     
-                    Button {
-                        withAnimation {
-                            isAnimated.toggle()
-                        }
-                    } label: {
-                        Image(systemName: "star.fill")
-                            .font(.title2)
-                            .foregroundStyle(!isAnimated ? .gray : .yellow)
-                    }
-
+                    FavoriteButtonView(isFavorite: $isFavorite)
+                        .matchedGeometryEffect(id: "favoriteButton\(character.id)", in: animation)
                 }
                 
                 Spacer()
@@ -71,11 +60,11 @@ struct CharacterCardView: View {
                     .shadow(color: .black, radius: 0, x: 1, y: 1)
                     .shadow(color: .white, radius: 0, x: -1, y: -1)
                     .matchedGeometryEffect(id: "characterName\(character.id)", in: animation)
-//                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
         }
         .matchedGeometryEffect(id: "allView\(character.id)", in: animation)
+        .frame(minWidth: 300, maxHeight: 500)
         .task {
             switch character.race {
             case "Evil":
@@ -108,8 +97,6 @@ struct CharacterCardView: View {
                 characterKiColor = .white
             }
         }
-//        .matchedGeometryEffect(id: "background\(character.id)", in: animation)
-        
     }
 }
 

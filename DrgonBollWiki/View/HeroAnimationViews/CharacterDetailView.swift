@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct CharacterDetailView: View {
     
     @State private var singleCharacterViewModel: SingleCharacterViewModel
     @State private var idTranformation: Int = 0
+    @State private var isFavorite: Bool = false
     
     @State private var characterKiColor: Color = .yellow
     @Binding var showDetails: Bool
@@ -28,38 +28,41 @@ struct CharacterDetailView: View {
     var body: some View {
         ZStack {
             ZStack {
-                RoundedRectangle(cornerRadius: 30)
+                RoundedRectangle(cornerRadius: 0)
                     .fill(.black)
-                    .opacity(0.9)
-                    .blur(radius: 1)
+                    .opacity(0.45)
                 
-                RoundedRectangle(cornerRadius: 30)
+                RoundedRectangle(cornerRadius: 0)
                     .fill(.ultraThinMaterial)
-                    .blur(radius: 1)
-                    .opacity(0.8)
             }
             .matchedGeometryEffect(id: "background\(selectedCharacter.id)", in: animation)
             
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
-                    KFImage(URL(string: selectedCharacter.image))
-                        .resizable()
-                        .placeholder {
-                            ProgressView()
-                        }
-                        .matchedGeometryEffect(id: "image\(selectedCharacter.id)", in: animation)
-                        .scaledToFit()
-                        .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
-                        .frame(height: 500)
-                        .padding(.top, 70)
+                    AsyncImage(url: URL(string: selectedCharacter.image)) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .matchedGeometryEffect(id: "image\(selectedCharacter.id)", in: animation)
+                            .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(height: 500)
+                    .padding(.top, 70)
                     
-                    VStack {
+                    HStack {
                         Text("\(selectedCharacter.name)")
                             .font(.custom("SaiyanSans", size: 42))
                             .foregroundStyle(Color.yellow)
                             .shadow(color: .black, radius: 0, x: 1, y: 1)
                             .shadow(color: .white, radius: 0, x: -1, y: -1)
                             .matchedGeometryEffect(id: "characterName\(selectedCharacter.id)", in: animation)
+                        
+                        Spacer()
+                        
+                        FavoriteButtonView(isFavorite: $isFavorite)
+                            .matchedGeometryEffect(id: "favoriteButton\(selectedCharacter.id)", in: animation)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -147,10 +150,11 @@ struct CharacterDetailView: View {
                 .padding(.horizontal)
             }
         }
+        .matchedGeometryEffect(id: "allView\(selectedCharacter.id)", in: animation)
         .overlay {
             VStack(alignment: .trailing) {
                 Button {
-                    withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                    withAnimation(.spring(response: 0.3, dampingFraction: 1)) {
                         showDetails = false
                     }
                 } label: {
@@ -164,7 +168,6 @@ struct CharacterDetailView: View {
             .padding(.trailing, 20)
             .padding(.top, 60)
         }
-        .matchedGeometryEffect(id: "allView\(selectedCharacter.id)", in: animation)
         .task {
             await singleCharacterViewModel.getCharacterInformation(characterID: selectedCharacter.id)
             

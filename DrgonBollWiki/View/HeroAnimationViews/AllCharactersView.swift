@@ -29,26 +29,32 @@ struct AllCharactersView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 10)
                     
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            ForEach(allCharacters, id: \.id) { character in
-                                CharacterCardView(character: character, animation: animation, showDetail: $showDetails)
-                                    .frame(width: itemWidth, height: 500)
-                                    .onTapGesture {
-                                        selectedCharacter = character
-                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
-                                            showDetails = true
-                                        }
-                                    }
-                            }
-                        }
-                        .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
-                        .scrollTargetLayout()
-                    }
-                    .scrollTargetBehavior(.viewAligned)
+                    Spacer()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(allCharacters, id: \.id) { character in
+                            CharacterCardView(character: character, animation: animation, showDetail: $showDetails)
+//                                .frame(width: itemWidth)
+                                .opacity(showDetails ? 0 : 1)
+                                .onTapGesture {
+                                    selectedCharacter = character
+                                    withAnimation(.spring(response: 0.5, dampingFraction: 1)) {
+                                        showDetails = true
+                                    }
+                                }
+                        }
+                    }
+                    .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
+                    .scrollTargetLayout()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+                .scrollTargetBehavior(.viewAligned)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
         .background {
             Image("Dragon")
