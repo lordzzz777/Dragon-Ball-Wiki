@@ -12,6 +12,7 @@ struct CharacterDetailView: View {
     
     @State private var singleCharacterViewModel: SingleCharacterViewModel
     @State private var idTranformation: Int = 0
+    @State private var isFavorite: Bool = false
     
     @State private var characterKiColor: Color = .yellow
     @Binding var showDetails: Bool
@@ -53,13 +54,17 @@ struct CharacterDetailView: View {
                         .frame(height: 500)
                         .padding(.top, 70)
                     
-                    VStack {
+                    HStack {
                         Text("\(selectedCharacter.name)")
                             .font(.custom("SaiyanSans", size: 42))
                             .foregroundStyle(Color.yellow)
                             .shadow(color: .black, radius: 0, x: 1, y: 1)
                             .shadow(color: .white, radius: 0, x: -1, y: -1)
                             .matchedGeometryEffect(id: "characterName\(selectedCharacter.id)", in: animation)
+                        
+                        Spacer()
+                        
+                        FavoriteButtonView(isFavorite: $isFavorite)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
