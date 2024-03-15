@@ -52,6 +52,7 @@ struct CharacterCardView: View {
                     Spacer()
                     
                     FavoriteButtonView(isFavorite: $isFavorite)
+                        .matchedGeometryEffect(id: "favoriteButton\(character.id)", in: animation)
                 }
                 
                 Spacer()

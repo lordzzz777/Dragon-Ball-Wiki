@@ -65,6 +65,7 @@ struct CharacterDetailView: View {
                         Spacer()
                         
                         FavoriteButtonView(isFavorite: $isFavorite)
+                            .matchedGeometryEffect(id: "favoriteButton\(selectedCharacter.id)", in: animation)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
