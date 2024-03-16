@@ -9,16 +9,12 @@ import Foundation
 
 @Observable
 class SinglePlanetViewModel {
-    private let singlePlanetDataService: SinglePlanetProtocol
+    private let singlePlanetDataService: SinglePlanetDataService = SinglePlanetDataService()
     
     var planet: SinglePlanet?
     var isLoading: Bool = false
     var showErrorMessage: Bool = false
     var errorMessage: String = ""
-    
-    init(singlePlanetDataService: SinglePlanetProtocol) {
-        self.singlePlanetDataService = singlePlanetDataService
-    }
     
     ///Obtiene la información de un planeta a través de su ID y lo almacena en la propiedad `planet` de la clase `SinglePlanetViewModel`
     /// - Parameters: `id: Int`
