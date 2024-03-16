@@ -102,20 +102,6 @@ struct CharacterDetailView: View {
                     
                     if let character = singleCharacterViewModel.character {
                         VStack {
-//                            ForEach(character.transformations, id: \.id) { transformation in
-//                                if transformation.id == idTranformation {
-//                                    AsyncImage(url: URL(string: transformation.image)) { image in
-//                                        image
-//                                            .resizable()
-//                                            .scaledToFit()
-//                                    } placeholder: {
-//                                        ProgressView()
-//                                    }
-//                                    .frame(height: 450).shadow(color: .orange , radius: 15, x: 0, y: 0 ).padding(.top, 10)
-//                                    
-//                                }
-//                                
-//                            }
                             if let selectedTransformation = character.transformations.first(where: { $0.id == idTranformation }) {
                                     if idTranformation == 4 {
                                         Image("SuperShayan4")
@@ -177,37 +163,6 @@ struct CharacterDetailView: View {
             if character.transformations.count > 0 {
                 idTranformation = character.transformations [0].id
             }
-            
-//            switch character.race {
-//            case "Evil":
-//                characterKiColor = .black
-//            case "Android":
-//                characterKiColor = .cyan
-//            case "Majin":
-//                characterKiColor = .pink
-//            case "Nucleico":
-//                characterKiColor = .white
-//            case "Namekian":
-//                characterKiColor = .green
-//            case "Saiyan":
-//                characterKiColor = .yellow
-//            case "Jiren Race":
-//                characterKiColor = .red
-//            case "Frieza Race":
-//                characterKiColor = .gray
-//            case "Nucleico benigno":
-//                characterKiColor = .brown
-//            case "Human":
-//                characterKiColor = .blue
-//            case "Angel":
-//                characterKiColor = .mint
-//            case "God":
-//                characterKiColor = .indigo
-//            case "Unknown":
-//                characterKiColor = .white
-//            default:
-//                characterKiColor = .white
-//            }
         }
     }
 }
