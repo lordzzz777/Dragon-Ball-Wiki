@@ -97,6 +97,7 @@ struct CharacterDetailView: View {
                             Text("Transformaciones ")
                                 .fontWeight(.bold)
                                 .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.bottom, -15)
                         }
                     }
                     
