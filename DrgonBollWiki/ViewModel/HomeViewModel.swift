@@ -10,7 +10,7 @@ import AVFoundation
 
 @Observable
 class HomeViewModel {
-    private let allCaractersDataService: AllCharactersProtocol
+    private let allCaractersDataService: AllCharactersDataService = AllCharactersDataService()
     var allCharacters: Characters?
     var searchedCharacters: [Character] = []
     var isLoading: Bool = false
@@ -22,9 +22,7 @@ class HomeViewModel {
     var isPlaying = false
     
     
-    init(allCaractersDataService: AllCharactersProtocol) {
-        self.allCaractersDataService = allCaractersDataService
-        
+    init() {
         Task {
             //Obteniendo el archivo de audio para el giro de las cards
             if let sound = Bundle.main.path(forResource: "cardFx03", ofType: "mp3") {

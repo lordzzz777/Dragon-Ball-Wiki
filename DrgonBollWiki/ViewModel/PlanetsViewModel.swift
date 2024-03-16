@@ -9,16 +9,14 @@ import Foundation
 
 @Observable
 class PlanetsViewModel {
-    private let planetsDataSevice: PlanetsProtocol
+    private let planetsDataSevice: PlanetsDataService = PlanetsDataService()
     
     var allPlanets: Planets?
     var isLoading: Bool = false
     var showErrorMessage: Bool = false
     var errorMessage: String = ""
     
-    init(planetsDataSevice: PlanetsProtocol) {
-        self.planetsDataSevice = planetsDataSevice
-        
+    init() {
         Task {
             await getAllPlanets()
         }

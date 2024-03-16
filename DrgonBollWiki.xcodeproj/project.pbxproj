@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A7979AF2BA39829009A12EA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5A7979AE2BA39829009A12EA /* Kingfisher */; };
+		5A7979B42BA3DD8F009A12EA /* FavoriteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7979B32BA3DD8F009A12EA /* FavoriteButtonView.swift */; };
 		5A8ECD0E2B9FCFD70027BAA2 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */; };
 		5A8ECD1E2BA0EB060027BAA2 /* SaiyanSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A8ECD1D2BA0EB060027BAA2 /* SaiyanSans.ttf */; };
 		5AA3A1882BA1EBE500B3BDB9 /* AllCharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3A1872BA1EBE500B3BDB9 /* AllCharactersView.swift */; };
@@ -54,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A7979B32BA3DD8F009A12EA /* FavoriteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonView.swift; sourceTree = "<group>"; };
 		5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		5A8ECD1D2BA0EB060027BAA2 /* SaiyanSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SaiyanSans.ttf; sourceTree = "<group>"; };
 		5A8ECD1F2BA0ED430027BAA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,13 +107,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A7979AF2BA39829009A12EA /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A7979B02BA3DD44009A12EA /* HeroAnimationViews */ = {
+			isa = PBXGroup;
+			children = (
+				5AA3A18B2BA1EC3D00B3BDB9 /* CharacterDetailView.swift */,
+				5AA3A1872BA1EBE500B3BDB9 /* AllCharactersView.swift */,
+				5AA3A1892BA1EC0A00B3BDB9 /* CharacterCardView.swift */,
+				5A7979B32BA3DD8F009A12EA /* FavoriteButtonView.swift */,
+			);
+			path = HeroAnimationViews;
+			sourceTree = "<group>";
+		};
 		5A8E38AE2B9A4D7300B2B235 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,13 +255,11 @@
 		6E2E177F2B927F4400C8AB2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5A7979B02BA3DD44009A12EA /* HeroAnimationViews */,
 				5AEB4FF72B94E2B8007C51B2 /* Cards */,
 				6E2E177D2B9247B500C8AB2E /* Home.swift */,
 				6E12F59F2B963C7000110633 /*  DetailsView.swift */,
 				5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */,
-				5AA3A18B2BA1EC3D00B3BDB9 /* CharacterDetailView.swift */,
-				5AA3A1872BA1EBE500B3BDB9 /* AllCharactersView.swift */,
-				5AA3A1892BA1EC0A00B3BDB9 /* CharacterCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,7 +302,6 @@
 			);
 			name = DrgonBollWiki;
 			packageProductDependencies = (
-				5A7979AE2BA39829009A12EA /* Kingfisher */,
 			);
 			productName = DrgonBollWiki;
 			productReference = 6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */;
@@ -324,7 +332,6 @@
 			);
 			mainGroup = 6E2E17622B92473000C8AB2E;
 			packageReferences = (
-				5A7979AD2BA39829009A12EA /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 6E2E176C2B92473000C8AB2E /* Products */;
 			projectDirPath = "";
@@ -364,6 +371,7 @@
 				6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */,
 				5AA3A18A2BA1EC0A00B3BDB9 /* CharacterCardView.swift in Sources */,
 				5AEB50112B9533F6007C51B2 /* SingleCharacterViewModel.swift in Sources */,
+				5A7979B42BA3DD8F009A12EA /* FavoriteButtonView.swift in Sources */,
 				5AEB500A2B952A79007C51B2 /* MockAllCharactersDataService.swift in Sources */,
 				5AEB50152B954860007C51B2 /* PlanetsDataService.swift in Sources */,
 				6E95BA512B9E7CBA0030D28C /* CardViewCarousel.swift in Sources */,
@@ -526,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DrgonBollWiki/Preview Content\"";
-				DEVELOPMENT_TEAM = W5HZTU6SV8;
+				DEVELOPMENT_TEAM = 6Z8MU97UL5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DrgonBollWiki/Info.plist;
@@ -556,7 +564,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DrgonBollWiki/Preview Content\"";
-				DEVELOPMENT_TEAM = W5HZTU6SV8;
+				DEVELOPMENT_TEAM = 6Z8MU97UL5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DrgonBollWiki/Info.plist;
@@ -600,25 +608,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5A7979AD2BA39829009A12EA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5A7979AE2BA39829009A12EA /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5A7979AD2BA39829009A12EA /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6E2E17632B92473000C8AB2E /* Project object */;
 }
