@@ -39,7 +39,7 @@ struct AllCharactersView: View {
                         ForEach(allCharacters, id: \.id) { character in
                             CharacterCardView(character: character, characterKiColor: selectedKiColor, animation: animation, showDetail: $showDetails)
                                 .environment(singleCharacterViewModel)
-//                                .frame(width: itemWidth)
+                                .frame(width: itemWidth)
                                 .opacity(showDetails ? 0 : 1)
                                 .onTapGesture {
                                     singleCharacterViewModel.getKiColor(character: character)
