@@ -12,6 +12,7 @@ struct Home: View {
     // MARK: - Se intacia SwiftData
     @State var dbSwiftDataModel: [DbSwiftDataModel]
     
+    @State var singleCharacterViewModel: SingleCharacterViewModel = SingleCharacterViewModel(singleCharacterDataService: .init())
     @State private var homeViewModel: HomeViewModel
     @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character = Character(id: 0, name: "", ki: "", maxKi: "", race: "", gender: "", description: "", image: "", affiliation: "", deletedAt: nil)
@@ -27,6 +28,7 @@ struct Home: View {
     
     @Namespace var animation
     @State var showCharacterDetails: Bool = false
+    @State var characterKiColor: Color = .yellow
     
     enum SelectedView {
         case carousel, cards, heroAnimation
@@ -64,7 +66,8 @@ struct Home: View {
                              dbSwiftDataModel: [])
                     .padding(.horizontal, 105)
                 case .heroAnimation:
-                    AllCharactersView(allCharacters: homeViewModel.allCharacters?.items ?? [], animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter)
+                    AllCharactersView(allCharacters: homeViewModel.allCharacters?.items ?? [], animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, selectedKiColor: $characterKiColor)
+                        .environment(singleCharacterViewModel)
                 }
                 
                 VStack{
@@ -173,7 +176,8 @@ struct Home: View {
         }
         .overlay {
             if showCharacterDetails {
-                CharacterDetailView(singleCharacterViewModel: SingleCharacterDataService(), selectedCharacter: $selectedCharacter, animation: animation, showDetails: $showCharacterDetails)
+                CharacterDetailView(showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, animation: animation)
+                    .environment(singleCharacterViewModel)
             }
         }
     }

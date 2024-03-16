@@ -13,7 +13,7 @@ struct DetailsView: View {
     @State private var idTranformation = 0
     
     init(singleCharactersDataService: SingleCharacterProtocol, selectedCharacter: Character) {
-        _singleCharacterViewModel = State(wrappedValue: SingleCharacterViewModel(singleCharacterDataService: singleCharactersDataService))
+        _singleCharacterViewModel = State(wrappedValue: SingleCharacterViewModel(singleCharacterDataService: singleCharactersDataService as! SingleCharacterDataService))
         self.selectedCharacter = selectedCharacter
     }
    
