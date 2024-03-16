@@ -89,7 +89,7 @@ struct CardViewCarousel: View {
                             
                         }))
                         .sheet(isPresented: $isShowDetails, content: {
-                            DetailsView(singleCharactersDataService: SingleCharacterDataService(), selectedCharacter: character)
+                            DetailsView(selectedCharacter: character)
                         })
                     }
                 }.scrollTargetLayout()

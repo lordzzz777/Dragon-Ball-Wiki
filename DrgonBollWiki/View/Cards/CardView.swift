@@ -86,7 +86,7 @@ struct CardView: View {
                                         
                                     }))
                                     .sheet(isPresented: $isShowDetails, content: {
-                                        DetailsView(singleCharactersDataService: SingleCharacterDataService(), selectedCharacter: character)
+                                        DetailsView(selectedCharacter: character)
                                     })
                                     .padding(.horizontal, 65)
                                     .frame(width: size.width)

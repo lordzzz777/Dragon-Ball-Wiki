@@ -91,7 +91,7 @@ struct Card2: View {
                
             }
         }.sheet(isPresented: $show, content: {
-            DetailsView(singleCharactersDataService: SingleCharacterDataService(), selectedCharacter: character)
+            DetailsView(selectedCharacter: character)
         })
         .onTapGesture {
             withAnimation(.interactiveSpring(response: 1)) {

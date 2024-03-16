@@ -12,7 +12,7 @@ struct Home: View {
     // MARK: - Se intacia SwiftData
     @State var dbSwiftDataModel: [DbSwiftDataModel]
     
-    @State var singleCharacterViewModel: SingleCharacterViewModel = SingleCharacterViewModel(singleCharacterDataService: .init())
+    @State var singleCharacterViewModel: SingleCharacterViewModel = SingleCharacterViewModel()
     @State private var homeViewModel: HomeViewModel
     @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character = Character(id: 0, name: "", ki: "", maxKi: "", race: "", gender: "", description: "", image: "", affiliation: "", deletedAt: nil)
