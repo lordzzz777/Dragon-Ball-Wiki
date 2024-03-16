@@ -102,10 +102,56 @@ struct CharacterDetailView: View {
                     
                     if let character = singleCharacterViewModel.character {
                         VStack {
+                            //Custom segmented control
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(character.transformations, id: \.id){ transformation in
+                                        if transformation.id != idTranformation {
+                                            Text(transformation.name)
+                                                .font(.footnote)
+                                                .fontWeight(.semibold)
+                                                .foregroundStyle(transformation.id != idTranformation ? .white : .black)
+                                                .background {
+                                                    RoundedRectangle(cornerRadius: 8)
+                                                        .fill(Color.clear)
+                                                }
+                                                .padding(5)
+                                                .onTapGesture {
+                                                    withAnimation {
+                                                        idTranformation = transformation.id
+                                                    }
+                                                }
+                                        } else {
+                                            Text(transformation.name)
+                                                .font(.footnote)
+                                                .fontWeight(.semibold)
+                                                .foregroundStyle(transformation.id != idTranformation ? .white : .black)
+                                                .padding(7)
+                                                .background {
+                                                    RoundedRectangle(cornerRadius: 8)
+                                                        .fill(singleCharacterViewModel.selectedCharacterKiColor)
+                                                        .matchedGeometryEffect(id: "transformation", in: animation)
+                                                }
+                                                .onTapGesture {
+                                                    withAnimation {
+                                                        idTranformation = transformation.id
+                                                    }
+                                                }
+                                        }
+                                    }
+                                }
+                                .background {
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(.ultraThinMaterial)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                            
                             if let selectedTransformation = character.transformations.first(where: { $0.id == idTranformation }) {
                                     if idTranformation == 4 {
                                         Image("SuperShayan4")
                                             .resizable()
+                                            .scaledToFit()
                                             .frame(width: 300, height: 450)
                                             .shadow(color: .orange, radius: 15, x: 0, y: 0)
                                             .padding(.top, 10)
@@ -122,13 +168,6 @@ struct CharacterDetailView: View {
                                         .padding(.top, 10)
                                     }
                                 }
-                            Picker(" ", selection: $idTranformation) {
-                                ForEach(character.transformations, id: \.id){ item in
-                                    Text(item.name)
-                                        .tag(item.id)
-                                }
-                            } .pickerStyle(.palette).padding()
-                                .font(.custom("SaiyanSans", size: 40)).shadow(color: .blue , radius: 15, x: 0, y: 0 )
                         }
                     }
                 }
