@@ -176,7 +176,7 @@ struct Home: View {
         }
         .overlay {
             if showCharacterDetails {
-                CharacterDetailView(showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, animation: animation)
+                CharacterDetailView(showDetails: $showCharacterDetails, animation: animation)
                     .environment(singleCharacterViewModel)
             }
         }

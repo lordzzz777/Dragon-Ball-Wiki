@@ -43,7 +43,7 @@ struct AllCharactersView: View {
                                 .opacity(showDetails ? 0 : 1)
                                 .onTapGesture {
                                     singleCharacterViewModel.getKiColor(character: character)
-                                    selectedCharacter = character
+                                    singleCharacterViewModel.selectedCharacter = character
                                     withAnimation(.spring(response: 0.5, dampingFraction: 1)) {
                                         showDetails = true
                                     }

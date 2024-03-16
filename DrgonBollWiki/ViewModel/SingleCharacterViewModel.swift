@@ -13,6 +13,7 @@ class SingleCharacterViewModel {
     private let singleCharacterDataService: SingleCharacterDataService
     
     var character: SingleCharacter?
+    var selectedCharacter: Character?
     var selectedCharacterKiColor: Color = .yellow
     var isLoading: Bool = false
     var showErrorMessage: Bool = false
