@@ -183,7 +183,14 @@ struct CharacterDetailView: View {
                     }
                 } label: {
                     Image(systemName: "xmark")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
                         .foregroundStyle(Color.white)
+                        .padding(7)
+                        .background {
+                            RoundedRectangle(cornerRadius: 100)
+                                .fill(.ultraThinMaterial)
+                        }
                 }
                 
                 Spacer()
