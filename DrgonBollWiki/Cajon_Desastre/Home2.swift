@@ -9,7 +9,7 @@ import SwiftUI
 
 //Vista pra pribar que la API Funciona
 struct Home2: View {
-    @State private var homeViewModel = HomeViewModel(allCaractersDataService: AllCharactersDataService())
+    @State private var homeViewModel = HomeViewModel()
     @State private var planetsViewModel = PlanetsViewModel(planetsDataSevice: PlanetsDataService())
     @State private var selectedCharacter: Character?
     @State private var selectedPlanets: Planets?

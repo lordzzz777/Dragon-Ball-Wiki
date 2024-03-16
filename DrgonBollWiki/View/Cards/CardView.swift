@@ -15,7 +15,7 @@ struct CardView: View {
     @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
     
     // MARK: - Se intacias modelos y el ViewModel de Personajes
-    @State private var homeViewModel: HomeViewModel
+    @State private var homeViewModel: HomeViewModel = HomeViewModel()
     @State private var selectedCharacter: Character?
     @State private var selectedCharacterId: Int?
     
@@ -29,8 +29,7 @@ struct CardView: View {
     let color: [Color] = [.red, .blue, .cyan, .yellow, .gray, .green, .indigo]
     let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     
-    init(allCaractersDataService: AllCharactersProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
-        _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
+    init(dbSwiftDataModel: [DbSwiftDataModel]) {
         _dbSwiftDataModel = State(initialValue: dbSwiftDataModel)
        
     }
@@ -178,7 +177,7 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(allCaractersDataService: AllCharactersDataService(), dbSwiftDataModel: [])
+    CardView(dbSwiftDataModel: [])
 }
 
 

@@ -14,7 +14,7 @@ struct CardViewCarousel: View {
     @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
     
     // MARK: - Se intacias modelos y el ViewModel de Personajes
-    @State private var homeViewModel: HomeViewModel
+    @State private var homeViewModel: HomeViewModel = HomeViewModel()
     @State private var planetsViewModel: PlanetsViewModel
     @State private var selectedCharacter: Character?
     @State private var selectedCharacterId: Int?
@@ -30,8 +30,7 @@ struct CardViewCarousel: View {
     
     
     
-    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
-        _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
+    init(planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
         _planetsViewModel = State(wrappedValue: PlanetsViewModel(planetsDataSevice: planetsDataSevice))
         _dbSwiftDataModel = State(initialValue: dbSwiftDataModel)
       //  _dbSwiftDataViewModel = State(initialValue: DbSwiftDataViewModel())
@@ -109,5 +108,5 @@ struct CardViewCarousel: View {
 }
 
 #Preview {
-    CardViewCarousel(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [])
+    CardViewCarousel(planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [])
 }
