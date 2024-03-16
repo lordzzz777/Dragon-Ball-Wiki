@@ -153,7 +153,7 @@ struct CharacterDetailView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 300, height: 450)
-                                            .shadow(color: .orange, radius: 15, x: 0, y: 0)
+                                            .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
                                             .padding(.top, 10)
                                     } else {
                                         AsyncImage(url: URL(string: selectedTransformation.image)) { image in
@@ -164,7 +164,7 @@ struct CharacterDetailView: View {
                                             ProgressView()
                                         }
                                         .frame(height: 450)
-                                        .shadow(color: .orange, radius: 15, x: 0, y: 0)
+                                        .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
                                         .padding(.top, 10)
                                     }
                                 }
