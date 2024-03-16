@@ -12,9 +12,9 @@ struct Home: View {
     // MARK: - Se intacia SwiftData
     @State var dbSwiftDataModel: [DbSwiftDataModel]
     
-    @State var singleCharacterViewModel: SingleCharacterViewModel = SingleCharacterViewModel(singleCharacterDataService: .init())
-    @State private var homeViewModel: HomeViewModel
-    @State private var planetsViewModel: PlanetsViewModel
+    @State var singleCharacterViewModel: SingleCharacterViewModel = SingleCharacterViewModel()
+    @State private var homeViewModel: HomeViewModel = HomeViewModel()
+    @State private var planetsViewModel: PlanetsViewModel = PlanetsViewModel()
     @State private var selectedCharacter: Character = Character(id: 0, name: "", ki: "", maxKi: "", race: "", gender: "", description: "", image: "", affiliation: "", deletedAt: nil)
     
     @State private var favoritesStar = false
@@ -35,9 +35,7 @@ struct Home: View {
     }
     
     
-    init(allCaractersDataService: AllCharactersProtocol, planetsDataSevice: PlanetsProtocol, dbSwiftDataModel: [DbSwiftDataModel]) {
-        _homeViewModel = State(wrappedValue: HomeViewModel(allCaractersDataService: allCaractersDataService))
-        _planetsViewModel = State(wrappedValue: PlanetsViewModel(planetsDataSevice: planetsDataSevice))
+    init(dbSwiftDataModel: [DbSwiftDataModel]) {
         _dbSwiftDataModel = State(initialValue: dbSwiftDataModel)
     }
     
@@ -58,12 +56,9 @@ struct Home: View {
                 
                 switch selectedView {
                 case .carousel:
-                    CardViewCarousel(allCaractersDataService: AllCharactersDataService(),
-                                     planetsDataSevice: PlanetsDataService(),
-                                     dbSwiftDataModel: [])
+                    CardViewCarousel(dbSwiftDataModel: [])
                 case .cards:
-                    CardView(allCaractersDataService: AllCharactersDataService(),
-                             dbSwiftDataModel: [])
+                    CardView(dbSwiftDataModel: [])
                     .padding(.horizontal, 105)
                 case .heroAnimation:
                     AllCharactersView(allCharacters: homeViewModel.allCharacters?.items ?? [], animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, selectedKiColor: $characterKiColor)
@@ -186,5 +181,5 @@ struct Home: View {
 #Preview {
     //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
     //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
-    Home(allCaractersDataService: MockAllCharactersDataService(testData: nil), planetsDataSevice: MockPlanetsDataServcice(testData: nil), dbSwiftDataModel: [])
+    Home(dbSwiftDataModel: [])
 }

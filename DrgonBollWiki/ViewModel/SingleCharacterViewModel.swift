@@ -10,7 +10,7 @@ import SwiftUI
 
 @Observable
 class SingleCharacterViewModel {
-    private let singleCharacterDataService: SingleCharacterDataService
+    private let singleCharacterDataService: SingleCharacterDataService = SingleCharacterDataService()
     
     var character: SingleCharacter?
     var selectedCharacter: Character?
@@ -18,10 +18,6 @@ class SingleCharacterViewModel {
     var isLoading: Bool = false
     var showErrorMessage: Bool = false
     var errorMessage: String = ""
-    
-    init(singleCharacterDataService: SingleCharacterDataService) {
-        self.singleCharacterDataService = singleCharacterDataService
-    }
     
     ///Obtiene la información de un personaje a través de su ID y lo almacena en la propiedad `character` de la clase `SingleCharacterViewModel`
     /// - Parameters: `id: Int`
