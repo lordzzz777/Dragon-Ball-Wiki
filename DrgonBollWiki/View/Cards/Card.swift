@@ -15,9 +15,12 @@ struct Card: View {
     @State private var isFlipped = false
     @State private var isOpaciti = true
     @State private var show = false
-    var playCardSound: () -> Void //Recibiendo un closure como parametro para ejecutar el sonido cuando se gire la card
     
-    //El closure debe ser con escape para que sea asíncrono y no bloquee la ejecución de la UI en el hilo principal (Lo sugirió Xcode)
+    // Recibiendo un closure como parametro para ejecutar el sonido cuando se gire la card
+    var playCardSound: () -> Void
+    
+    // El closure debe ser con escape para que sea asíncrono y no bloquee la ejecución de
+    // la UI en el hilo principal (Lo sugirió Xcode)
     init(character: Character, playSound: @escaping () -> Void) {
         self.character = character
         self.playCardSound = playSound
