@@ -11,6 +11,7 @@ import Observation
 
 @Observable
 final class DbSwiftDataViewModel: Observable {
+    static let shared = DbSwiftDataViewModel()
     let container = try! ModelContainer(for: DbSwiftDataModel.self)
     
     @MainActor
@@ -19,6 +20,8 @@ final class DbSwiftDataViewModel: Observable {
     }
     
     var favorites: [DbSwiftDataModel] = []
+    
+    init() {}
     
     // MARK: - Se impemeta el metodo de predicado para el orden de lista
     @MainActor
@@ -57,6 +60,23 @@ final class DbSwiftDataViewModel: Observable {
             print("Guardado con exito id: \(id)")
         }catch let error as NSError{
             print("No se a guardado -> ", error.localizedDescription)
+        }
+    }
+    
+    @MainActor
+    func deleteFavoriteWith(id: Int) {
+        do {
+            guard let favoriteToDelete = favorites.first(where: { $0.id == id }) else { return }
+            context.delete(favoriteToDelete)
+            try context.save()
+            
+            favorites = []
+            getFavorites()
+            
+            print("Eliminado con éxito")
+        } catch let error as NSError {
+            // Si hay un error, lo imprimimos.
+            print("No se ha borrado -> ", error.localizedDescription)
         }
     }
     
