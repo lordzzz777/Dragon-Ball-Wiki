@@ -23,9 +23,17 @@ struct FavoriteButtonView: View {
     var body: some View {
         Button {
             animateFavorite = true
-            favoriteDataBaseViewModel.saveFavorites(characterID, false)
+            
             withAnimation(.easeIn(duration: favoriteAnimationDuration)) {
                 DispatchQueue.main.asyncAfter(deadline: .now() + favoriteAnimationDuration) {
+                    if isFavorite {
+                        favoriteDataBaseViewModel.deleteFavoriteWith(id: characterID)
+                        isFavorite = false
+                    } else {
+                        favoriteDataBaseViewModel.saveFavorites(characterID, false)
+                        isFavorite = true
+                    }
+                    
                     animateFavorite = false
                 }
             }

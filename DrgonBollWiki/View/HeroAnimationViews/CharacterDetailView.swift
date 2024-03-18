@@ -64,6 +64,7 @@ struct CharacterDetailView: View {
                         FavoriteButtonView(isFavorite: $isFavorite, characterID: selectedCharacter.id)
                             .matchedGeometryEffect(id: "favoriteButton\(selectedCharacter.id)", in: animation)
                             .onChange(of: favoriteDataBaseViewModel.favorites) {
+                                favoriteDataBaseViewModel.getFavorites()
                                 isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == selectedCharacter.id }
                             }
                     }

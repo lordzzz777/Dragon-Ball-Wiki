@@ -63,6 +63,23 @@ final class DbSwiftDataViewModel: Observable {
         }
     }
     
+    @MainActor
+    func deleteFavoriteWith(id: Int) {
+        do {
+            guard let favoriteToDelete = favorites.first(where: { $0.id == id }) else { return }
+            context.delete(favoriteToDelete)
+            try context.save()
+            
+            favorites = []
+            getFavorites()
+            
+            print("Eliminado con éxito")
+        } catch let error as NSError {
+            // Si hay un error, lo imprimimos.
+            print("No se ha borrado -> ", error.localizedDescription)
+        }
+    }
+    
     // MARK: - Eliminar favorito
     @MainActor
     func deleteFavorites(){
