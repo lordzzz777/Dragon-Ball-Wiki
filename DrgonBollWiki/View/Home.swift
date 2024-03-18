@@ -172,7 +172,7 @@ struct Home: View {
         }
         .overlay {
             if showCharacterDetails {
-                CharacterDetailView(favorites: $favoriteDataBaseViewModel.favorites, showDetails: $showCharacterDetails, animation: animation)
+                CharacterDetailView(showDetails: $showCharacterDetails, animation: animation)
                     .environment(singleCharacterViewModel)
                     .onDisappear {
                         favoriteDataBaseViewModel.getFavorites()
