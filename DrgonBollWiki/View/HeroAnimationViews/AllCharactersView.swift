@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AllCharactersView: View {
     
+    @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     @Environment(SingleCharacterViewModel.self) var singleCharacterViewModel: SingleCharacterViewModel
     @State var allCharacters: [Character]
     private let itemWidth: CGFloat = 300
@@ -49,6 +50,43 @@ struct AllCharactersView: View {
                                         showDetails = true
                                     }
                                 }
+                                .contextMenu(ContextMenu(menuItems: {
+                                    Button(action: {
+                                        favoriteDataBaseViewModel.saveFavorites(character.id, false)
+                                    }, label: {
+                                        Text("Guardar en favoritos")
+                                        Image(systemName: "star.fill")
+                                    })
+                                    
+//                                    Button(action: {
+//                                        withAnimation{
+//                                            modeViewCard = true
+//                                        }
+//                                    }, label: {
+//                                        Text("Personalizar")
+//                                        Image(systemName: "gearshape.fill" )
+//                                        
+//                                    })
+                                    
+                                    Button(action: {
+                                        singleCharacterViewModel.getKiColor(character: character)
+                                        singleCharacterViewModel.selectedCharacter = character
+                                        withAnimation(.spring(response: 0.5, dampingFraction: 1)) {
+                                            showDetails = true
+                                        }
+                                    }, label: {
+                                        Text("Saber Más")
+                                        Image(systemName: "book")
+                                    })
+                                    
+                                    Button(action: {
+                                        // logica
+                                    }, label: {
+                                        Text("Copiar")
+                                        Image(systemName: "doc.on.doc")
+                                    })
+                                    
+                                }))
                         }
                     }
                     .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
