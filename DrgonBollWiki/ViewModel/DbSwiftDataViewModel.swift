@@ -11,6 +11,7 @@ import Observation
 
 @Observable
 final class DbSwiftDataViewModel: Observable {
+    static let shared = DbSwiftDataViewModel()
     let container = try! ModelContainer(for: DbSwiftDataModel.self)
     
     @MainActor
@@ -19,6 +20,8 @@ final class DbSwiftDataViewModel: Observable {
     }
     
     var favorites: [DbSwiftDataModel] = []
+    
+    init() {}
     
     // MARK: - Se impemeta el metodo de predicado para el orden de lista
     @MainActor

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct FavoriteButtonView: View {
     
+    @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     @Binding var isFavorite: Bool
+    var characterID: Int
     private let favoriteAnimationDuration: Double = 0.12
 
     private var favoriteAnimationScale: CGFloat {
@@ -21,7 +23,7 @@ struct FavoriteButtonView: View {
     var body: some View {
         Button {
             animateFavorite = true
-            
+            favoriteDataBaseViewModel.saveFavorites(characterID, false)
             withAnimation(.easeIn(duration: favoriteAnimationDuration)) {
                 DispatchQueue.main.asyncAfter(deadline: .now() + favoriteAnimationDuration) {
                     isFavorite.toggle()
@@ -39,5 +41,5 @@ struct FavoriteButtonView: View {
 }
 
 #Preview {
-    FavoriteButtonView(isFavorite: .constant(false))
+    FavoriteButtonView(isFavorite: .constant(false), characterID: 1)
 }

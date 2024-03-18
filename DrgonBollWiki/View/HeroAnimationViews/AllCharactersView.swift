@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AllCharactersView: View {
     
+    @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     @Environment(SingleCharacterViewModel.self) var singleCharacterViewModel: SingleCharacterViewModel
     @State var allCharacters: [Character]
     private let itemWidth: CGFloat = 300
@@ -17,6 +18,7 @@ struct AllCharactersView: View {
     @Binding var showDetails: Bool
     @Binding var selectedCharacter: Character
     @Binding var selectedKiColor: Color
+    @State private var isFavorite: Bool = false
     
     var body: some View {
         GeometryReader { proxy in
@@ -37,7 +39,7 @@ struct AllCharactersView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(allCharacters, id: \.id) { character in
-                            CharacterCardView(character: character, characterKiColor: selectedKiColor, animation: animation, showDetail: $showDetails)
+                            CharacterCardView(character: character, characterKiColor: selectedKiColor, animation: animation, favorites: $favoriteDataBaseViewModel.favorites)
                                 .environment(singleCharacterViewModel)
                                 .frame(width: itemWidth)
                                 .opacity(showDetails ? 0 : 1)
@@ -67,6 +69,12 @@ struct AllCharactersView: View {
                 .frame(width: 600, height: 800)
                 .opacity(0.6)
                 .ignoresSafeArea()
+        }
+        .onAppear {
+            favoriteDataBaseViewModel.getFavorites()
+            favoriteDataBaseViewModel.favorites.forEach { favorite in
+                print("favorito: \(favorite.id)")
+            }
         }
     }
 }
