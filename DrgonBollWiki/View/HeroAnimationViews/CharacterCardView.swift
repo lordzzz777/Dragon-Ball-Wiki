@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CharacterCardView: View {
+    
+    @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     @Environment(SingleCharacterViewModel.self) var singleCharacterViewModel: SingleCharacterViewModel
     @State var character: Character
     @State private var isFavorite: Bool = false
@@ -51,6 +53,9 @@ struct CharacterCardView: View {
                     
                     FavoriteButtonView(isFavorite: $isFavorite, characterID: character.id)
                         .matchedGeometryEffect(id: "favoriteButton\(character.id)", in: animation)
+                        .onChange(of: favoriteDataBaseViewModel.favorites) {
+                            isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
+                        }
                 }
                 
                 Spacer()

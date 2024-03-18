@@ -26,7 +26,6 @@ struct FavoriteButtonView: View {
             favoriteDataBaseViewModel.saveFavorites(characterID, false)
             withAnimation(.easeIn(duration: favoriteAnimationDuration)) {
                 DispatchQueue.main.asyncAfter(deadline: .now() + favoriteAnimationDuration) {
-                    isFavorite.toggle()
                     animateFavorite = false
                 }
             }
