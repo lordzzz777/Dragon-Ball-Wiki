@@ -8,6 +8,8 @@
 import Foundation
 import AVFoundation
 
+
+
 @Observable
 class HomeViewModel {
     private let allCaractersDataService: AllCharactersDataService = AllCharactersDataService()
@@ -19,7 +21,10 @@ class HomeViewModel {
     
     //Audio player
     private var audioPlayer: AVAudioPlayer?
+    var time: Double = 0.0
+    var currentTime: TimeInterval = 0
     var isPlaying = false
+   
     
     
     init() {
@@ -66,6 +71,42 @@ class HomeViewModel {
         
         player.play()
     }
+    
+    /// Función de reproducción
+    func playAudioMusic(_ url: String){
+        guard let audioData = Bundle.main.url(forResource: url , withExtension: "mp3") else {
+            print("audios no disponibles")
+            return
+        }
+        
+            audioPlayer = try! AVAudioPlayer(contentsOf: audioData)
+            audioPlayer?.currentTime = time
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+            isPlaying = true
+            print("reproduciendo audio ...")
+        
+    }
+    
+    /// Pausar El audio
+    func pauseAudio() {
+        audioPlayer?.pause()
+        time = audioPlayer?.currentTime ?? 0.0
+        isPlaying = false
+        print("Audio pausado")
+    }
+    
+    
+    func stopAudio(){
+        time = 0.0
+        audioPlayer?.prepareToPlay()
+        audioPlayer?.stop()
+        isPlaying = false
+        print("Audio Detenido")
+    }
+
+    
+
     
     /// Permite que el usuaria cambie entre la vista de cartas y la de carrusel ...
     func liveScrol(_ index: Int) -> Bool {
