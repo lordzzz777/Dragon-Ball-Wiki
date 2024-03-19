@@ -55,6 +55,8 @@
 		6E997C7C2BA8C99E00F361EB /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E997C7B2BA8C99E00F361EB /* AudioViewModel.swift */; };
 		6E997C7E2BA8DA1500F361EB /* CardListAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E997C7D2BA8DA1500F361EB /* CardListAudio.swift */; };
 		6E997C802BA91EA300F361EB /* DetailAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E997C7F2BA91EA300F361EB /* DetailAudioView.swift */; };
+		6E9BD1552BAA255000CA7CBA /* DetailAudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BD1542BAA255000CA7CBA /* DetailAudioViewModel.swift */; };
+		6E9BD1572BAA3E7300CA7CBA /* CardListAudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BD1562BAA3E7300CA7CBA /* CardListAudioViewModel.swift */; };
 		6EDCFEFB2BA78DAD007F2A01 /* 01_DragonBall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFEFA2BA78DAD007F2A01 /* 01_DragonBall.mp3 */; };
 		6EDCFEFF2BA78F7D007F2A01 /* 02_DragonBallZ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFEFE2BA78F7D007F2A01 /* 02_DragonBallZ.mp3 */; };
 		6EDCFF012BA78FE6007F2A01 /* 03_DragonBallGT.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFF002BA78FE6007F2A01 /* 03_DragonBallGT.mp3 */; };
@@ -115,6 +117,8 @@
 		6E997C7B2BA8C99E00F361EB /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
 		6E997C7D2BA8DA1500F361EB /* CardListAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListAudio.swift; sourceTree = "<group>"; };
 		6E997C7F2BA91EA300F361EB /* DetailAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAudioView.swift; sourceTree = "<group>"; };
+		6E9BD1542BAA255000CA7CBA /* DetailAudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAudioViewModel.swift; sourceTree = "<group>"; };
+		6E9BD1562BAA3E7300CA7CBA /* CardListAudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListAudioViewModel.swift; sourceTree = "<group>"; };
 		6EDCFEFA2BA78DAD007F2A01 /* 01_DragonBall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01_DragonBall.mp3; sourceTree = "<group>"; };
 		6EDCFEFE2BA78F7D007F2A01 /* 02_DragonBallZ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 02_DragonBallZ.mp3; sourceTree = "<group>"; };
 		6EDCFF002BA78FE6007F2A01 /* 03_DragonBallGT.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 03_DragonBallGT.mp3; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				5AEB50162B955492007C51B2 /* PlanetsViewModel.swift */,
 				5AEB501E2B9567BF007C51B2 /* SinglePlanetViewModel.swift */,
 				6E6E167C2B9A66570099F058 /* DbSwiftDataViewModel.swift */,
+				6E9BD1542BAA255000CA7CBA /* DetailAudioViewModel.swift */,
+				6E9BD1562BAA3E7300CA7CBA /* CardListAudioViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -428,10 +434,12 @@
 				5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */,
 				5AEB500F2B95332B007C51B2 /* SingleCharacterDataService.swift in Sources */,
 				5AEB501F2B9567BF007C51B2 /* SinglePlanetViewModel.swift in Sources */,
+				6E9BD1552BAA255000CA7CBA /* DetailAudioViewModel.swift in Sources */,
 				5AEB50022B94FE5F007C51B2 /* AllCharactersDataService.swift in Sources */,
 				5AEB50192B9554B3007C51B2 /* MockPlanetsDataServcice.swift in Sources */,
 				6EDCFF072BA79515007F2A01 /* PlayList.swift in Sources */,
 				5A8ECD0E2B9FCFD70027BAA2 /* SplashScreenView.swift in Sources */,
+				6E9BD1572BAA3E7300CA7CBA /* CardListAudioViewModel.swift in Sources */,
 				6E6E16832B9BB3A70099F058 /* CardView.swift in Sources */,
 				6E583BBB2BA246ED00D1929C /* StyleView.swift in Sources */,
 				6EDCFF092BA7B598007F2A01 /* CardListAudioView.swift in Sources */,

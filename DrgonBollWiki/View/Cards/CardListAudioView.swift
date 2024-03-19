@@ -10,48 +10,28 @@ import AVFAudio
 
 struct CardListAudioView: View {
     
-    @State var player: AVAudioPlayer?
-    @State var viewModel = HomeViewModel()
-    
-    @State private var isModal = false
-    
+    @State private var viewModel = CardListAudioViewModel()
+    @State private var audioL = ""
+    @State private var showModal = false
     var body: some View {
         NavigationStack{
             ZStack{
                 
                 VStack{
                     List {
-                        ForEach(arrayOfSounds, id: \.id) { sound in
-                            HStack{
-                                Text(" \(sound.title)").padding()
-                                    .onTapGesture {
-                                        isModal = true
-                                    }
-                                Spacer()
-                                Button(action: {
-                                    viewModel.isPlaying.toggle()
-                                    
-                                    if  viewModel.isPlaying  {
-                                        viewModel.playAudioMusic(sound.title)
-                                        
-                                    }else {
-                                        viewModel.pauseAudio()
-                                    }
-                                    
-                                }, label: {
-                                    Text( viewModel.isPlaying ? "play" : "Pause")
-                                })
+                        ForEach(viewModel.arrayOfSounds, id: \.self) { sound in
+                            Text(sound.title).onTapGesture {
+                                audioL = sound.title
+                                showModal = true
                             }
-//                            .sheet(isPresented: $isModal, content:{
-//                                
-//                                DetailAudioView(viewModel: viewModel, playList: sound )
-//                            })
                         }
+                        
                     }
                     .listStyle(PlainListStyle())
                 }
-            }.sheet(isPresented: $isModal){
-                
+            }
+            .sheet(isPresented: $showModal){
+                DetailAudioView(title: $audioL)
             }
             .navigationTitle("Lista de reproducciones")
         }
