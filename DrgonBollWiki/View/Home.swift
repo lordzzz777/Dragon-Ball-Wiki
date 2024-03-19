@@ -11,6 +11,7 @@ struct Home: View {
     
     // MARK: - Se intacia SwiftData
     @State var dbSwiftDataModel: [DbSwiftDataModel]
+    @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     
     @State var singleCharacterViewModel: SingleCharacterViewModel = SingleCharacterViewModel()
     @State private var homeViewModel: HomeViewModel = HomeViewModel()
@@ -173,7 +174,13 @@ struct Home: View {
             if showCharacterDetails {
                 CharacterDetailView(showDetails: $showCharacterDetails, animation: animation)
                     .environment(singleCharacterViewModel)
+                    .onDisappear {
+                        favoriteDataBaseViewModel.getFavorites()
+                    }
             }
+        }
+        .task {
+            favoriteDataBaseViewModel.getFavorites()
         }
     }
 }
