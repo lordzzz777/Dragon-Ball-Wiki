@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AllCharactersView: View {
     
+    @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     @Environment(SingleCharacterViewModel.self) var singleCharacterViewModel: SingleCharacterViewModel
     @State var allCharacters: [Character]
     private let itemWidth: CGFloat = 300
@@ -49,6 +50,59 @@ struct AllCharactersView: View {
                                         showDetails = true
                                     }
                                 }
+                                .onLongPressGesture(perform: {
+                                    favoriteDataBaseViewModel.getFavorites()
+                                    isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
+                                })
+                                .contextMenu(ContextMenu(menuItems: {
+                                    Button(action: {
+                                        if isFavorite {
+                                            favoriteDataBaseViewModel.deleteFavoriteWith(id: character.id)
+                                            isFavorite = false
+                                        } else {
+                                            favoriteDataBaseViewModel.saveFavorites(character.id, false)
+                                            isFavorite = true
+                                        }
+                                    }, label: {
+                                        Text(isFavorite ? "Eliminar de favoritos" : "Guardar en favoritos")
+                                        Image(systemName: isFavorite ? "star.slash" : "star.fill")
+                                            .onAppear {
+                                                favoriteDataBaseViewModel.getFavorites()
+                                                isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
+                                                print("Personaje: \(character.id) es favorito: \(isFavorite)")
+                                            }
+                                    })
+                                    
+                                    //                                    Button(action: {
+                                    //                                        withAnimation{
+                                    //                                            modeViewCard = true
+                                    //                                        }
+                                    //                                    }, label: {
+                                    //                                        Text("Personalizar")
+                                    //                                        Image(systemName: "gearshape.fill" )
+                                    //
+                                    //                                    })
+                                    
+                                    Button(action: {
+                                        singleCharacterViewModel.getKiColor(character: character)
+                                        singleCharacterViewModel.selectedCharacter = character
+                                        withAnimation(.spring(response: 0.5, dampingFraction: 1)) {
+                                            showDetails = true
+                                        }
+                                    }, label: {
+                                        Text("Saber Más")
+                                        Image(systemName: "book")
+                                    })
+                                    
+                                    Button(action: {
+                                        // logica
+                                    }, label: {
+                                        Text("Copiar")
+                                        Image(systemName: "doc.on.doc")
+                                    })
+                                    
+                                })
+                                )
                         }
                     }
                     .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
