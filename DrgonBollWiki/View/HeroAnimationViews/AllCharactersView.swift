@@ -50,23 +50,37 @@ struct AllCharactersView: View {
                                         showDetails = true
                                     }
                                 }
+                                .onLongPressGesture(perform: {
+                                    isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
+                                })
                                 .contextMenu(ContextMenu(menuItems: {
                                     Button(action: {
-                                        favoriteDataBaseViewModel.saveFavorites(character.id, false)
+                                        if isFavorite {
+                                            favoriteDataBaseViewModel.deleteFavoriteWith(id: character.id)
+                                            isFavorite = false
+                                        } else {
+                                            favoriteDataBaseViewModel.saveFavorites(character.id, false)
+                                            isFavorite = true
+                                        }
                                     }, label: {
-                                        Text("Guardar en favoritos")
-                                        Image(systemName: "star.fill")
+                                        Text(isFavorite ? "Eliminar de favoritos" : "Guardar en favoritos")
+                                        Image(systemName: isFavorite ? "star.slash" : "star.fill")
+                                            .onAppear {
+                                                favoriteDataBaseViewModel.getFavorites()
+                                                isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
+                                                print("Personaje: \(character.id) es favorito: \(isFavorite)")
+                                            }
                                     })
                                     
-//                                    Button(action: {
-//                                        withAnimation{
-//                                            modeViewCard = true
-//                                        }
-//                                    }, label: {
-//                                        Text("Personalizar")
-//                                        Image(systemName: "gearshape.fill" )
-//                                        
-//                                    })
+                                    //                                    Button(action: {
+                                    //                                        withAnimation{
+                                    //                                            modeViewCard = true
+                                    //                                        }
+                                    //                                    }, label: {
+                                    //                                        Text("Personalizar")
+                                    //                                        Image(systemName: "gearshape.fill" )
+                                    //
+                                    //                                    })
                                     
                                     Button(action: {
                                         singleCharacterViewModel.getKiColor(character: character)
@@ -86,7 +100,8 @@ struct AllCharactersView: View {
                                         Image(systemName: "doc.on.doc")
                                     })
                                     
-                                }))
+                                })
+                                )
                         }
                     }
                     .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
