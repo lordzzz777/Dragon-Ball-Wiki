@@ -51,6 +51,7 @@ struct AllCharactersView: View {
                                     }
                                 }
                                 .onLongPressGesture(perform: {
+                                    favoriteDataBaseViewModel.getFavorites()
                                     isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
                                 })
                                 .contextMenu(ContextMenu(menuItems: {
