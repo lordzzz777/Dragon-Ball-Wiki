@@ -9,7 +9,11 @@ import SwiftUI
 import SwiftData
 
 @Observable
+<<<<<<< HEAD
 final class DbSwiftDataViewModel {
+=======
+final class DbSwiftDataViewModel{
+>>>>>>> refs/remotes/origin/main
     static let shared = DbSwiftDataViewModel()
     let container = try! ModelContainer(for: DbSwiftDataModel.self)
     
