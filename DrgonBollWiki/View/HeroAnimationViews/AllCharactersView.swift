@@ -124,7 +124,14 @@ struct AllCharactersView: View {
                                 
                                 Divider()
                                 
-                                TextField("", text: $searchedCharacterName)
+                                ZStack(alignment: .leading) {
+                                    TextField("", text: $searchedCharacterName)
+                                    
+                                    if searchedCharacterName.isEmpty {
+                                        Text("Busca un personaje")
+                                            .foregroundStyle(Color.secondary)
+                                    }
+                                }
                                 
                                 Image(systemName: "xmark")
                                     .foregroundStyle(Color.white)
