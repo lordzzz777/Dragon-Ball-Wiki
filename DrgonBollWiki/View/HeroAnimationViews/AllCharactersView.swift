@@ -12,6 +12,7 @@ struct AllCharactersView: View {
     @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     @Environment(SingleCharacterViewModel.self) var singleCharacterViewModel: SingleCharacterViewModel
     @Environment(HomeViewModel.self) var homeViewModel: HomeViewModel
+    @Environment(\.colorScheme) var colorScheme
 //    @State var allCharacters: [Character]
     private let itemWidth: CGFloat = 300
     
@@ -222,7 +223,7 @@ struct AllCharactersView: View {
                         }
                         .matchedGeometryEffect(id: "searchbar", in: searchAnimation)
                         .frame(maxWidth: .infinity, maxHeight: 40)
-                        .shadow(color: .black, radius: 10)
+                        .shadow(color: colorScheme == .light ? .black.opacity(0.5) : .black, radius: 10)
                         .padding(.horizontal, 10)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
@@ -237,7 +238,7 @@ struct AllCharactersView: View {
                         }
                         .matchedGeometryEffect(id: "searchbar", in: searchAnimation)
                         .frame(width: 50, height: 50)
-                        .shadow(color: .black, radius: 10)
+                        .shadow(color: colorScheme == .light ? .black.opacity(0.5) : .black, radius: 10)
                         .onTapGesture {
                             withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
                                 searchButtonAnimation = true
@@ -251,12 +252,19 @@ struct AllCharactersView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
         .background {
-            Image("Dragon")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 600, height: 800)
-                .opacity(0.6)
-                .ignoresSafeArea()
+            ZStack {
+                if colorScheme == .light {
+                    LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        .edgesIgnoringSafeArea(.all)
+                }
+                
+                Image("Dragon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 600, height: 800)
+                    .opacity(0.6)
+                    .ignoresSafeArea()
+            }
         }
         .task {
             await homeViewModel.getAllCharacters()
