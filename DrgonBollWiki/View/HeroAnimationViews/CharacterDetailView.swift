@@ -86,7 +86,7 @@ struct CharacterDetailView: View {
                             VStack(alignment: .trailing) {
                                 Text("\(selectedCharacter.race)")
                                     .font(.custom("SaiyanSans", size: 25))
-                                    .foregroundStyle(characterKiColor)
+                                    .foregroundStyle(singleCharacterViewModel.selectedCharacterKiColor)
                                 
                                 Text("\(selectedCharacter.affiliation)")
                                     .font(.custom("SaiyanSans", size: 25))
