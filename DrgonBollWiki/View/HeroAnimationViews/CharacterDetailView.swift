@@ -179,7 +179,7 @@ struct CharacterDetailView: View {
                                     .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
                                     .padding(.top, 10)
                                 }
-                                }
+                            }
                         }
                     }
                 }

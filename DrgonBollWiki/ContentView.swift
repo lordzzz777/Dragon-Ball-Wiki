@@ -23,7 +23,7 @@ struct ContentView: View {
 //                .animation(.easeIn, value: 0.8)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            Home(dbSwiftDataModel: [])
+            Home()
                 .offset(x: 0, y: animation ? 0 : 1400)
 //                .cornerRadius(animation ? 0 : 300)
 //                .scaleEffect(animation ? 1 : 0)

@@ -10,7 +10,6 @@ import SwiftUI
 struct Home: View {
     
     // MARK: - Se intacia SwiftData
-    @State var dbSwiftDataModel: [DbSwiftDataModel]
     @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     
     @State var singleCharacterViewModel: SingleCharacterViewModel = SingleCharacterViewModel()
@@ -22,7 +21,7 @@ struct Home: View {
     @State private var isTribute = false
     
     // MARK: - Controla que vista se muestra
-    @State private var selectedView = SelectedView.carousel
+    @State private var selectedView = SelectedView.characters
     
     @State private var offset: CGFloat = 0
     @State private var scrollSpeed: CGFloat = 0
@@ -32,40 +31,34 @@ struct Home: View {
     @State var characterKiColor: Color = .yellow
     
     enum SelectedView {
-        case carousel, cards, heroAnimation
+        case characters, favoriteCharacters, planets
     }
-    
-    
-    init(dbSwiftDataModel: [DbSwiftDataModel]) {
-        _dbSwiftDataModel = State(initialValue: dbSwiftDataModel)
-    }
-    
     
     let defaultBackgroundImage = "Dragon"
     
     var body: some View {
         NavigationStack{
             ZStack{
-                if selectedView != .heroAnimation {
-                    LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                        .edgesIgnoringSafeArea(.all)
-                    Image("Dragon").resizable()
-                        .scaledToFit()
-                        .frame(width: 600, height: 800)
-                        .opacity(0.6)
-                }
+//                if selectedView != .planets {
+//                    LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+//                        .edgesIgnoringSafeArea(.all)
+//                    Image("Dragon").resizable()
+//                        .scaledToFit()
+//                        .frame(width: 600, height: 800)
+//                        .opacity(0.6)
+//                }
                 
                 switch selectedView {
-                case .carousel:
-                    CardViewCarousel(dbSwiftDataModel: [])
-                case .cards:
-                    CardView(dbSwiftDataModel: [])
-                    .padding(.horizontal, 105)
-                case .heroAnimation:
-                    AllCharactersView(allCharacters: homeViewModel.allCharacters?.items ?? [], animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, selectedKiColor: $characterKiColor)
+                case .characters:
+                    AllCharactersView(animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, selectedKiColor: $characterKiColor)
                         .environment(singleCharacterViewModel)
                         .environment(homeViewModel)
+                case .favoriteCharacters:
+                    Text("En construcción")
+                case .planets:
+                    Text("En construcción")
                 }
+                
                 
                 VStack{
                     Spacer()
@@ -84,69 +77,43 @@ struct Home: View {
                 ToolbarItem(placement: .automatic) {
                     Menu{
                         Button(action: {
-                            selectedView = .carousel
+                            selectedView = .characters
                         }) {
                           //  Image(systemName: (isShow == 1) ? "" : "checkmark")
-                            Text("Vista de carrusel")
-                            Image( "Boll7")
+                            Text("Personajes")
+                            Image("GokuPeque")
                                 .resizable()
                                 .frame(width: 10, height: 10)
                         }
-                        .disabled(selectedView == .carousel)
+                        .disabled(selectedView == .characters)
                         
                         Button {
-                            selectedView = .heroAnimation
+                            selectedView = .planets
                         } label: {
-                            Text("Hero animation")
+                            Text("Planetas")
+                            Image("planeta")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 1, height: 1)
                         }
-                        .disabled(selectedView == .heroAnimation)
+                        .disabled(selectedView == .planets)
                         
                         Button(action: {
-                            selectedView = .cards
+                            selectedView = .favoriteCharacters
                         }) {
-                           // Image(systemName: (isShow == 2) ? "" : "checkmark")
-                            Text("Vista de cartas")
+                            Text("Personajes favoritos")
                             
-                            Image( "Dragon")
+                            Image("Boll7")
                                 .resizable()
                                 .frame(width: 10, height: 10)
                         }
-                        .disabled(selectedView == .cards)
-                        
-                        Button(action: {
-                            //Acer algo
-                        }) {
-                            
-                            //  Image(systemName: "person")
-                            Text("Items")
-                            Image( "Mutenroy")
-                                .resizable()
-                                .frame(width: 10, height: 10)
-                        }
-                        
-                        Button(action: {
-                            // Acción del botón de la barra de herramientas
-                            
-                        }) {
-                            Text("Imet 3")
-                            Image( "GokuPeque")
-                                .resizable()
-                                .frame(width: 10, height: 10)
-                        }
-                        
+                        .disabled(selectedView == .favoriteCharacters)
                     } label: {
-                        // Logica que cambia el color de boton, segun seleccion 
-                        if selectedView == .heroAnimation {
-                            Image("logoGoku").resizable()
-                                .renderingMode(.template)
-                                .foregroundColor(.white).shadow(color:.blue, radius: 10)
-                                .frame(width: 40, height: 50)
-                                
-                        }else{
-                            Image("logoGoku").resizable()
-                                .frame(width: 40, height: 50)
-                                .shadow(color: .yellow, radius: 10)
-                        }
+                        Image("logoGoku")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(Color.primary)
+                            .frame(width: 40, height: 50)
                     }
                 }
                 ToolbarItem(placement: .navigation) {
@@ -163,7 +130,10 @@ struct Home: View {
                         }
                         
                     } label: {
-                        Image(systemName: "info.circle").foregroundStyle(Color.black).bold().font(.custom("", size: 20))
+                        Image(systemName: "info.circle")
+                            .foregroundStyle(Color.primary)
+                            .bold()
+                            .font(.title2)
                     }
                 }
             }
@@ -180,14 +150,11 @@ struct Home: View {
                     }
             }
         }
-        .task {
-            favoriteDataBaseViewModel.getFavorites()
-        }
     }
 }
 
 #Preview {
     //para mostrar la data en el simulador, llamar a los Mocks. De esta forma no se está llamando todo el dato a la API y la carga de datos es más rápida.
     //nil nos muestra los datos que ya se encuentran hardcodeados en el Mock, pero si no queremos que sea nil, y queremos pasar nuestros propios valores para probar, podemos hacerlo
-    Home(dbSwiftDataModel: [])
+    Home()
 }
