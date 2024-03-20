@@ -64,6 +64,7 @@ struct Home: View {
                 case .heroAnimation:
                     AllCharactersView(allCharacters: homeViewModel.allCharacters?.items ?? [], animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, selectedKiColor: $characterKiColor)
                         .environment(singleCharacterViewModel)
+                        .environment(homeViewModel)
                 }
                 
                 VStack{
