@@ -28,9 +28,9 @@ struct CharacterDetailView: View {
     var body: some View {
         ZStack {
             ZStack {
-                RoundedRectangle(cornerRadius: 0)
-                    .fill(.black)
-                    .opacity(0.45)
+//                RoundedRectangle(cornerRadius: 0)
+//                    .fill(.black)
+//                    .opacity(0.45)
                 
                 RoundedRectangle(cornerRadius: 0)
                     .fill(.ultraThinMaterial)
@@ -86,7 +86,7 @@ struct CharacterDetailView: View {
                             VStack(alignment: .trailing) {
                                 Text("\(selectedCharacter.race)")
                                     .font(.custom("SaiyanSans", size: 25))
-                                    .foregroundStyle(characterKiColor)
+                                    .foregroundStyle(singleCharacterViewModel.selectedCharacterKiColor)
                                 
                                 Text("\(selectedCharacter.affiliation)")
                                     .font(.custom("SaiyanSans", size: 25))
@@ -154,26 +154,32 @@ struct CharacterDetailView: View {
                             }
                             
                             if let selectedTransformation = character.transformations.first(where: { $0.id == idTranformation }) {
-                                    if idTranformation == 4 {
-                                        Image("SuperShayan4")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 300, height: 450)
-                                            .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
-                                            .padding(.top, 10)
-                                    } else {
-                                        AsyncImage(url: URL(string: selectedTransformation.image)) { image in
-                                            image
-                                                .resizable()
-                                                .scaledToFit()
-                                        } placeholder: {
-                                            ProgressView()
-                                        }
-                                        .frame(height: 450)
+                                if idTranformation == 4 && character.id == 1 {
+                                    Image("SuperShayan4")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 300, height: 450)
                                         .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
                                         .padding(.top, 10)
+                                } else if character.id == 16 && idTranformation == 27 {
+                                    Image("trunksssj2")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 500)
+                                        .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
+                                } else {
+                                    AsyncImage(url: URL(string: selectedTransformation.image)) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                    } placeholder: {
+                                        ProgressView()
                                     }
+                                    .frame(height: 450)
+                                    .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
+                                    .padding(.top, 10)
                                 }
+                            }
                         }
                     }
                 }
