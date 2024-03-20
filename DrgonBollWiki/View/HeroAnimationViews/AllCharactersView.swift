@@ -20,20 +20,50 @@ struct AllCharactersView: View {
     @Binding var selectedKiColor: Color
     @State private var isFavorite: Bool = false
     
+    //Search button
+    @Namespace var searchAnimation
+    @State private var searchButtonAnimation: Bool = false
+    @State private var searchedCharacterName: String = ""
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack {
-                VStack {
-                    
-                    Text("Personajes")
-                        .font(.custom("SaiyanSans", size: 60))
-                        .foregroundStyle(Color.red)
-                        .shadow(color: .black, radius: 0, x: 1, y: 1)
-                        .shadow(color: .black, radius: 0, x: -1, y: -1)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 10)
-                    
-                    Spacer()
+                if !searchButtonAnimation {
+                    VStack {
+                        
+                        Text("Personajes")
+                            .font(.custom("SaiyanSans", size: 60))
+                            .foregroundStyle(Color.red)
+                            .shadow(color: .black, radius: 0, x: 1, y: 1)
+                            .shadow(color: .black, radius: 0, x: -1, y: -1)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 10)
+                        
+                        Spacer()
+                    }
+                } else {
+                    VStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(.ultraThinMaterial)
+                            
+                            HStack {
+                                Image(systemName: "magnifyingglass")
+                                    .foregroundStyle(Color.white)
+                                
+                                TextField("", text: $searchedCharacterName)
+                                
+                                Image(systemName: "xmark")
+                                    .foregroundStyle(Color.white)
+                                    .onTapGesture {
+                                        searchButtonAnimation = false
+                                    }
+                            }
+                            .padding(.horizontal, 10)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: 40)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 }
                 
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -112,6 +142,26 @@ struct AllCharactersView: View {
                 .scrollTargetBehavior(.viewAligned)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
+                
+                VStack {
+                    Button {
+                        withAnimation {
+                            searchButtonAnimation = true
+                        }
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(.ultraThinMaterial)
+                            
+                            Image(systemName: "magnifyingglass")
+                                .foregroundStyle(Color.white)
+                        }
+                        .matchedGeometryEffect(id: "searchbar", in: searchAnimation)
+                        .frame(width: 40, height: 40)
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                .padding()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
