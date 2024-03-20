@@ -80,16 +80,6 @@ struct AllCharactersView: View {
                                             }
                                     })
                                     
-                                    //                                    Button(action: {
-                                    //                                        withAnimation{
-                                    //                                            modeViewCard = true
-                                    //                                        }
-                                    //                                    }, label: {
-                                    //                                        Text("Personalizar")
-                                    //                                        Image(systemName: "gearshape.fill" )
-                                    //
-                                    //                                    })
-                                    
                                     Button(action: {
                                         singleCharacterViewModel.getKiColor(character: character)
                                         singleCharacterViewModel.selectedCharacter = character
