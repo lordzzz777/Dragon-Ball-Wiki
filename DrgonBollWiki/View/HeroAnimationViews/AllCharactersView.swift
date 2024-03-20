@@ -12,7 +12,8 @@ struct AllCharactersView: View {
     @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     @Environment(SingleCharacterViewModel.self) var singleCharacterViewModel: SingleCharacterViewModel
     @Environment(HomeViewModel.self) var homeViewModel: HomeViewModel
-    @State var allCharacters: [Character]
+    @Environment(\.colorScheme) var colorScheme
+//    @State var allCharacters: [Character]
     private let itemWidth: CGFloat = 300
     
     var animation: Namespace.ID
@@ -44,9 +45,9 @@ struct AllCharactersView: View {
                     }
                 }
                 
-                if searchedCharacterName.isEmpty {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        if let allCharacters = homeViewModel.allCharacters?.items {
                             ForEach(allCharacters, id: \.id) { character in
                                 CharacterCardView(character: character, characterKiColor: selectedKiColor, animation: animation)
                                     .environment(singleCharacterViewModel)
@@ -104,14 +105,17 @@ struct AllCharactersView: View {
                                     )
                             }
                         }
-                        .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
-                        .scrollTargetLayout()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
-                    .scrollTargetBehavior(.viewAligned)
+                    .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
+                    .scrollTargetLayout()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .ignoresSafeArea()
-                } else {
+                }
+                .scrollTargetBehavior(.viewAligned)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
+                .opacity(searchedCharacterName.isEmpty ? 1 : 0)
+                
+                if !searchedCharacterName.isEmpty {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
                             ForEach(homeViewModel.searchedCharacters, id: \.id) { character in
@@ -219,7 +223,7 @@ struct AllCharactersView: View {
                         }
                         .matchedGeometryEffect(id: "searchbar", in: searchAnimation)
                         .frame(maxWidth: .infinity, maxHeight: 40)
-                        .shadow(color: .black, radius: 10)
+                        .shadow(color: colorScheme == .light ? .black.opacity(0.5) : .black, radius: 10)
                         .padding(.horizontal, 10)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
@@ -234,7 +238,7 @@ struct AllCharactersView: View {
                         }
                         .matchedGeometryEffect(id: "searchbar", in: searchAnimation)
                         .frame(width: 50, height: 50)
-                        .shadow(color: .black, radius: 10)
+                        .shadow(color: colorScheme == .light ? .black.opacity(0.5) : .black, radius: 10)
                         .onTapGesture {
                             withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
                                 searchButtonAnimation = true
@@ -248,12 +252,23 @@ struct AllCharactersView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
         .background {
-            Image("Dragon")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 600, height: 800)
-                .opacity(0.6)
-                .ignoresSafeArea()
+            ZStack {
+                if colorScheme == .light {
+                    LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        .edgesIgnoringSafeArea(.all)
+                }
+                
+                Image("Dragon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 600, height: 800)
+                    .opacity(0.6)
+                    .ignoresSafeArea()
+            }
+        }
+        .task {
+            await homeViewModel.getAllCharacters()
+            favoriteDataBaseViewModel.getFavorites()
         }
     }
 }
@@ -264,7 +279,7 @@ struct AllCharactersView: View {
     
     @State var selectedCharacter: Character = Character(id: 1, name: "Goku", ki: "60.000.000", maxKi: "90 Septillion", race: "Evil", gender: "Male", description: "El protagonista de la serie, conocido por su gran poder y personalidad amigable. Originalmente enviado a la Tierra como un infante volador con la misión de conquistarla. Sin embargo, el caer por un barranco le proporcionó un brutal golpe que si bien casi lo mata, este alteró su memoria y anuló todos los instintos violentos de su especie, lo que lo hizo crecer con un corazón puro y bondadoso, pero conservando todos los poderes de su raza. No obstante, en la nueva continuidad de Dragon Ball se establece que él fue enviado por sus padres a la Tierra con el objetivo de sobrevivir a toda costa a la destrucción de su planeta por parte de Freeza. Más tarde, Kakarot, ahora conocido como Son Goku, se convertiría en el príncipe consorte del monte Fry-pan y líder de los Guerreros Z, así como el mayor defensor de la Tierra y del Universo 7, logrando mantenerlos a salvo de la destrucción en innumerables ocasiones, a pesar de no considerarse a sí mismo como un héroe o salvador.", image: "https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044374/hlpy6q013uw3itl5jzic.webp", affiliation: "Z Fighter", deletedAt: nil)
     @Namespace var animation
-    return AllCharactersView(allCharacters: [Character(id: 1, name: "Goku", ki: "60.000.000", maxKi: "90 Septillion", race: "Evil", gender: "Male", description: "El protagonista de la serie, conocido por su gran poder y personalidad amigable. Originalmente enviado a la Tierra como un infante volador con la misión de conquistarla. Sin embargo, el caer por un barranco le proporcionó un brutal golpe que si bien casi lo mata, este alteró su memoria y anuló todos los instintos violentos de su especie, lo que lo hizo crecer con un corazón puro y bondadoso, pero conservando todos los poderes de su raza. No obstante, en la nueva continuidad de Dragon Ball se establece que él fue enviado por sus padres a la Tierra con el objetivo de sobrevivir a toda costa a la destrucción de su planeta por parte de Freeza. Más tarde, Kakarot, ahora conocido como Son Goku, se convertiría en el príncipe consorte del monte Fry-pan y líder de los Guerreros Z, así como el mayor defensor de la Tierra y del Universo 7, logrando mantenerlos a salvo de la destrucción en innumerables ocasiones, a pesar de no considerarse a sí mismo como un héroe o salvador.", image: "https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044374/hlpy6q013uw3itl5jzic.webp", affiliation: "Z Fighter", deletedAt: nil), Character(id: 2, name: "Goku", ki: "60.000.000", maxKi: "90 Septillion", race: "Evil", gender: "Male", description: "El protagonista de la serie, conocido por su gran poder y personalidad amigable. Originalmente enviado a la Tierra como un infante volador con la misión de conquistarla. Sin embargo, el caer por un barranco le proporcionó un brutal golpe que si bien casi lo mata, este alteró su memoria y anuló todos los instintos violentos de su especie, lo que lo hizo crecer con un corazón puro y bondadoso, pero conservando todos los poderes de su raza. No obstante, en la nueva continuidad de Dragon Ball se establece que él fue enviado por sus padres a la Tierra con el objetivo de sobrevivir a toda costa a la destrucción de su planeta por parte de Freeza. Más tarde, Kakarot, ahora conocido como Son Goku, se convertiría en el príncipe consorte del monte Fry-pan y líder de los Guerreros Z, así como el mayor defensor de la Tierra y del Universo 7, logrando mantenerlos a salvo de la destrucción en innumerables ocasiones, a pesar de no considerarse a sí mismo como un héroe o salvador.", image: "https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044374/hlpy6q013uw3itl5jzic.webp", affiliation: "Z Fighter", deletedAt: nil), Character(id: 3, name: "Goku", ki: "60.000.000", maxKi: "90 Septillion", race: "Evil", gender: "Male", description: "El protagonista de la serie, conocido por su gran poder y personalidad amigable. Originalmente enviado a la Tierra como un infante volador con la misión de conquistarla. Sin embargo, el caer por un barranco le proporcionó un brutal golpe que si bien casi lo mata, este alteró su memoria y anuló todos los instintos violentos de su especie, lo que lo hizo crecer con un corazón puro y bondadoso, pero conservando todos los poderes de su raza. No obstante, en la nueva continuidad de Dragon Ball se establece que él fue enviado por sus padres a la Tierra con el objetivo de sobrevivir a toda costa a la destrucción de su planeta por parte de Freeza. Más tarde, Kakarot, ahora conocido como Son Goku, se convertiría en el príncipe consorte del monte Fry-pan y líder de los Guerreros Z, así como el mayor defensor de la Tierra y del Universo 7, logrando mantenerlos a salvo de la destrucción en innumerables ocasiones, a pesar de no considerarse a sí mismo como un héroe o salvador.", image: "https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044374/hlpy6q013uw3itl5jzic.webp", affiliation: "Z Fighter", deletedAt: nil), Character(id: 4, name: "Goku", ki: "60.000.000", maxKi: "90 Septillion", race: "Evil", gender: "Male", description: "El protagonista de la serie, conocido por su gran poder y personalidad amigable. Originalmente enviado a la Tierra como un infante volador con la misión de conquistarla. Sin embargo, el caer por un barranco le proporcionó un brutal golpe que si bien casi lo mata, este alteró su memoria y anuló todos los instintos violentos de su especie, lo que lo hizo crecer con un corazón puro y bondadoso, pero conservando todos los poderes de su raza. No obstante, en la nueva continuidad de Dragon Ball se establece que él fue enviado por sus padres a la Tierra con el objetivo de sobrevivir a toda costa a la destrucción de su planeta por parte de Freeza. Más tarde, Kakarot, ahora conocido como Son Goku, se convertiría en el príncipe consorte del monte Fry-pan y líder de los Guerreros Z, así como el mayor defensor de la Tierra y del Universo 7, logrando mantenerlos a salvo de la destrucción en innumerables ocasiones, a pesar de no considerarse a sí mismo como un héroe o salvador.", image: "https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044374/hlpy6q013uw3itl5jzic.webp", affiliation: "Z Fighter", deletedAt: nil)], animation: animation, showDetails: .constant(false), selectedCharacter: $selectedCharacter, selectedKiColor: .constant(.yellow))
+    return AllCharactersView(animation: animation, showDetails: .constant(false), selectedCharacter: $selectedCharacter, selectedKiColor: .constant(.yellow))
         .environment(singleCharacterViewModel)
         .environment(homeViewModel)
         .preferredColorScheme(.dark)
