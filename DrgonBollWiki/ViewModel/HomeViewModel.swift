@@ -58,7 +58,7 @@ class HomeViewModel {
     
     ///Permite buscar un personaje por el nombre y lo guarda en la propiedad `searchedCharacters` qué es un array de Character del la clase `HomeViewModel`
     func searchCharacter(characterName name: String) {
-        guard let matchedCharacters = allCharacters?.items.filter({ $0.name == name.capitalized }) else {
+        guard let matchedCharacters = allCharacters?.items.filter({ $0.name.contains(name) }) else {
             return
         }
         

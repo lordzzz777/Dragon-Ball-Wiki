@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "DragonBallGT_CD.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

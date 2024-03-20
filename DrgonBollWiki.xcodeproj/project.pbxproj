@@ -10,9 +10,9 @@
 		5A7979B42BA3DD8F009A12EA /* FavoriteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7979B32BA3DD8F009A12EA /* FavoriteButtonView.swift */; };
 		5A8ECD0E2B9FCFD70027BAA2 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */; };
 		5A8ECD1E2BA0EB060027BAA2 /* SaiyanSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A8ECD1D2BA0EB060027BAA2 /* SaiyanSans.ttf */; };
-		5AA3A1882BA1EBE500B3BDB9 /* AllCharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3A1872BA1EBE500B3BDB9 /* AllCharactersView.swift */; };
 		5AA3A18A2BA1EC0A00B3BDB9 /* CharacterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3A1892BA1EC0A00B3BDB9 /* CharacterCardView.swift */; };
 		5AA3A18C2BA1EC3D00B3BDB9 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3A18B2BA1EC3D00B3BDB9 /* CharacterDetailView.swift */; };
+		5ABF48FF2BAA721900E984AB /* AllCharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF48FE2BAA721900E984AB /* AllCharactersView.swift */; };
 		5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FEF2B94E113007C51B2 /* CharactersModel.swift */; };
 		5AEB4FF22B94E159007C51B2 /* SingleCharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FF12B94E159007C51B2 /* SingleCharacterModel.swift */; };
 		5AEB4FF42B94E19B007C51B2 /* PlanetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB4FF32B94E19B007C51B2 /* PlanetsModel.swift */; };
@@ -71,9 +71,9 @@
 		5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		5A8ECD1D2BA0EB060027BAA2 /* SaiyanSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SaiyanSans.ttf; sourceTree = "<group>"; };
 		5A8ECD1F2BA0ED430027BAA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AA3A1872BA1EBE500B3BDB9 /* AllCharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCharactersView.swift; sourceTree = "<group>"; };
 		5AA3A1892BA1EC0A00B3BDB9 /* CharacterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCardView.swift; sourceTree = "<group>"; };
 		5AA3A18B2BA1EC3D00B3BDB9 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
+		5ABF48FE2BAA721900E984AB /* AllCharactersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCharactersView.swift; sourceTree = "<group>"; };
 		5AEB4FEF2B94E113007C51B2 /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 		5AEB4FF12B94E159007C51B2 /* SingleCharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCharacterModel.swift; sourceTree = "<group>"; };
 		5AEB4FF32B94E19B007C51B2 /* PlanetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsModel.swift; sourceTree = "<group>"; };
@@ -143,8 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				5AA3A18B2BA1EC3D00B3BDB9 /* CharacterDetailView.swift */,
-				5AA3A1872BA1EBE500B3BDB9 /* AllCharactersView.swift */,
 				5AA3A1892BA1EC0A00B3BDB9 /* CharacterCardView.swift */,
+				5ABF48FE2BAA721900E984AB /* AllCharactersView.swift */,
 				5A7979B32BA3DD8F009A12EA /* FavoriteButtonView.swift */,
 			);
 			path = HeroAnimationViews;
@@ -429,6 +429,7 @@
 				5AEB500A2B952A79007C51B2 /* MockAllCharactersDataService.swift in Sources */,
 				5AEB50152B954860007C51B2 /* PlanetsDataService.swift in Sources */,
 				6E95BA512B9E7CBA0030D28C /* CardViewCarousel.swift in Sources */,
+				5ABF48FF2BAA721900E984AB /* AllCharactersView.swift in Sources */,
 				5AA3A18C2BA1EC3D00B3BDB9 /* CharacterDetailView.swift in Sources */,
 				6E2E177E2B9247B500C8AB2E /* Home.swift in Sources */,
 				5AEB4FF02B94E113007C51B2 /* CharactersModel.swift in Sources */,
@@ -445,7 +446,6 @@
 				6EDCFF092BA7B598007F2A01 /* CardListAudioView.swift in Sources */,
 				6E6E167B2B9A63CB0099F058 /* DbSwiftDataModel.swift in Sources */,
 				6E0B84A92BA1346F00AB6366 /* Card2.swift in Sources */,
-				5AA3A1882BA1EBE500B3BDB9 /* AllCharactersView.swift in Sources */,
 				5AEB501D2B9565D2007C51B2 /* MockSinglePlanetDataService.swift in Sources */,
 				5AEB4FF92B94E2DC007C51B2 /* ParallaxHeder.swift in Sources */,
 				6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */,

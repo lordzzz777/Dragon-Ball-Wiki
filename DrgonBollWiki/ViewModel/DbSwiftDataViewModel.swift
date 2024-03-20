@@ -7,10 +7,9 @@
 
 import SwiftUI
 import SwiftData
-import Observation
 
 @Observable
-final class DbSwiftDataViewModel{
+final class DbSwiftDataViewModel {
     static let shared = DbSwiftDataViewModel()
     let container = try! ModelContainer(for: DbSwiftDataModel.self)
     
