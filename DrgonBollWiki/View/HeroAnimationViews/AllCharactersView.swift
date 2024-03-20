@@ -44,74 +44,75 @@ struct AllCharactersView: View {
                     }
                 }
                 
-                if searchedCharacterName.isEmpty {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            ForEach(allCharacters, id: \.id) { character in
-                                CharacterCardView(character: character, characterKiColor: selectedKiColor, animation: animation)
-                                    .environment(singleCharacterViewModel)
-                                    .frame(width: itemWidth)
-                                    .opacity(showDetails ? 0 : 1)
-                                    .onTapGesture {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(allCharacters, id: \.id) { character in
+                            CharacterCardView(character: character, characterKiColor: selectedKiColor, animation: animation)
+                                .environment(singleCharacterViewModel)
+                                .frame(width: itemWidth)
+                                .opacity(showDetails ? 0 : 1)
+                                .onTapGesture {
+                                    singleCharacterViewModel.getKiColor(character: character)
+                                    singleCharacterViewModel.selectedCharacter = character
+                                    withAnimation(.spring(response: 0.5, dampingFraction: 1)) {
+                                        showDetails = true
+                                    }
+                                }
+                                .onLongPressGesture(perform: {
+                                    favoriteDataBaseViewModel.getFavorites()
+                                    isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
+                                })
+                                .contextMenu(ContextMenu(menuItems: {
+                                    Button(action: {
+                                        if isFavorite {
+                                            favoriteDataBaseViewModel.deleteFavoriteWith(id: character.id)
+                                            isFavorite = false
+                                        } else {
+                                            favoriteDataBaseViewModel.saveFavorites(character.id, false)
+                                            isFavorite = true
+                                        }
+                                    }, label: {
+                                        Text(isFavorite ? "Eliminar de favoritos" : "Guardar en favoritos")
+                                        Image(systemName: isFavorite ? "star.slash" : "star.fill")
+                                            .onAppear {
+                                                favoriteDataBaseViewModel.getFavorites()
+                                                isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
+                                                print("Personaje: \(character.id) es favorito: \(isFavorite)")
+                                            }
+                                    })
+                                    
+                                    Button(action: {
                                         singleCharacterViewModel.getKiColor(character: character)
                                         singleCharacterViewModel.selectedCharacter = character
                                         withAnimation(.spring(response: 0.5, dampingFraction: 1)) {
                                             showDetails = true
                                         }
-                                    }
-                                    .onLongPressGesture(perform: {
-                                        favoriteDataBaseViewModel.getFavorites()
-                                        isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
+                                    }, label: {
+                                        Text("Saber Más")
+                                        Image(systemName: "book")
                                     })
-                                    .contextMenu(ContextMenu(menuItems: {
-                                        Button(action: {
-                                            if isFavorite {
-                                                favoriteDataBaseViewModel.deleteFavoriteWith(id: character.id)
-                                                isFavorite = false
-                                            } else {
-                                                favoriteDataBaseViewModel.saveFavorites(character.id, false)
-                                                isFavorite = true
-                                            }
-                                        }, label: {
-                                            Text(isFavorite ? "Eliminar de favoritos" : "Guardar en favoritos")
-                                            Image(systemName: isFavorite ? "star.slash" : "star.fill")
-                                                .onAppear {
-                                                    favoriteDataBaseViewModel.getFavorites()
-                                                    isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
-                                                    print("Personaje: \(character.id) es favorito: \(isFavorite)")
-                                                }
-                                        })
-                                        
-                                        Button(action: {
-                                            singleCharacterViewModel.getKiColor(character: character)
-                                            singleCharacterViewModel.selectedCharacter = character
-                                            withAnimation(.spring(response: 0.5, dampingFraction: 1)) {
-                                                showDetails = true
-                                            }
-                                        }, label: {
-                                            Text("Saber Más")
-                                            Image(systemName: "book")
-                                        })
-                                        
-                                        Button(action: {
-                                            // logica
-                                        }, label: {
-                                            Text("Copiar")
-                                            Image(systemName: "doc.on.doc")
-                                        })
-                                        
+                                    
+                                    Button(action: {
+                                        // logica
+                                    }, label: {
+                                        Text("Copiar")
+                                        Image(systemName: "doc.on.doc")
                                     })
-                                    )
-                            }
+                                    
+                                })
+                                )
                         }
-                        .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
-                        .scrollTargetLayout()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
-                    .scrollTargetBehavior(.viewAligned)
+                    .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
+                    .scrollTargetLayout()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .ignoresSafeArea()
-                } else {
+                }
+                .scrollTargetBehavior(.viewAligned)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
+                .opacity(searchedCharacterName.isEmpty ? 1 : 0)
+                
+                if !searchedCharacterName.isEmpty {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
                             ForEach(homeViewModel.searchedCharacters, id: \.id) { character in
