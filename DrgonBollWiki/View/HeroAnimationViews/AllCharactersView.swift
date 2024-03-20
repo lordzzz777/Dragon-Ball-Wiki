@@ -41,29 +41,6 @@ struct AllCharactersView: View {
                         
                         Spacer()
                     }
-                } else {
-                    VStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(.ultraThinMaterial)
-                            
-                            HStack {
-                                Image(systemName: "magnifyingglass")
-                                    .foregroundStyle(Color.white)
-                                
-                                TextField("", text: $searchedCharacterName)
-                                
-                                Image(systemName: "xmark")
-                                    .foregroundStyle(Color.white)
-                                    .onTapGesture {
-                                        searchButtonAnimation = false
-                                    }
-                            }
-                            .padding(.horizontal, 10)
-                        }
-                        .frame(maxWidth: .infinity, maxHeight: 40)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 }
                 
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -143,25 +120,59 @@ struct AllCharactersView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
                 
-                VStack {
-                    Button {
-                        withAnimation {
-                            searchButtonAnimation = true
-                        }
-                    } label: {
+                //Search button y search bar
+                if searchButtonAnimation {
+                    VStack {
                         ZStack {
-                            RoundedRectangle(cornerRadius: 20)
+                            RoundedRectangle(cornerRadius: 40)
+                                .fill(.ultraThinMaterial)
+                            
+                            HStack {
+                                Image(systemName: "magnifyingglass")
+                                    .foregroundStyle(Color.white)
+                                    .padding(.horizontal, 7)
+                                
+                                Divider()
+                                
+                                TextField("", text: $searchedCharacterName)
+                                
+                                Image(systemName: "xmark")
+                                    .foregroundStyle(Color.white)
+                                    .onTapGesture {
+                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.9)) {
+                                            searchButtonAnimation = false
+                                        }
+                                    }
+                            }
+                            .padding(.horizontal, 12)
+                        }
+                        .matchedGeometryEffect(id: "searchbar", in: searchAnimation)
+                        .frame(maxWidth: .infinity, maxHeight: 40)
+                        .shadow(color: .black, radius: 10)
+                        .padding(.horizontal, 10)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                } else {
+                    VStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 40)
                                 .fill(.ultraThinMaterial)
                             
                             Image(systemName: "magnifyingglass")
                                 .foregroundStyle(Color.white)
                         }
                         .matchedGeometryEffect(id: "searchbar", in: searchAnimation)
-                        .frame(width: 40, height: 40)
+                        .frame(width: 50, height: 50)
+                        .shadow(color: .black, radius: 10)
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                                searchButtonAnimation = true
+                            }
+                        }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                    .padding()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-                .padding()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
