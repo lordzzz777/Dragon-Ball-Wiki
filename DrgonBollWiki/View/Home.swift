@@ -13,7 +13,6 @@ struct Home: View {
     @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
     
     @State var singleCharacterViewModel: SingleCharacterViewModel = SingleCharacterViewModel()
-    @State private var homeViewModel: HomeViewModel = HomeViewModel()
     @State private var planetsViewModel: PlanetsViewModel = PlanetsViewModel()
     @State private var selectedCharacter: Character = Character(id: 0, name: "", ki: "", maxKi: "", race: "", gender: "", description: "", image: "", affiliation: "", deletedAt: nil)
     
@@ -39,20 +38,10 @@ struct Home: View {
     var body: some View {
         NavigationStack{
             ZStack{
-//                if selectedView != .planets {
-//                    LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
-//                        .edgesIgnoringSafeArea(.all)
-//                    Image("Dragon").resizable()
-//                        .scaledToFit()
-//                        .frame(width: 600, height: 800)
-//                        .opacity(0.6)
-//                }
-                
                 switch selectedView {
                 case .characters:
                     AllCharactersView(animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, selectedKiColor: $characterKiColor)
                         .environment(singleCharacterViewModel)
-                        .environment(homeViewModel)
                 case .favoriteCharacters:
                     Text("En construcción")
                 case .planets:
@@ -79,7 +68,6 @@ struct Home: View {
                         Button(action: {
                             selectedView = .characters
                         }) {
-                          //  Image(systemName: (isShow == 1) ? "" : "checkmark")
                             Text("Personajes")
                             Image("GokuPeque")
                                 .resizable()

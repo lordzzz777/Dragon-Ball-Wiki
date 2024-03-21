@@ -13,7 +13,7 @@ import AVFoundation
 @Observable
 class HomeViewModel {
     private let allCaractersDataService: AllCharactersDataService = AllCharactersDataService()
-    var allCharacters: Characters?
+    var allCharacters: [Character] = []
     var searchedCharacters: [Character] = []
     var isLoading: Bool = false
     var showErrorMessage: Bool = false
@@ -48,7 +48,7 @@ class HomeViewModel {
     @MainActor
     func getAllCharacters() async {
         do {
-            allCharacters = try await allCaractersDataService.getCharacters()
+            allCharacters = try await allCaractersDataService.getCharacters().items
         } catch {
             print(error)
             errorMessage = "Error al intentar obtener los datos del servidor"
@@ -58,11 +58,7 @@ class HomeViewModel {
     
     ///Permite buscar un personaje por el nombre y lo guarda en la propiedad `searchedCharacters` qué es un array de Character del la clase `HomeViewModel`
     func searchCharacter(characterName name: String) {
-        guard let matchedCharacters = allCharacters?.items.filter({ $0.name.contains(name) }) else {
-            return
-        }
-        
-        searchedCharacters = matchedCharacters
+        searchedCharacters = allCharacters.filter({ $0.name.contains(name) })
     }
     
     ///Permite reproducir el audio de giro de una card

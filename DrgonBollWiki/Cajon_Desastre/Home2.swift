@@ -21,27 +21,25 @@ struct Home2: View {
             VStack{
                 if isLoading{
                     ProgressView()
-                }else if let characters = homeViewModel.allCharacters {
-                    List(characters.items, id:\.id){ character in
-                            VStack(alignment: .leading){
-                                AsyncImage(url: URL(string: character.image)) { image in
-                                    image.resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                            .frame(width: 100, height: 100)
-                            Text(character.name).font(.title)
-                            Text(character.description)
-                            Text(character.race)
-                            Text(character.affiliation)
-                            Text(character.gender)
-                            Text(character.ki)
-                            Text(character.maxKi)
-                        }
+                }
+                
+                List(homeViewModel.allCharacters, id:\.id){ character in
+                        VStack(alignment: .leading){
+                            AsyncImage(url: URL(string: character.image)) { image in
+                                image.resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                        .frame(width: 100, height: 100)
+                        Text(character.name).font(.title)
+                        Text(character.description)
+                        Text(character.race)
+                        Text(character.affiliation)
+                        Text(character.gender)
+                        Text(character.ki)
+                        Text(character.maxKi)
                     }
-                }else{
-                    Text("No cherate available")
                 }
                 
                 if isLoading{
