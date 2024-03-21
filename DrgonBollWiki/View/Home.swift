@@ -42,6 +42,7 @@ struct Home: View {
                 case .characters:
                     AllCharactersView(animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, selectedKiColor: $characterKiColor)
                         .environment(singleCharacterViewModel)
+                        .padding(.horizontal, 30)
                 case .favoriteCharacters:
                     Text("En construcción")
                 case .planets:
@@ -50,16 +51,11 @@ struct Home: View {
                 
                 
                 VStack{
-                    Spacer()
-                    HStack(alignment: .top){
-                        Image("Boll7")
-                            .resizable()
-                            .frame(width: 495, height: 495)
-                            .padding(.leading, -130)
-                            .padding(.bottom, -300)
-                            .shadow(radius: 8)
-                        Spacer()
-                    }
+                    Image("Boll7")
+                        .resizable()
+                        .frame(width: 450, height: 450)
+                        .offset(x: -100, y: 375)
+                        .shadow(radius: 8)
                 }
             }
             .toolbar {
