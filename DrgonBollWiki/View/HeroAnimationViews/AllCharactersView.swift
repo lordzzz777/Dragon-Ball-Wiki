@@ -46,11 +46,11 @@ struct AllCharactersView: View {
                 }
                 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
+                    HStack {
                         ForEach(allCharactersViewModel.allCharacters, id: \.id) { character in
                             CharacterCardView(character: character, animation: animation)
                                 .environment(singleCharacterViewModel)
-                                .frame(width: itemWidth)
+//                                .frame(width: itemWidth)
                                 .opacity(showDetails ? 0 : 1)
                                 .onTapGesture {
                                     singleCharacterViewModel.getKiColor(character: character)
@@ -102,12 +102,19 @@ struct AllCharactersView: View {
                                     
                                 })
                                 )
+                                .containerRelativeFrame(.horizontal, count: 1, spacing:10)
+                                .scrollTransition { content, phase in
+                                    content
+                                        .scaleEffect(phase.isIdentity ? 1 : 0.8)
+                                        .offset(x: 0, y: phase.isIdentity ? 0 : 40)
+                                        .opacity(phase.isIdentity ? 1 : 0.85)
+                                }
                         }
                     }
-                    .padding(.horizontal, (proxy.size.width - itemWidth) / 2)
                     .scrollTargetLayout()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+                .contentMargins(40, for: .scrollContent)
                 .scrollTargetBehavior(.viewAligned)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()

@@ -101,7 +101,7 @@ struct CharacterCardView: View {
             .padding()
         }
         .matchedGeometryEffect(id: "allView\(character.id)", in: animation)
-        .frame(minWidth: 300, maxHeight: 500)
+        .frame(maxHeight: 500)
         .task {
             isFavorite = favoriteDataBaseViewModel.favorites.contains { $0.id == character.id }
         }
