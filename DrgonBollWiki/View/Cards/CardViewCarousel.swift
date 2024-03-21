@@ -14,7 +14,7 @@ struct CardViewCarousel: View {
     @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
     
     // MARK: - Se intacias modelos y el ViewModel de Personajes
-    @State private var homeViewModel: HomeViewModel = HomeViewModel()
+    @State private var allCharactersViewModel: AllCharactersViewModel = AllCharactersViewModel()
     @State private var planetsViewModel: PlanetsViewModel = PlanetsViewModel()
     @State private var selectedCharacter: Character?
     @State private var selectedCharacterId: Int?
@@ -38,71 +38,63 @@ struct CardViewCarousel: View {
     let color: [Color] = [.red, .blue, .cyan, .yellow, .gray, .green, .indigo]
     
     var body: some View {
-        if homeViewModel.isLoading{
+        if allCharactersViewModel.isLoading{
             ProgressView()
-        }else if let characters = homeViewModel.allCharacters {
-            ScrollView(.horizontal){
-                HStack{
-                    ForEach(characters.items, id:\.id){ character in
-                        ZStack{
-                           // ColorView(color: color[character.id % color.count]).padding(.bottom, 90).opacity(0.2)
-                            Card(character: character, playSound: {
-                                homeViewModel.playCardSound() })
-                            .padding()
-                            .onTapGesture {
-                                withAnimation {
-                                    isFlipped.toggle()
-                                }
+        }
+        
+        ScrollView(.horizontal){
+            HStack{
+                ForEach(allCharactersViewModel.allCharacters, id:\.id){ character in
+                    ZStack{
+                       // ColorView(color: color[character.id % color.count]).padding(.bottom, 90).opacity(0.2)
+                        Card(character: character, playSound: {
+                            allCharactersViewModel.playCardSound() })
+                        .padding()
+                        .onTapGesture {
+                            withAnimation {
+                                isFlipped.toggle()
                             }
                         }
-                        .contextMenu(ContextMenu(menuItems: {
-                            Button(action: {
-                                selectedCharacterId = character.id
-                                isShowDetails = true
-                            }, label: {
-                                Text("Saber Mas")
-                                Image(systemName: "book")
-                            })
-                            Button(action: {
-                               favoritesStar = true
-                                viewModelisFavorites.saveFavorites(character.id, favoritesStar)
-                            }, label: {
-                                Text("Guardar en favoritos")
-                                Image(systemName: "star.fill")
-                            })
-                            
-                            Button(action: {
-                                // logica
-                            }, label: {
-                                Text("Compartir")
-                                Image(systemName: "square.and.arrow.up")
-                            })
-                            
-                            Button(action: {
-                                // logica
-                            }, label: {
-                                Text("Copiar")
-                                Image(systemName: "doc.on.doc")
-                            })
-                            
-                        }))
-                        .sheet(isPresented: $isShowDetails, content: {
-                            DetailsView(selectedCharacter: character)
-                        })
                     }
-                }.scrollTargetLayout()
-                    .padding(.horizontal)
-            } .scrollTargetBehavior(.viewAligned)
-                .padding(.horizontal, 100)
-        }else {
-            VStack{
-                ProgressView(value: isProgress).progressViewStyle(.circular)
-                Text("Please wait ...")
-                    .font(.title).bold()
-                    .foregroundStyle(Color.white).shadow(radius: 10)
-            }
-            
-        }
+                    .contextMenu(ContextMenu(menuItems: {
+                        Button(action: {
+                            selectedCharacterId = character.id
+                            isShowDetails = true
+                        }, label: {
+                            Text("Saber Mas")
+                            Image(systemName: "book")
+                        })
+                        Button(action: {
+                           favoritesStar = true
+                            viewModelisFavorites.saveFavorites(character.id, favoritesStar)
+                        }, label: {
+                            Text("Guardar en favoritos")
+                            Image(systemName: "star.fill")
+                        })
+                        
+                        Button(action: {
+                            // logica
+                        }, label: {
+                            Text("Compartir")
+                            Image(systemName: "square.and.arrow.up")
+                        })
+                        
+                        Button(action: {
+                            // logica
+                        }, label: {
+                            Text("Copiar")
+                            Image(systemName: "doc.on.doc")
+                        })
+                        
+                    }))
+                    .sheet(isPresented: $isShowDetails, content: {
+                        DetailsView(selectedCharacter: character)
+                    })
+                }
+            }.scrollTargetLayout()
+                .padding(.horizontal)
+        } .scrollTargetBehavior(.viewAligned)
+            .padding(.horizontal, 100)
     }
 }
 
