@@ -139,7 +139,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A7979B02BA3DD44009A12EA /* HeroAnimationViews */ = {
+		5A7979B02BA3DD44009A12EA /* AllCharactersViews */ = {
 			isa = PBXGroup;
 			children = (
 				5AA3A18B2BA1EC3D00B3BDB9 /* CharacterDetailView.swift */,
@@ -147,7 +147,7 @@
 				5ABF48FE2BAA721900E984AB /* AllCharactersView.swift */,
 				5A7979B32BA3DD8F009A12EA /* FavoriteButtonView.swift */,
 			);
-			path = HeroAnimationViews;
+			path = AllCharactersViews;
 			sourceTree = "<group>";
 		};
 		5A8E38AE2B9A4D7300B2B235 /* Fonts */ = {
@@ -288,10 +288,8 @@
 		6E2E177F2B927F4400C8AB2E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5A7979B02BA3DD44009A12EA /* HeroAnimationViews */,
-				5AEB4FF72B94E2B8007C51B2 /* Cards */,
+				5A7979B02BA3DD44009A12EA /* AllCharactersViews */,
 				6E2E177D2B9247B500C8AB2E /* Home.swift */,
-				6E12F59F2B963C7000110633 /*  DetailsView.swift */,
 				5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */,
 			);
 			path = View;
@@ -311,6 +309,8 @@
 		6E95BA522B9E95660030D28C /* Cajon_Desastre */ = {
 			isa = PBXGroup;
 			children = (
+				5AEB4FF72B94E2B8007C51B2 /* Cards */,
+				6E12F59F2B963C7000110633 /*  DetailsView.swift */,
 				6E997C7B2BA8C99E00F361EB /* AudioViewModel.swift */,
 				6E997C7D2BA8DA1500F361EB /* CardListAudio.swift */,
 				6E0B84A82BA1346F00AB6366 /* Card2.swift */,
