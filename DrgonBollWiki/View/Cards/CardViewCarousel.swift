@@ -14,7 +14,7 @@ struct CardViewCarousel: View {
     @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
     
     // MARK: - Se intacias modelos y el ViewModel de Personajes
-    @State private var homeViewModel: HomeViewModel = HomeViewModel()
+    @State private var allCharactersViewModel: AllCharactersViewModel = AllCharactersViewModel()
     @State private var planetsViewModel: PlanetsViewModel = PlanetsViewModel()
     @State private var selectedCharacter: Character?
     @State private var selectedCharacterId: Int?
@@ -38,17 +38,17 @@ struct CardViewCarousel: View {
     let color: [Color] = [.red, .blue, .cyan, .yellow, .gray, .green, .indigo]
     
     var body: some View {
-        if homeViewModel.isLoading{
+        if allCharactersViewModel.isLoading{
             ProgressView()
         }
         
         ScrollView(.horizontal){
             HStack{
-                ForEach(homeViewModel.allCharacters, id:\.id){ character in
+                ForEach(allCharactersViewModel.allCharacters, id:\.id){ character in
                     ZStack{
                        // ColorView(color: color[character.id % color.count]).padding(.bottom, 90).opacity(0.2)
                         Card(character: character, playSound: {
-                            homeViewModel.playCardSound() })
+                            allCharactersViewModel.playCardSound() })
                         .padding()
                         .onTapGesture {
                             withAnimation {

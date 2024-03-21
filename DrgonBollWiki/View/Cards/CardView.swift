@@ -15,7 +15,7 @@ struct CardView: View {
     @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
     
     // MARK: - Se intacias modelos y el ViewModel de Personajes
-    @State private var homeViewModel: HomeViewModel = HomeViewModel()
+    @State private var allCharactersViewModel: AllCharactersViewModel = AllCharactersViewModel()
     @State private var selectedCharacter: Character?
     @State private var selectedCharacterId: Int?
     
@@ -37,19 +37,19 @@ struct CardView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                if homeViewModel.isLoading{
+                if allCharactersViewModel.isLoading{
                     ProgressView()
                 }
                 
                 GeometryReader{ let size = $0.size
                     ScrollView(.horizontal){
                         HStack(spacing: 0){
-                            ForEach(homeViewModel.allCharacters, id:\.id){ character in
+                            ForEach(allCharactersViewModel.allCharacters, id:\.id){ character in
                                 ZStack{
                                     ColorView(color: color[character.id % color.count]).padding(.bottom, 90)
                                     
                                     Card(character: character, playSound: {
-                                        homeViewModel.playCardSound() }).shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                                        allCharactersViewModel.playCardSound() }).shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                                 }.contextMenu(ContextMenu(menuItems: {
                                     Button(action: {
                                         favoritesStar = true
@@ -98,7 +98,7 @@ struct CardView: View {
                                         .offset(x: excessMinX(geometryProxy, offset: isRotationEnabled ? 8 : 10))
                                     
                                 }
-                                .zIndex(homeViewModel.allCharacters.zIndex(character))
+                                .zIndex(allCharactersViewModel.allCharacters.zIndex(character))
                                 
                             }
                         }

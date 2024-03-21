@@ -8,10 +8,8 @@
 import Foundation
 import AVFoundation
 
-
-
 @Observable
-class HomeViewModel {
+class AllCharactersViewModel {
     private let allCaractersDataService: AllCharactersDataService = AllCharactersDataService()
     var allCharacters: [Character] = []
     var searchedCharacters: [Character] = []
