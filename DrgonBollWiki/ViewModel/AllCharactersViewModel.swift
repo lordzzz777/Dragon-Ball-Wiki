@@ -8,12 +8,10 @@
 import Foundation
 import AVFoundation
 
-
-
 @Observable
-class HomeViewModel {
+class AllCharactersViewModel {
     private let allCaractersDataService: AllCharactersDataService = AllCharactersDataService()
-    var allCharacters: Characters?
+    var allCharacters: [Character] = []
     var searchedCharacters: [Character] = []
     var isLoading: Bool = false
     var showErrorMessage: Bool = false
@@ -48,7 +46,7 @@ class HomeViewModel {
     @MainActor
     func getAllCharacters() async {
         do {
-            allCharacters = try await allCaractersDataService.getCharacters()
+            allCharacters = try await allCaractersDataService.getCharacters().items
         } catch {
             print(error)
             errorMessage = "Error al intentar obtener los datos del servidor"
@@ -58,11 +56,7 @@ class HomeViewModel {
     
     ///Permite buscar un personaje por el nombre y lo guarda en la propiedad `searchedCharacters` qué es un array de Character del la clase `HomeViewModel`
     func searchCharacter(characterName name: String) {
-        guard let matchedCharacters = allCharacters?.items.filter({ $0.name.contains(name) }) else {
-            return
-        }
-        
-        searchedCharacters = matchedCharacters
+        searchedCharacters = allCharacters.filter({ $0.name.contains(name) })
     }
     
     ///Permite reproducir el audio de giro de una card
@@ -71,42 +65,6 @@ class HomeViewModel {
         
         player.play()
     }
-    
-    /// Función de reproducción
-    func playAudioMusic(_ url: String){
-        guard let audioData = Bundle.main.url(forResource: url , withExtension: "mp3") else {
-            print("audios no disponibles")
-            return
-        }
-        
-            audioPlayer = try! AVAudioPlayer(contentsOf: audioData)
-            audioPlayer?.currentTime = time
-            audioPlayer?.prepareToPlay()
-            audioPlayer?.play()
-            isPlaying = true
-            print("reproduciendo audio ...")
-        
-    }
-    
-    /// Pausar El audio
-    func pauseAudio() {
-        audioPlayer?.pause()
-        time = audioPlayer?.currentTime ?? 0.0
-        isPlaying = false
-        print("Audio pausado")
-    }
-    
-    
-    func stopAudio(){
-        time = 0.0
-        audioPlayer?.prepareToPlay()
-        audioPlayer?.stop()
-        isPlaying = false
-        print("Audio Detenido")
-    }
-
-    
-
     
     /// Permite que el usuaria cambie entre la vista de cartas y la de carrusel ...
     func liveScrol(_ index: Int) -> Bool {
