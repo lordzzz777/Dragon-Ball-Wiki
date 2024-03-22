@@ -32,7 +32,7 @@ struct CharacterDetailView: View {
 //                    .fill(.black)
 //                    .opacity(0.45)
                 
-                RoundedRectangle(cornerRadius: 0)
+                RoundedRectangle(cornerRadius: 15)
                     .fill(.ultraThinMaterial)
             }
             .matchedGeometryEffect(id: "background\(selectedCharacter.id)", in: animation)
