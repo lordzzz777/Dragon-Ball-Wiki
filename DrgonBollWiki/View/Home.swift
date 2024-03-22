@@ -64,7 +64,7 @@ struct Home: View {
                     
                         CardListAudioView()
                             .matchedGeometryEffect(id: "reproduction", in: winAnimation)
-                            
+                            .padding()
                  
                        
                 }

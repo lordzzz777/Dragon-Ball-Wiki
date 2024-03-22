@@ -98,7 +98,7 @@ struct ReproductionView: View {
                 .background(Color.black.opacity(0.8))
                 .cornerRadius(14)
                 .opacity(0.9)
-                .padding(3)
+                .padding()
             
         }else{
             VStack{
@@ -177,7 +177,8 @@ struct ReproductionView: View {
                         .background(Color.black.opacity(0.8))
                         .cornerRadius(8)
                         .opacity(0.9)
-                        .padding(3)
+                        .padding()
+                       
                     Spacer()
                 }
             }
