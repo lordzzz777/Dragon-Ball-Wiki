@@ -197,10 +197,6 @@
 		5AEB4FF72B94E2B8007C51B2 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				6E95BA502B9E7CBA0030D28C /* CardViewCarousel.swift */,
-				6E95BA532B9EA6280030D28C /* CardViewTribute.swift */,
-				6E6E16822B9BB3A70099F058 /* CardView.swift */,
-				5AEB4FFA2B94E314007C51B2 /* Card.swift */,
 				6E804AD42BA6613B008553BF /* CardViewPlanetes.swift */,
 				6EDCFF082BA7B598007F2A01 /* CardListAudioView.swift */,
 				6EF9FF432BACF05400E35D7C /* ReproductionView.swift */,
@@ -314,6 +310,10 @@
 		6E95BA522B9E95660030D28C /* Cajon_Desastre */ = {
 			isa = PBXGroup;
 			children = (
+				6E95BA502B9E7CBA0030D28C /* CardViewCarousel.swift */,
+				6E95BA532B9EA6280030D28C /* CardViewTribute.swift */,
+				6E6E16822B9BB3A70099F058 /* CardView.swift */,
+				5AEB4FFA2B94E314007C51B2 /* Card.swift */,
 				6E997C7B2BA8C99E00F361EB /* AudioViewModel.swift */,
 				6E997C7D2BA8DA1500F361EB /* CardListAudio.swift */,
 				6E0B84A82BA1346F00AB6366 /* Card2.swift */,
