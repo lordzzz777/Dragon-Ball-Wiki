@@ -58,5 +58,14 @@ class DetailAudioViewModel{
         print("Audio Detenido")
     }
     
-    
+    func tooglePlayback(for audio: PlayStatus, title: String){
+            switch audio{
+            case .play:
+                playAudio(title)
+            case .pause:
+                pauseAudio()
+            case .stop:
+                stopAudio()
+            }
+    }
 }

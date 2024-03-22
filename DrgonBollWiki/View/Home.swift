@@ -18,6 +18,7 @@ struct Home: View {
     
     @State private var favoritesStar = false
     @State private var isTribute = false
+    @State private var showListAudio = false
     
     // MARK: - Controla que vista se muestra
     @State private var selectedView = SelectedView.characters
@@ -26,6 +27,8 @@ struct Home: View {
     @State private var scrollSpeed: CGFloat = 0
     
     @Namespace var animation
+    @Namespace var winAnimation
+    
     @State var showCharacterDetails: Bool = false
     @State var characterKiColor: Color = .yellow
     
@@ -57,8 +60,31 @@ struct Home: View {
                         .offset(x: -100, y: 375)
                         .shadow(radius: 8)
                 }
+                if showListAudio{
+                    
+                        CardListAudioView()
+                            .matchedGeometryEffect(id: "reproduction", in: winAnimation)
+                            
+                 
+                       
+                }
             }
+         
             .toolbar {
+                ToolbarItem(placement: .automatic){
+                    
+                        Button(action: {
+                            withAnimation(.spring( response: 0.5, dampingFraction: 0.8)){
+                                showListAudio.toggle()
+                            }
+                        }, label: {
+                            Image(systemName: "music.note.list")
+                                .foregroundStyle(Color.primary)
+                                .bold()
+                                .font(.title2)
+                        })
+                   
+                }
                 ToolbarItem(placement: .automatic) {
                     Menu{
                         Button(action: {
@@ -100,6 +126,7 @@ struct Home: View {
                             .frame(width: 40, height: 50)
                     }
                 }
+                
                 ToolbarItem(placement: .navigation) {
                     Menu{
                         

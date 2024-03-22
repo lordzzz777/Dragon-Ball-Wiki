@@ -9,7 +9,7 @@ import Foundation
 
 struct PlayList: Hashable {
     var title: String
-    
+    var imageCoves: String
     func getURL() -> URL{
         return URL(string: Bundle.main.path(forResource: title, ofType: "mp3")!)!
     }

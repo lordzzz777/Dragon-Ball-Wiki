@@ -7,15 +7,15 @@
 
 import Foundation
 
+
 @Observable
 class CardListAudioViewModel {
     
     let arrayOfSounds: [PlayList] = [
-        .init(title: "01_DragonBall"),
-        .init(title: "02_DragonBallZ"),
-        .init(title: "03_DragonBallGT"),
-        .init(title: "04_DragonBallSuper"),
-        .init(title: "05_DragonBallZKai")
+        .init(title: "Dragon Ball", imageCoves: "DragonBall_CD"),
+        .init(title: "Dragon Ball Z", imageCoves: "DragonBallZ_CD"),
+        .init(title: "Dragon Ball GT", imageCoves: "DragonBallGT_CD"),
+        .init(title: "DragonBall Super", imageCoves: "DragonBallSuper_CD"),
+        .init(title: "Dragon Ball Z Kai", imageCoves: "DragonBallKai_CD")
     ]
-    
 }

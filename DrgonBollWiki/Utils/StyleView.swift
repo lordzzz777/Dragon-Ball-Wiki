@@ -17,6 +17,8 @@ struct StyleColorDegrader: ViewModifier {
     }
 }
 
+
+
 struct CustomFond: ViewModifier {
    
     var size: CGFloat
