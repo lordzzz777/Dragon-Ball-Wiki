@@ -57,13 +57,14 @@
 		6E997C802BA91EA300F361EB /* DetailAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E997C7F2BA91EA300F361EB /* DetailAudioView.swift */; };
 		6E9BD1552BAA255000CA7CBA /* DetailAudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BD1542BAA255000CA7CBA /* DetailAudioViewModel.swift */; };
 		6E9BD1572BAA3E7300CA7CBA /* CardListAudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BD1562BAA3E7300CA7CBA /* CardListAudioViewModel.swift */; };
-		6EDCFEFB2BA78DAD007F2A01 /* 01_DragonBall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFEFA2BA78DAD007F2A01 /* 01_DragonBall.mp3 */; };
-		6EDCFEFF2BA78F7D007F2A01 /* 02_DragonBallZ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFEFE2BA78F7D007F2A01 /* 02_DragonBallZ.mp3 */; };
-		6EDCFF012BA78FE6007F2A01 /* 03_DragonBallGT.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFF002BA78FE6007F2A01 /* 03_DragonBallGT.mp3 */; };
-		6EDCFF032BA79090007F2A01 /* 04_DragonBallSuper.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFF022BA79090007F2A01 /* 04_DragonBallSuper.mp3 */; };
-		6EDCFF052BA79237007F2A01 /* 05_DragonBallZKai.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFF042BA79237007F2A01 /* 05_DragonBallZKai.mp3 */; };
+		6EDCFEFB2BA78DAD007F2A01 /* Dragon Ball.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFEFA2BA78DAD007F2A01 /* Dragon Ball.mp3 */; };
+		6EDCFEFF2BA78F7D007F2A01 /* Dragon Ball Z.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFEFE2BA78F7D007F2A01 /* Dragon Ball Z.mp3 */; };
+		6EDCFF012BA78FE6007F2A01 /* Dragon Ball GT.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFF002BA78FE6007F2A01 /* Dragon Ball GT.mp3 */; };
+		6EDCFF032BA79090007F2A01 /* Dragon Ball Super.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFF022BA79090007F2A01 /* Dragon Ball Super.mp3 */; };
+		6EDCFF052BA79237007F2A01 /* Dragon Ball Z Kai.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6EDCFF042BA79237007F2A01 /* Dragon Ball Z Kai.mp3 */; };
 		6EDCFF072BA79515007F2A01 /* PlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCFF062BA79515007F2A01 /* PlayList.swift */; };
 		6EDCFF092BA7B598007F2A01 /* CardListAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCFF082BA7B598007F2A01 /* CardListAudioView.swift */; };
+		6EF9FF442BACF05400E35D7C /* ReproductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9FF432BACF05400E35D7C /* ReproductionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,13 +120,14 @@
 		6E997C7F2BA91EA300F361EB /* DetailAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAudioView.swift; sourceTree = "<group>"; };
 		6E9BD1542BAA255000CA7CBA /* DetailAudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAudioViewModel.swift; sourceTree = "<group>"; };
 		6E9BD1562BAA3E7300CA7CBA /* CardListAudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListAudioViewModel.swift; sourceTree = "<group>"; };
-		6EDCFEFA2BA78DAD007F2A01 /* 01_DragonBall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01_DragonBall.mp3; sourceTree = "<group>"; };
-		6EDCFEFE2BA78F7D007F2A01 /* 02_DragonBallZ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 02_DragonBallZ.mp3; sourceTree = "<group>"; };
-		6EDCFF002BA78FE6007F2A01 /* 03_DragonBallGT.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 03_DragonBallGT.mp3; sourceTree = "<group>"; };
-		6EDCFF022BA79090007F2A01 /* 04_DragonBallSuper.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 04_DragonBallSuper.mp3; sourceTree = "<group>"; };
-		6EDCFF042BA79237007F2A01 /* 05_DragonBallZKai.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 05_DragonBallZKai.mp3; sourceTree = "<group>"; };
+		6EDCFEFA2BA78DAD007F2A01 /* Dragon Ball.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dragon Ball.mp3"; sourceTree = "<group>"; };
+		6EDCFEFE2BA78F7D007F2A01 /* Dragon Ball Z.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dragon Ball Z.mp3"; sourceTree = "<group>"; };
+		6EDCFF002BA78FE6007F2A01 /* Dragon Ball GT.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dragon Ball GT.mp3"; sourceTree = "<group>"; };
+		6EDCFF022BA79090007F2A01 /* Dragon Ball Super.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dragon Ball Super.mp3"; sourceTree = "<group>"; };
+		6EDCFF042BA79237007F2A01 /* Dragon Ball Z Kai.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dragon Ball Z Kai.mp3"; sourceTree = "<group>"; };
 		6EDCFF062BA79515007F2A01 /* PlayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayList.swift; sourceTree = "<group>"; };
 		6EDCFF082BA7B598007F2A01 /* CardListAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListAudioView.swift; sourceTree = "<group>"; };
+		6EF9FF432BACF05400E35D7C /* ReproductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReproductionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				6E6E16822B9BB3A70099F058 /* CardView.swift */,
 				6E804AD42BA6613B008553BF /* CardViewPlanetes.swift */,
 				6EDCFF082BA7B598007F2A01 /* CardListAudioView.swift */,
+				6EF9FF432BACF05400E35D7C /* ReproductionView.swift */,
 				6E997C7F2BA91EA300F361EB /* DetailAudioView.swift */,
 			);
 			path = Cards;
@@ -323,11 +326,11 @@
 		6EDCFEF92BA78C3B007F2A01 /* Miusic */ = {
 			isa = PBXGroup;
 			children = (
-				6EDCFEFA2BA78DAD007F2A01 /* 01_DragonBall.mp3 */,
-				6EDCFEFE2BA78F7D007F2A01 /* 02_DragonBallZ.mp3 */,
-				6EDCFF002BA78FE6007F2A01 /* 03_DragonBallGT.mp3 */,
-				6EDCFF022BA79090007F2A01 /* 04_DragonBallSuper.mp3 */,
-				6EDCFF042BA79237007F2A01 /* 05_DragonBallZKai.mp3 */,
+				6EDCFEFA2BA78DAD007F2A01 /* Dragon Ball.mp3 */,
+				6EDCFEFE2BA78F7D007F2A01 /* Dragon Ball Z.mp3 */,
+				6EDCFF002BA78FE6007F2A01 /* Dragon Ball GT.mp3 */,
+				6EDCFF022BA79090007F2A01 /* Dragon Ball Super.mp3 */,
+				6EDCFF042BA79237007F2A01 /* Dragon Ball Z Kai.mp3 */,
 			);
 			path = Miusic;
 			sourceTree = "<group>";
@@ -397,15 +400,15 @@
 				6E5082E02B976A99008509E2 /* cardFx02.mp3 in Resources */,
 				6E5082DF2B976A99008509E2 /* cardFx04.mp3 in Resources */,
 				6E2E17762B92473400C8AB2E /* Preview Assets.xcassets in Resources */,
-				6EDCFEFF2BA78F7D007F2A01 /* 02_DragonBallZ.mp3 in Resources */,
-				6EDCFF032BA79090007F2A01 /* 04_DragonBallSuper.mp3 in Resources */,
-				6EDCFF052BA79237007F2A01 /* 05_DragonBallZKai.mp3 in Resources */,
-				6EDCFF012BA78FE6007F2A01 /* 03_DragonBallGT.mp3 in Resources */,
+				6EDCFEFF2BA78F7D007F2A01 /* Dragon Ball Z.mp3 in Resources */,
+				6EDCFF032BA79090007F2A01 /* Dragon Ball Super.mp3 in Resources */,
+				6EDCFF052BA79237007F2A01 /* Dragon Ball Z Kai.mp3 in Resources */,
+				6EDCFF012BA78FE6007F2A01 /* Dragon Ball GT.mp3 in Resources */,
 				6E5082E22B976A99008509E2 /* cardFx01.mp3 in Resources */,
 				6E5082E12B976A99008509E2 /* cardFx03.mp3 in Resources */,
 				6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */,
 				5A8ECD1E2BA0EB060027BAA2 /* SaiyanSans.ttf in Resources */,
-				6EDCFEFB2BA78DAD007F2A01 /* 01_DragonBall.mp3 in Resources */,
+				6EDCFEFB2BA78DAD007F2A01 /* Dragon Ball.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +461,7 @@
 				5AEB4FFD2B94E34E007C51B2 /* Home2.swift in Sources */,
 				6E804AD52BA6613B008553BF /* CardViewPlanetes.swift in Sources */,
 				5AEB50132B953651007C51B2 /* MockSingleCharacterDataService.swift in Sources */,
+				6EF9FF442BACF05400E35D7C /* ReproductionView.swift in Sources */,
 				5AEB50052B94FEDB007C51B2 /* APIError.swift in Sources */,
 				6E997C7E2BA8DA1500F361EB /* CardListAudio.swift in Sources */,
 				5AEB500C2B952B57007C51B2 /* Protocols.swift in Sources */,
