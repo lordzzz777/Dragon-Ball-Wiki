@@ -32,7 +32,6 @@ struct AllCharactersView: View {
             ZStack {
                 if !searchButtonAnimation {
                     VStack {
-                        
                         Text("Personajes")
                             .font(.custom("SaiyanSans", size: 60))
                             .foregroundStyle(Color.red)

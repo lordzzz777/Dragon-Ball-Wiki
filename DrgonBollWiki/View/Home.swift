@@ -44,7 +44,9 @@ struct Home: View {
                         .environment(singleCharacterViewModel)
                         .padding(.horizontal, 30)
                 case .favoriteCharacters:
-                    Text("En construcción")
+                    FavoritesView(animation: animation)
+                        .environment(singleCharacterViewModel)
+                        .padding(.horizontal, 30)
                 case .planets:
                     Text("En construcción")
                 }
