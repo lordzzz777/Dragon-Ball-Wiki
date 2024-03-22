@@ -3,8 +3,9 @@
 Aplicación iOS de aprendizaje/colaborativa creada por participantes del grupo de estudio **[100 días de Swift con MoureDev!](https://discord.com/channels/729672926432985098/1164618377973727263)** del servidor de discord de **[MoureDev](https://discord.gg/mouredev)**
 
 ## 🟢 Estado actual del proyecto: En desarrollo
+/*
 https://github.com/yeikobu/DrgonBollWiki/assets/69016178/cad5f7c0-e680-4953-a57c-57853d3ba5d4
-
+*/
 
 ## 🎯 Objetivo del proyecto
 El objetivo este proyecto es comenzar a aplicar lo aprendido por los integrantes del grupo de estudio en un proyecto utilizadno una API de [Dragon Ball](https://web.dragonball-api.com/), Swift y SwiftUI. Y también, aprender a colaborar utilizando Git y Github.
