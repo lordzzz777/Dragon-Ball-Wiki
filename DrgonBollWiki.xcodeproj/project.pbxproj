@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A03C6BE2BACE0C400665200 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03C6BD2BACE0C400665200 /* FavoritesView.swift */; };
 		5A03C6C02BACE2CE00665200 /* FavoriteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03C6BF2BACE2CE00665200 /* FavoriteCardView.swift */; };
+		5A72CF092BAE1B0700C9FB79 /* OffsetableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72CF082BAE1B0700C9FB79 /* OffsetableScrollView.swift */; };
 		5A7979B42BA3DD8F009A12EA /* FavoriteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7979B32BA3DD8F009A12EA /* FavoriteButtonView.swift */; };
 		5A8ECD0E2B9FCFD70027BAA2 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */; };
 		5A8ECD1E2BA0EB060027BAA2 /* SaiyanSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A8ECD1D2BA0EB060027BAA2 /* SaiyanSans.ttf */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		5A03C6BD2BACE0C400665200 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		5A03C6BF2BACE2CE00665200 /* FavoriteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCardView.swift; sourceTree = "<group>"; };
+		5A72CF082BAE1B0700C9FB79 /* OffsetableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetableScrollView.swift; sourceTree = "<group>"; };
 		5A7979B32BA3DD8F009A12EA /* FavoriteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonView.swift; sourceTree = "<group>"; };
 		5A8ECD0D2B9FCFD70027BAA2 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		5A8ECD1D2BA0EB060027BAA2 /* SaiyanSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SaiyanSans.ttf; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				5AEB50042B94FEDB007C51B2 /* APIError.swift */,
 				5AEB500B2B952B57007C51B2 /* Protocols.swift */,
 				6E583BBA2BA246ED00D1929C /* StyleView.swift */,
+				5A72CF082BAE1B0700C9FB79 /* OffsetableScrollView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				6E997C802BA91EA300F361EB /* DetailAudioView.swift in Sources */,
 				6E997C7C2BA8C99E00F361EB /* AudioViewModel.swift in Sources */,
 				5A7979B42BA3DD8F009A12EA /* FavoriteButtonView.swift in Sources */,
+				5A72CF092BAE1B0700C9FB79 /* OffsetableScrollView.swift in Sources */,
 				5AEB500A2B952A79007C51B2 /* MockAllCharactersDataService.swift in Sources */,
 				5AEB50152B954860007C51B2 /* PlanetsDataService.swift in Sources */,
 				6E95BA512B9E7CBA0030D28C /* CardViewCarousel.swift in Sources */,

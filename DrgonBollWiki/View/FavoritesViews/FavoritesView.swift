@@ -11,43 +11,67 @@ struct FavoritesView: View {
     
     @Environment(SingleCharacterViewModel.self) var singleCharacterViewModel: SingleCharacterViewModel
     @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
-    let grid = [GridItem(), GridItem()]
+    @State private var isOffsetableScrollViewDraggedUp = false
+    let grid = [GridItem(.flexible()), GridItem(.flexible())]
     var animation: Namespace.ID
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack {
+            OffsettableScrollView(showsIndicator: false) { point in
+                if point.y < -20 {
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        isOffsetableScrollViewDraggedUp = true
+                    }
+                }
+                
+                if point.y >= 0 {
+                    withAnimation(.easeOut(duration: 0.2)) {
+                        isOffsetableScrollViewDraggedUp = false
+                    }
+                }
+            } content: {
+                VStack {
+                    LazyVGrid(columns: grid) {
+                        ForEach(favoriteDataBaseViewModel.favoriteCharactersInfo, id: \.id) { favoriteCharacter in
+                            FavoriteCardView(singleCharacter: favoriteCharacter, animation: animation)
+                                .environment(singleCharacterViewModel)
+                                .padding(.bottom, 20)
+                            
+                        }
+                    }
+                }
+                .padding(.top, isOffsetableScrollViewDraggedUp ? 200 : 200)
+                
+            }
+//            .contentMargins(10, for: .scrollContent)
+//            .scrollTargetBehavior(.viewAligned)
+            
             VStack {
-                Text("Favoritos")
-                    .font(.custom("SaiyanSans", size: 60))
-                    .foregroundStyle(Color.red)
-                    .shadow(color: .black, radius: 0, x: 1, y: 1)
-                    .shadow(color: .black, radius: 0, x: -1, y: -1)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 10)
+                ZStack {
+                    if isOffsetableScrollViewDraggedUp {
+                        Rectangle()
+                            .fill(.ultraThinMaterial)
+                            .frame(maxWidth: .infinity, maxHeight: 100)
+                    }
+                    
+                    Text("Favoritos")
+                        .font(.custom("SaiyanSans", size: isOffsetableScrollViewDraggedUp ? 20 : 60))
+                        .foregroundStyle(Color.red)
+                        .shadow(color: .black, radius: 0, x: 1, y: 1)
+                        .shadow(color: .black, radius: 0, x: -1, y: -1)
+                        .frame(maxWidth: .infinity, alignment: isOffsetableScrollViewDraggedUp ? .center : .leading)
+                        .padding(.top, isOffsetableScrollViewDraggedUp ? 70 : 100)
+                        .padding(.leading, 10)
+                }
                 
                 Spacer()
             }
-            
-            ScrollView {
-                LazyVGrid(columns: grid) {
-                    ForEach(favoriteDataBaseViewModel.favoriteCharactersInfo, id: \.id) { favoriteCharacter in
-                        FavoriteCardView(singleCharacter: favoriteCharacter, animation: animation)
-                            .environment(singleCharacterViewModel)
-                            .containerRelativeFrame(.vertical, count: 2, spacing: 0)
-                            .scrollTransition { content, phase in
-                                content
-                                    .scaleEffect(phase.isIdentity ? 1 : 0.8)
-                            }
-                    }
-                }
-                .scrollTargetLayout()
-            }
-            .contentMargins(10, for: .scrollContent)
-            .scrollTargetBehavior(.viewAligned)
         }
         .task {
             await favoriteDataBaseViewModel.getFavoriteCharactersInfo()
         }
+        .toolbarBackground(.hidden, for: .navigationBar)
+        .ignoresSafeArea()
     }
 }
 
