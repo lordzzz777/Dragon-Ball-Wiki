@@ -47,7 +47,9 @@ struct Home: View {
                         .environment(singleCharacterViewModel)
                         .padding(.horizontal, 30)
                 case .favoriteCharacters:
-                    Text("En construcción")
+                    FavoritesView(animation: animation)
+                        .environment(singleCharacterViewModel)
+                        .padding(.horizontal, 30)
                 case .planets:
                     Text("En construcción")
                 }
@@ -62,28 +64,28 @@ struct Home: View {
                 }
                 if showListAudio{
                     
-                        CardListAudioView()
-                            .matchedGeometryEffect(id: "reproduction", in: winAnimation)
-                            .padding()
-                 
-                       
+                    CardListAudioView()
+                        .matchedGeometryEffect(id: "reproduction", in: winAnimation)
+                        .padding()
+                    
+                    
                 }
             }
-         
+            
             .toolbar {
                 ToolbarItem(placement: .automatic){
                     
-                        Button(action: {
-                            withAnimation(.spring( response: 0.5, dampingFraction: 0.8)){
-                                showListAudio.toggle()
-                            }
-                        }, label: {
-                            Image(systemName: "music.note.list")
-                                .foregroundStyle(Color.primary)
-                                .bold()
-                                .font(.title2)
-                        })
-                   
+                    Button(action: {
+                        withAnimation(.spring( response: 0.5, dampingFraction: 0.8)){
+                            showListAudio.toggle()
+                        }
+                    }, label: {
+                        Image(systemName: "music.note.list")
+                            .foregroundStyle(Color.primary)
+                            .bold()
+                            .font(.title2)
+                    })
+                    
                 }
                 ToolbarItem(placement: .automatic) {
                     Menu{
