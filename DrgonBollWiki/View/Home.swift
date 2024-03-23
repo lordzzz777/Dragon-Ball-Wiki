@@ -47,13 +47,17 @@ struct Home: View {
                         .environment(singleCharacterViewModel)
                         .padding(.horizontal, 30)
                 case .favoriteCharacters:
-                    FavoritesView(animation: animation)
+                    FavoritesView(favoriteDataBaseViewModel: DbSwiftDataViewModel(), animation: animation)
                         .environment(singleCharacterViewModel)
                         .padding(.horizontal, 30)
                 case .planets:
-                    Text("En construcción")
+                    ZStack{
+                        Image("klipartz3").resizable().frame(width: 400, height: 1000)
+                        Text("En construcción")
+                            .modifier(StyleViewFont(size: 40, color: .red))
+                    }
+                    
                 }
-                
                 
                 VStack{
                     Image("Boll7")
@@ -63,16 +67,14 @@ struct Home: View {
                         .shadow(radius: 8)
                 }
                 if showListAudio{
-                    
                     CardListAudioView()
                         .matchedGeometryEffect(id: "reproduction", in: winAnimation)
                         .padding()
-                    
-                    
                 }
             }
             
             .toolbar {
+                
                 ToolbarItem(placement: .automatic){
                     
                     Button(action: {
@@ -87,6 +89,7 @@ struct Home: View {
                     })
                     
                 }
+                
                 ToolbarItem(placement: .automatic) {
                     Menu{
                         Button(action: {

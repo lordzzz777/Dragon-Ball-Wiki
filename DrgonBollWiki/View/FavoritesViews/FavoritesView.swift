@@ -10,7 +10,7 @@ import SwiftUI
 struct FavoritesView: View {
     
     @Environment(SingleCharacterViewModel.self) var singleCharacterViewModel: SingleCharacterViewModel
-    @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
+    @State var favoriteDataBaseViewModel: DbSwiftDataViewModel
     @State private var isOffsetableScrollViewDraggedUp = false
     let grid = [GridItem(.flexible()), GridItem(.flexible())]
     var animation: Namespace.ID
@@ -55,10 +55,7 @@ struct FavoritesView: View {
                     }
                     
                     Text("Favoritos")
-                        .font(.custom("SaiyanSans", size: isOffsetableScrollViewDraggedUp ? 20 : 60))
-                        .foregroundStyle(Color.red)
-                        .shadow(color: .black, radius: 0, x: 1, y: 1)
-                        .shadow(color: .black, radius: 0, x: -1, y: -1)
+                        .modifier(StyleViewFont(size: isOffsetableScrollViewDraggedUp ? 20 : 60, color: .red))
                         .frame(maxWidth: .infinity, alignment: isOffsetableScrollViewDraggedUp ? .center : .leading)
                         .padding(.top, isOffsetableScrollViewDraggedUp ? 70 : 100)
                         .padding(.leading, 10)
@@ -67,7 +64,13 @@ struct FavoritesView: View {
                 Spacer()
             }
         }
+        .onAppear{
+            favoriteDataBaseViewModel.getFavorites()
+            print("lista actualizada ...")
+        }
         .task {
+            
+            
             await favoriteDataBaseViewModel.getFavoriteCharactersInfo()
         }
         .toolbarBackground(.hidden, for: .navigationBar)
@@ -79,6 +82,6 @@ struct FavoritesView: View {
     @Namespace var animation
     @State var singleCharacterViewModel = SingleCharacterViewModel()
     
-    return FavoritesView(animation: animation)
+    return FavoritesView(favoriteDataBaseViewModel: DbSwiftDataViewModel(), animation: animation)
         .environment(singleCharacterViewModel)
 }

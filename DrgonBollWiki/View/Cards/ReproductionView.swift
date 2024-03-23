@@ -27,7 +27,6 @@ struct ReproductionView: View {
                 HStack{
                     Button(action: {
                         
-                        
                         withAnimation(.spring( response: 0.5, dampingFraction: 0.8)){
                             mostrarButtonMnu = true
                         }
@@ -78,7 +77,7 @@ struct ReproductionView: View {
                             .shadow(radius: 8)
                             .symbolEffect(.bounce, value: showStatus)
                             .font(.custom( "", size: 60))
-                            .foregroundStyle(showStatus ? Color.green : Color.gray)
+                            .foregroundStyle(showStatus ? Color.green : Color.primary)
                     }).padding(.horizontal, -2)
                     
                     Button(action: {
@@ -90,14 +89,15 @@ struct ReproductionView: View {
                             .shadow(radius: 8)
                             .symbolEffect(.bounce, value: statusButtonStop)
                             .font(.custom( "", size: 60))
-                            .foregroundStyle(showStatus ? Color.red : Color.gray)
+                            .foregroundStyle(showStatus ? Color.red : Color.primary)
                         
                     }).padding(.horizontal, 5)
                 }.padding()
             }.matchedGeometryEffect(id: "reproduction", in: winAnimation)
-                .background(Color.black.opacity(0.8))
-                .cornerRadius(14)
-                .opacity(0.9)
+                .background{
+                    RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        .fill(.ultraThinMaterial)
+                }
                 .padding()
             
         }else{
@@ -135,18 +135,8 @@ struct ReproductionView: View {
                         })
                         
                         Text(title)
-                            .font(.custom("SaiyanSans", size: 30)).bold()
-                            .foregroundStyle(Color.yellow)
-                            .blur(radius: 0)
-                            .overlay(
-                                Text(title)
-                                    .font(.custom("SaiyanSans", size: 30)).bold()
-                                    .foregroundStyle(Color.red)
-                                    .offset(x: 3, y: 3)
-                                
-                            ).padding(.horizontal, 3)
-                            .shadow(radius: 10)
-                        Spacer()
+                            .modifier(StyleViewFont(size: 25, color: .red))
+                            .padding(.horizontal, 5)
                         
                         Button(action: {
                             showStatus.toggle()
@@ -157,7 +147,7 @@ struct ReproductionView: View {
                                 .shadow(radius: 8)
                                 .symbolEffect(.bounce, value: showStatus)
                                 .font(.custom( "", size: 30))
-                                .foregroundStyle(showStatus ? Color.green : Color.gray)
+                                .foregroundStyle(showStatus ? Color.green : Color.primary)
                         }).padding(.horizontal, -2)
                         
                         Button(action: {
@@ -169,14 +159,15 @@ struct ReproductionView: View {
                                 .shadow(radius: 8)
                                 .symbolEffect(.bounce, value: statusButtonStop)
                                 .font(.custom( "", size: 30))
-                                .foregroundStyle(showStatus ? Color.red : Color.gray)
+                                .foregroundStyle(showStatus ? Color.red : Color.primary)
                             
                         }).padding(.horizontal, 5)
                         
                     }.matchedGeometryEffect(id: "reproduction", in: winAnimation)
-                        .background(Color.black.opacity(0.8))
-                        .cornerRadius(8)
-                        .opacity(0.9)
+                        .background{
+                            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                .fill(.ultraThinMaterial)
+                        }
                         .padding()
                        
                     Spacer()
