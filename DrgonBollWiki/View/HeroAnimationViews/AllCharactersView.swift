@@ -34,10 +34,7 @@ struct AllCharactersView: View {
                     VStack {
                         
                         Text("Personajes")
-                            .font(.custom("SaiyanSans", size: 60))
-                            .foregroundStyle(Color.red)
-                            .shadow(color: .black, radius: 0, x: 1, y: 1)
-                            .shadow(color: .black, radius: 0, x: -1, y: -1)
+                            .modifier(StyleViewFont(size: 60, color: .red))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 10)
                         

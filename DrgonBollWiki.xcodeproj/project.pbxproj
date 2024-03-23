@@ -65,6 +65,9 @@
 		6EDCFF072BA79515007F2A01 /* PlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCFF062BA79515007F2A01 /* PlayList.swift */; };
 		6EDCFF092BA7B598007F2A01 /* CardListAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCFF082BA7B598007F2A01 /* CardListAudioView.swift */; };
 		6EF9FF442BACF05400E35D7C /* ReproductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9FF432BACF05400E35D7C /* ReproductionView.swift */; };
+		6EF9FFA42BAE5D1F00E35D7C /* OffsetableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9FFA32BAE5D1F00E35D7C /* OffsetableScrollView.swift */; };
+		6EF9FFA72BAE5DBD00E35D7C /* FavoriteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9FFA62BAE5DBD00E35D7C /* FavoriteCardView.swift */; };
+		6EF9FFA92BAE5DC200E35D7C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9FFA82BAE5DC200E35D7C /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +131,9 @@
 		6EDCFF062BA79515007F2A01 /* PlayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayList.swift; sourceTree = "<group>"; };
 		6EDCFF082BA7B598007F2A01 /* CardListAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListAudioView.swift; sourceTree = "<group>"; };
 		6EF9FF432BACF05400E35D7C /* ReproductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReproductionView.swift; sourceTree = "<group>"; };
+		6EF9FFA32BAE5D1F00E35D7C /* OffsetableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetableScrollView.swift; sourceTree = "<group>"; };
+		6EF9FFA62BAE5DBD00E35D7C /* FavoriteCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCardView.swift; sourceTree = "<group>"; };
+		6EF9FFA82BAE5DC200E35D7C /* FavoritesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +206,6 @@
 				6E804AD42BA6613B008553BF /* CardViewPlanetes.swift */,
 				6EDCFF082BA7B598007F2A01 /* CardListAudioView.swift */,
 				6EF9FF432BACF05400E35D7C /* ReproductionView.swift */,
-				6E997C7F2BA91EA300F361EB /* DetailAudioView.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 			children = (
 				5A8E38AE2B9A4D7300B2B235 /* Fonts */,
 				5AEB50042B94FEDB007C51B2 /* APIError.swift */,
+				6EF9FFA32BAE5D1F00E35D7C /* OffsetableScrollView.swift */,
 				5AEB500B2B952B57007C51B2 /* Protocols.swift */,
 				6E583BBA2BA246ED00D1929C /* StyleView.swift */,
 			);
@@ -287,6 +293,7 @@
 		6E2E177F2B927F4400C8AB2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6EF9FFA52BAE5D7E00E35D7C /* FavoritesViews */,
 				5A7979B02BA3DD44009A12EA /* HeroAnimationViews */,
 				5AEB4FF72B94E2B8007C51B2 /* Cards */,
 				6E2E177D2B9247B500C8AB2E /* Home.swift */,
@@ -310,6 +317,7 @@
 		6E95BA522B9E95660030D28C /* Cajon_Desastre */ = {
 			isa = PBXGroup;
 			children = (
+				6E997C7F2BA91EA300F361EB /* DetailAudioView.swift */,
 				6E95BA502B9E7CBA0030D28C /* CardViewCarousel.swift */,
 				6E95BA532B9EA6280030D28C /* CardViewTribute.swift */,
 				6E6E16822B9BB3A70099F058 /* CardView.swift */,
@@ -333,6 +341,15 @@
 				6EDCFF042BA79237007F2A01 /* Dragon Ball Z Kai.mp3 */,
 			);
 			path = Miusic;
+			sourceTree = "<group>";
+		};
+		6EF9FFA52BAE5D7E00E35D7C /* FavoritesViews */ = {
+			isa = PBXGroup;
+			children = (
+				6EF9FFA82BAE5DC200E35D7C /* FavoritesView.swift */,
+				6EF9FFA62BAE5DBD00E35D7C /* FavoriteCardView.swift */,
+			);
+			path = FavoritesViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +442,7 @@
 				5AEB501B2B956530007C51B2 /* SinglePlanetDataService.swift in Sources */,
 				6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */,
 				5AA3A18A2BA1EC0A00B3BDB9 /* CharacterCardView.swift in Sources */,
+				6EF9FFA72BAE5DBD00E35D7C /* FavoriteCardView.swift in Sources */,
 				5AEB50112B9533F6007C51B2 /* SingleCharacterViewModel.swift in Sources */,
 				6E997C802BA91EA300F361EB /* DetailAudioView.swift in Sources */,
 				6E997C7C2BA8C99E00F361EB /* AudioViewModel.swift in Sources */,
@@ -443,6 +461,7 @@
 				5AEB50192B9554B3007C51B2 /* MockPlanetsDataServcice.swift in Sources */,
 				6EDCFF072BA79515007F2A01 /* PlayList.swift in Sources */,
 				5A8ECD0E2B9FCFD70027BAA2 /* SplashScreenView.swift in Sources */,
+				6EF9FFA92BAE5DC200E35D7C /* FavoritesView.swift in Sources */,
 				6E9BD1572BAA3E7300CA7CBA /* CardListAudioViewModel.swift in Sources */,
 				6E6E16832B9BB3A70099F058 /* CardView.swift in Sources */,
 				6E583BBB2BA246ED00D1929C /* StyleView.swift in Sources */,
@@ -461,6 +480,7 @@
 				5AEB4FFD2B94E34E007C51B2 /* Home2.swift in Sources */,
 				6E804AD52BA6613B008553BF /* CardViewPlanetes.swift in Sources */,
 				5AEB50132B953651007C51B2 /* MockSingleCharacterDataService.swift in Sources */,
+				6EF9FFA42BAE5D1F00E35D7C /* OffsetableScrollView.swift in Sources */,
 				6EF9FF442BACF05400E35D7C /* ReproductionView.swift in Sources */,
 				5AEB50052B94FEDB007C51B2 /* APIError.swift in Sources */,
 				6E997C7E2BA8DA1500F361EB /* CardListAudio.swift in Sources */,

@@ -56,76 +56,57 @@ struct DetailsView: View {
                     }
                 }
                 
-            //    ScrollView(.horizontal) {
-                    if let character = singleCharacterViewModel.character {
-                        VStack {
-                          
-                               // ForEach(character.transformations, id: \.id) { transformation in
-//                                    if transformation.id == 1 && idTranformation == 4 {
-//                                           Image("SuperShayan4")
-//                                            .resizable()
-//                                                .frame(height: 450).shadow(color: .orange , radius: 15, x: 0, y: 0 ).padding(.top, 10)
-//                                        
-//                                    }
-//                                    if transformation.id == idTranformation {
-//                                        AsyncImage(url: URL(string: transformation.image)) { image in
-//                                            image
-//                                                .resizable()
-//                                                .scaledToFit()
-//                                        } placeholder: {
-//                                            ProgressView()
-//                                        }
-//                                        .frame(height: 450).shadow(color: .orange , radius: 15, x: 0, y: 0 ).padding(.top, 10)
-//                                       
-//                                    }
-                            //  }
-                                    if let selectedTransformation = character.transformations.first(where: { $0.id == idTranformation }) {
-                                            if idTranformation == 4 {
-                                                Image("SuperShayan4")
-                                                    .resizable()
-                                                    .frame(width: 300, height: 450)
-                                                    .shadow(color: .orange, radius: 15, x: 0, y: 0)
-                                                    .padding(.top, 10)
-                                            } else {
-                                                AsyncImage(url: URL(string: selectedTransformation.image)) { image in
-                                                    image
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                } placeholder: {
-                                                    ProgressView()
-                                                }
-                                                .frame(height: 450)
-                                                .shadow(color: .orange, radius: 15, x: 0, y: 0)
-                                                .padding(.top, 10)
-                                            }
-                                        }
-                                    
-                            
-                            Picker(" ", selection: $idTranformation){
-                                ForEach(character.transformations, id: \.id){ item in
-                                    Text( item.ki).tag(item.id)
+                //    ScrollView(.horizontal) {
+                if let character = singleCharacterViewModel.character {
+                    VStack {
+                        
+                        if let selectedTransformation = character.transformations.first(where: { $0.id == idTranformation }) {
+                            if idTranformation == 4 {
+                                Image("SuperShayan4")
+                                    .resizable()
+                                    .frame(width: 300, height: 450)
+                                    .shadow(color: .orange, radius: 15, x: 0, y: 0)
+                                    .padding(.top, 10)
+                            } else {
+                                AsyncImage(url: URL(string: selectedTransformation.image)) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                } placeholder: {
+                                    ProgressView()
                                 }
-                            } .pickerStyle(.palette).padding()
-                                .font(.custom("SaiyanSans", size: 40)).shadow(color: .blue , radius: 15, x: 0, y: 0 )
+                                .frame(height: 450)
+                                .shadow(color: .orange, radius: 15, x: 0, y: 0)
+                                .padding(.top, 10)
+                            }
                         }
+                        
+                        
+                        Picker(" ", selection: $idTranformation){
+                            ForEach(character.transformations, id: \.id){ item in
+                                Text( item.ki).tag(item.id)
+                            }
+                        } .pickerStyle(.palette).padding()
+                            .font(.custom("SaiyanSans", size: 40)).shadow(color: .blue , radius: 15, x: 0, y: 0 )
                     }
-                    
-               // }
+                }
+                
+                // }
                 
             }.padding()
         }.modifier(StyleColorDegrader(isColor: .gray, isColor2: .black))
-        .task {
-            await singleCharacterViewModel.getCharacterInformation(characterID: selectedCharacter.id)
-            
-            guard let character = singleCharacterViewModel.character else {
-                return
+            .task {
+                await singleCharacterViewModel.getCharacterInformation(characterID: selectedCharacter.id)
+                
+                guard let character = singleCharacterViewModel.character else {
+                    return
+                }
+                if character.transformations.count > 0 {
+                    idTranformation = character.transformations [0].id
+                }
             }
-            if character.transformations.count > 0 {
-                idTranformation = character.transformations [0].id
-            }
-        }
     }
-   
+    
 }
 
 #Preview {
@@ -135,6 +116,6 @@ struct DetailsView: View {
 }
 
 extension DetailsView {
-
+    
 }
 

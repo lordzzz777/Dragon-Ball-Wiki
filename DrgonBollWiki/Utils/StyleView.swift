@@ -17,7 +17,18 @@ struct StyleColorDegrader: ViewModifier {
     }
 }
 
-
+struct StyleViewFont: ViewModifier{
+    var size: CGFloat
+    var color: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("SaiyanSans", size: size))
+            .foregroundStyle(color)
+            .shadow(color: .black, radius: 0, x: 1, y: 1)
+            .shadow(color: .black, radius: 0, x: -1, y: -1)
+    }
+}
 
 struct CustomFond: ViewModifier {
    

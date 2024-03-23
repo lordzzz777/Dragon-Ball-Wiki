@@ -12,6 +12,7 @@ import SwiftData
 final class DbSwiftDataViewModel {
     static let shared = DbSwiftDataViewModel()
     let container = try! ModelContainer(for: DbSwiftDataModel.self)
+    private let singleCharacterDataService = SingleCharacterDataService()
     
     @MainActor
     var context: ModelContext{
@@ -19,6 +20,7 @@ final class DbSwiftDataViewModel {
     }
     
     var favorites: [DbSwiftDataModel] = []
+    var favoriteCharactersInfo: [SingleCharacter] = []
     
     init() {}
     
@@ -32,6 +34,17 @@ final class DbSwiftDataViewModel {
             print("Ups... Ocurrio un error -> ", error.localizedDescription)
         }
     }
+    
+    func getFavoriteCharactersInfo() async {
+            do {
+                for favorite in favorites {
+                    favoriteCharactersInfo.append(try await singleCharacterDataService.getSingleCharacter(id: favorite.id))
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    
     
     // MARK: - Se implementa el metodo que actualiza el orden dentro deuna lista...
     @MainActor

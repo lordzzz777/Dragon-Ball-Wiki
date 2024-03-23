@@ -28,9 +28,8 @@ struct CardListAudioView: View {
                     List {
                         VStack(alignment: .leading){
                             ForEach(viewModel.arrayOfSounds, id: \.self) { sound in
-                                Text(sound.title).font(.custom("SaiyanSans", size: 29))
-                                    .foregroundStyle(Color.orange)
-                                    .shadow(color: .red, radius: 10, x: 5, y: 5)
+                                Text(sound.title)
+                                    .modifier(StyleViewFont(size: 30, color: .red))
                                     .padding()
                                     .onTapGesture {
                                     audioL = sound.title
@@ -44,10 +43,10 @@ struct CardListAudioView: View {
                                 
                             }
                         }.listRowBackground(Color.clear)
-                            .background(Color.black.opacity(0.5))
-                                .cornerRadius(14)
-                                .opacity(0.9)
-                                .padding(3)
+                            .background{
+                                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                    .fill(.ultraThinMaterial)
+                            }
                                 .frame(width: 300, height: 400, alignment: .center)
                     }
                     
@@ -55,14 +54,10 @@ struct CardListAudioView: View {
                 }
                 if showWinAudio{
                     ReproductionView(mostrarButton: $mostrarButton, title: $audioL, cover: $covers)
-                        .padding(.top, -9)
+                        .padding(.top, -30)
                 }
             }
-           
-//            .sheet(isPresented: $showModal){
-//                DetailAudioView(title: $audioL, cover: $covers)
-//            }
-           
+
         }
         
     }
