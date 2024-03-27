@@ -44,3 +44,32 @@ struct CustomFond: ViewModifier {
             .shadow(color: colorShadow ,radius: shadow)
     }
 }
+
+extension AnyTransition{
+   
+    static let hero = AnyTransition.modifier(
+        active: HeroModiFire(porcentage: 1),
+        identity: HeroModiFire(porcentage: 0)
+    )
+    
+    struct HeroModiFire: AnimatableModifier {
+        
+        var porcentage: Double
+        
+        var animatableData: Double {
+            get{
+                porcentage
+            }
+            
+            set {
+              porcentage = newValue
+            }
+        }
+        
+        func body(content: Content) -> some View {
+            content
+                .opacity(1)
+        }
+
+    }
+}
