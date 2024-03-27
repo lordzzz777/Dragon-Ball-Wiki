@@ -53,8 +53,15 @@ struct Home: View {
                 case .planets:
                     ZStack{
                         Image("klipartz3").resizable().frame(width: 400, height: 1000)
-                        Text("En construcción")
+                        
+                           
+                        ScrollView{
+                            CardListPlanetesView(planets: planetsViewModel.allPlanets!)
+                        }
+                        Text("En construcción").padding()
                             .modifier(StyleViewFont(size: 40, color: .red))
+                            .background(Color.orange).opacity(0.6)
+                            .cornerRadius(8)
                     }
                     
                 }
