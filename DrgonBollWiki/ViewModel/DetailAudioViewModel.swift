@@ -49,7 +49,7 @@ class DetailAudioViewModel{
         print("Audio pausado")
     }
     
-    /// Parar ell audio
+    /// Parar el audio
     func stopAudio(){
         time = 0.0
         audioPlayer?.prepareToPlay()

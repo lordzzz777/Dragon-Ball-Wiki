@@ -13,7 +13,6 @@ struct DrgonBollWikiApp: App {
    
     var body: some Scene {
         WindowGroup {
-     //       CardListAudioView()
            ContentView()
                .environment(DbSwiftDataViewModel())
            

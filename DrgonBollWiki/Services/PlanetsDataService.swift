@@ -13,7 +13,7 @@ class PlanetsDataService: PlanetsProtocol {
     /// - Returns: Una instancia de `Planets` la cual contiene toda la información básica de cada planeta
     func getPlanets() async throws -> Planets {
         do {
-            let allPlanetsURL = "https://dragonball-api.com/api/planets?page=1&limit=30"
+            let allPlanetsURL = "https://dragonball-api.com/api/planets?page=1&limit=58"
             guard let url = URL(string: allPlanetsURL) else {
                 throw ApiError.invalidURL
             }

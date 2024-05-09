@@ -11,7 +11,7 @@ struct CardViewCarousel: View {
     
     // MARK: - Se intacia SwiftData
     @State var dbSwiftDataModel: [DbSwiftDataModel]
-    @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
+   // @Environment (DbSwiftDataViewModel.self) var viewModelisFavorites
     
     // MARK: - Se intacias modelos y el ViewModel de Personajes
     @State private var allCharactersViewModel: AllCharactersViewModel = AllCharactersViewModel()
@@ -66,7 +66,7 @@ struct CardViewCarousel: View {
                         })
                         Button(action: {
                            favoritesStar = true
-                            viewModelisFavorites.saveFavorites(character.id, favoritesStar)
+//                            viewModelisFavorites.saveFavorites(character.id, favoritesStar)
                         }, label: {
                             Text("Guardar en favoritos")
                             Image(systemName: "star.fill")
@@ -100,4 +100,5 @@ struct CardViewCarousel: View {
 
 #Preview {
     CardViewCarousel(dbSwiftDataModel: [])
+       
 }
