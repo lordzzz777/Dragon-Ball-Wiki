@@ -16,7 +16,8 @@ Aplicación iOS de aprendizaje/colaborativa creada por participantes del grupo d
 
 ## 🟢 Estado actual del proyecto: En desarrollo
 ![Captura](https://github.com/lordzzz777/DrgonBollWiki/assets/114311106/346ee18f-7542-41ea-8928-76d56d844861)
-
+![Captura de pantalla 2024-05-09 a las 23 12 50](https://github.com/lordzzz777/DrgonBollWiki/assets/114311106/4310b668-5819-4118-a741-4844dd511537)
+![Captura de pantalla 2024-05-09 a las 23 16 15](https://github.com/lordzzz777/DrgonBollWiki/assets/114311106/abd1d0f4-e4ee-476c-8e8c-ca1544b4f17a)
 
 
 https://github.com/lordzzz777/DrgonBollWiki/assets/114311106/121d6a85-c0bc-468e-85a9-d5d4c45516c1
