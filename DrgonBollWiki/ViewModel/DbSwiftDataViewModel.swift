@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @Observable
-final class DbSwiftDataViewModel {
+final class DbSwiftDataViewModel  {
     static let shared = DbSwiftDataViewModel()
     let container = try! ModelContainer(for: DbSwiftDataModel.self)
     private let singleCharacterDataService = SingleCharacterDataService()

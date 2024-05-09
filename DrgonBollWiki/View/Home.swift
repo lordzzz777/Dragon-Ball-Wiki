@@ -11,7 +11,6 @@ struct Home: View {
     
     // MARK: - Se intacia SwiftData
     @State var favoriteDataBaseViewModel = DbSwiftDataViewModel.shared
-    
     @State var singleCharacterViewModel: SingleCharacterViewModel = SingleCharacterViewModel()
     @State private var planetsViewModel: PlanetsViewModel = PlanetsViewModel()
     @State private var selectedCharacter: Character = Character(id: 0, name: "", ki: "", maxKi: "", race: "", gender: "", description: "", image: "", affiliation: "", deletedAt: nil)
@@ -38,6 +37,8 @@ struct Home: View {
     
     let defaultBackgroundImage = "Dragon"
     
+ 
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -45,35 +46,32 @@ struct Home: View {
                 case .characters:
                     AllCharactersView(animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, selectedKiColor: $characterKiColor)
                         .environment(singleCharacterViewModel)
-                        .padding(.horizontal, 30)
+                        .padding(.horizontal, 25)
                 case .favoriteCharacters:
                     FavoritesView(favoriteDataBaseViewModel: DbSwiftDataViewModel(), animation: animation)
                         .environment(singleCharacterViewModel)
                         .padding(.horizontal, 30)
                 case .planets:
+                    
                     ZStack{
-                        Image("klipartz3").resizable().frame(width: 400, height: 1000)
-                        
+                        Image("Cosmos2").resizable().frame(width: .infinity, height: 1000, alignment: .center)
+                          
+                        VStack{
                            
-                      
                             CardListPlanetesView(planets: planetsViewModel.allPlanets!)
-                                .padding()
-                       
-//                        Text("En construcción").padding()
-//                            .modifier(StyleViewFont(size: 40, color: .red))
-//                            .background(Color.orange).opacity(0.6)
-//                            .cornerRadius(8)
+                               
+                        }.frame(width: .infinity, height: 680, alignment: .center)
                     }
                     
                 }
-                
-                VStack{
-                    Image("Boll7")
-                        .resizable()
-                        .frame(width: 450, height: 450)
-                        .offset(x: -100, y: 375)
-                        .shadow(radius: 8)
-                }
+  
+//                VStack{
+//                    Image("Boll7")
+//                        .resizable()
+//                        .frame(width: 450, height: 450)
+//                        .offset(x: -200, y: 375)
+//                        .shadow(radius: 8)
+//                }
                 if showListAudio{
                     CardListAudioView()
                         .matchedGeometryEffect(id: "reproduction", in: winAnimation)
@@ -91,7 +89,8 @@ struct Home: View {
                         }
                     }, label: {
                         Image(systemName: "music.note.list")
-                            .foregroundStyle(Color.primary)
+                            .foregroundStyle(Color.white)
+                            .shadow(color: .cyan,radius: 10)
                             .bold()
                             .font(.title2)
                     })
@@ -101,17 +100,22 @@ struct Home: View {
                 ToolbarItem(placement: .automatic) {
                     Menu{
                         Button(action: {
-                            selectedView = .characters
+                            withAnimation(.spring){
+                                selectedView = .characters
+                            }
                         }) {
                             Text("Personajes")
                             Image("GokuPeque")
                                 .resizable()
                                 .frame(width: 10, height: 10)
+                                .foregroundStyle(Color.white)
                         }
                         .disabled(selectedView == .characters)
                         
                         Button {
-                            selectedView = .planets
+                            withAnimation(.spring){
+                                selectedView = .planets
+                            }
                         } label: {
                             Text("Planetas")
                             Image("planeta")
@@ -135,8 +139,10 @@ struct Home: View {
                         Image("logoGoku")
                             .resizable()
                             .renderingMode(.template)
-                            .foregroundColor(Color.primary)
                             .frame(width: 40, height: 50)
+                            .foregroundStyle(Color.white)
+                            .shadow(color: .cyan, radius: 10)
+                        
                     }
                 }
                 
@@ -155,7 +161,8 @@ struct Home: View {
                         
                     } label: {
                         Image(systemName: "info.circle")
-                            .foregroundStyle(Color.primary)
+                            .foregroundStyle(Color.white)
+                            .shadow(color: .cyan, radius: 10)
                             .bold()
                             .font(.title2)
                     }

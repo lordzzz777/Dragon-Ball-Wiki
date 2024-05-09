@@ -46,10 +46,13 @@
 		6E5082E12B976A99008509E2 /* cardFx03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E5082DD2B976A99008509E2 /* cardFx03.mp3 */; };
 		6E5082E22B976A99008509E2 /* cardFx01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E5082DE2B976A99008509E2 /* cardFx01.mp3 */; };
 		6E583BBB2BA246ED00D1929C /* StyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E583BBA2BA246ED00D1929C /* StyleView.swift */; };
+		6E6D7D432BBB17D300D22E42 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D7D422BBB17D300D22E42 /* MenuButton.swift */; };
+		6E6D7D452BBB18A100D22E42 /* MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D7D442BBB18A100D22E42 /* MenuItems.swift */; };
 		6E6E167B2B9A63CB0099F058 /* DbSwiftDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E167A2B9A63CB0099F058 /* DbSwiftDataModel.swift */; };
 		6E6E167D2B9A66570099F058 /* DbSwiftDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E167C2B9A66570099F058 /* DbSwiftDataViewModel.swift */; };
 		6E6E16832B9BB3A70099F058 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E16822B9BB3A70099F058 /* CardView.swift */; };
 		6E804AD52BA6613B008553BF /* CardListPlanetesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E804AD42BA6613B008553BF /* CardListPlanetesView.swift */; };
+		6E84ACF92BBC77A300278009 /* CardLisOlaneteView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E84ACF82BBC77A300278009 /* CardLisOlaneteView2.swift */; };
 		6E86BD132BB3981100DE6458 /* CardPlanetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86BD122BB3981100DE6458 /* CardPlanetView.swift */; };
 		6E95BA512B9E7CBA0030D28C /* CardViewCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95BA502B9E7CBA0030D28C /* CardViewCarousel.swift */; };
 		6E95BA542B9EA6280030D28C /* CardViewTribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95BA532B9EA6280030D28C /* CardViewTribute.swift */; };
@@ -113,10 +116,13 @@
 		6E5082DD2B976A99008509E2 /* cardFx03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFx03.mp3; sourceTree = "<group>"; };
 		6E5082DE2B976A99008509E2 /* cardFx01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFx01.mp3; sourceTree = "<group>"; };
 		6E583BBA2BA246ED00D1929C /* StyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleView.swift; sourceTree = "<group>"; };
+		6E6D7D422BBB17D300D22E42 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		6E6D7D442BBB18A100D22E42 /* MenuItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItems.swift; sourceTree = "<group>"; };
 		6E6E167A2B9A63CB0099F058 /* DbSwiftDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbSwiftDataModel.swift; sourceTree = "<group>"; };
 		6E6E167C2B9A66570099F058 /* DbSwiftDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbSwiftDataViewModel.swift; sourceTree = "<group>"; };
 		6E6E16822B9BB3A70099F058 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6E804AD42BA6613B008553BF /* CardListPlanetesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPlanetesView.swift; sourceTree = "<group>"; };
+		6E84ACF82BBC77A300278009 /* CardLisOlaneteView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLisOlaneteView2.swift; sourceTree = "<group>"; };
 		6E86BD122BB3981100DE6458 /* CardPlanetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPlanetView.swift; sourceTree = "<group>"; };
 		6E95BA502B9E7CBA0030D28C /* CardViewCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCarousel.swift; sourceTree = "<group>"; };
 		6E95BA532B9EA6280030D28C /* CardViewTribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewTribute.swift; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 				5AEB4FF52B94E1E0007C51B2 /* SinglePlanetModel.swift */,
 				6E6E167A2B9A63CB0099F058 /* DbSwiftDataModel.swift */,
 				6EDCFF062BA79515007F2A01 /* PlayList.swift */,
+				6E6D7D442BBB18A100D22E42 /* MenuItems.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 				6EF9FFA32BAE5D1F00E35D7C /* OffsetableScrollView.swift */,
 				5AEB500B2B952B57007C51B2 /* Protocols.swift */,
 				6E583BBA2BA246ED00D1929C /* StyleView.swift */,
+				6E6D7D422BBB17D300D22E42 /* MenuButton.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 		6E95BA522B9E95660030D28C /* Cajon_Desastre */ = {
 			isa = PBXGroup;
 			children = (
+				6E84ACF82BBC77A300278009 /* CardLisOlaneteView2.swift */,
 				6E997C7F2BA91EA300F361EB /* DetailAudioView.swift */,
 				6E95BA502B9E7CBA0030D28C /* CardViewCarousel.swift */,
 				6E6E16822B9BB3A70099F058 /* CardView.swift */,
@@ -439,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E84ACF92BBC77A300278009 /* CardLisOlaneteView2.swift in Sources */,
 				5AEB4FF62B94E1E0007C51B2 /* SinglePlanetModel.swift in Sources */,
 				6E6E167D2B9A66570099F058 /* DbSwiftDataViewModel.swift in Sources */,
 				5AEB50172B955492007C51B2 /* PlanetsViewModel.swift in Sources */,
@@ -465,6 +475,7 @@
 				5AEB50192B9554B3007C51B2 /* MockPlanetsDataServcice.swift in Sources */,
 				6EDCFF072BA79515007F2A01 /* PlayList.swift in Sources */,
 				5A8ECD0E2B9FCFD70027BAA2 /* SplashScreenView.swift in Sources */,
+				6E6D7D432BBB17D300D22E42 /* MenuButton.swift in Sources */,
 				6EF9FFA92BAE5DC200E35D7C /* FavoritesView.swift in Sources */,
 				6E9BD1572BAA3E7300CA7CBA /* CardListAudioViewModel.swift in Sources */,
 				6E6E16832B9BB3A70099F058 /* CardView.swift in Sources */,
@@ -483,6 +494,7 @@
 				5AEB4FF22B94E159007C51B2 /* SingleCharacterModel.swift in Sources */,
 				5AEB4FFD2B94E34E007C51B2 /* Home2.swift in Sources */,
 				6E804AD52BA6613B008553BF /* CardListPlanetesView.swift in Sources */,
+				6E6D7D452BBB18A100D22E42 /* MenuItems.swift in Sources */,
 				5AEB50132B953651007C51B2 /* MockSingleCharacterDataService.swift in Sources */,
 				6EF9FFA42BAE5D1F00E35D7C /* OffsetableScrollView.swift in Sources */,
 				6EF9FF442BACF05400E35D7C /* ReproductionView.swift in Sources */,

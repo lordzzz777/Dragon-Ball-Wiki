@@ -15,6 +15,7 @@ class SingleCharacterDataService: SingleCharacterProtocol {
     func getSingleCharacter(id: Int) async throws -> SingleCharacter {
         do {
             let singleCharacterEndPoint = "https://dragonball-api.com/api/characters/\(id)"
+            
             guard let url = URL(string: singleCharacterEndPoint) else {
                 throw ApiError.invalidURL
             }

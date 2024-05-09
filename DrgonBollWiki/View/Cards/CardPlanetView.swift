@@ -20,14 +20,15 @@ struct CardPlanetView: View {
     
     var body: some View {
         HStack{
-            VStack(alignment: .leading, spacing: 10){
-                Spacer().frame(height: 10)
+            VStack{
+            Spacer()
                 Text(planet.name)
-                    .modifier(StyleViewFont(size: 40, color: .red))
-                    .fontWeight(.bold)
-              Spacer()
+                    .modifier(StyleViewFont(size: 70, color: .red))
+                    .fontWeight(.bold).shadow(color: .white, radius: 5)
+                    
+                    
                 
-            }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
            Spacer()
         }
         .padding()
@@ -50,6 +51,7 @@ struct CardPlanetView: View {
 }
 
 #Preview {
-    let planet = Planet(id: 1, name: "Namek", isDestroyed: true, description: "Planeta natal de los Namekianos. Escenario de importantes batallas y la obtención de las Dragon Balls de Namek.", image: "https://res.cloudinary.com/dgtgbyo76/image/upload/v1699145134/wxedvvh8kiyw00psvphl.webp", deletedAt: nil)
+    let planet = Planet(id: 1, name: "Namek", isDestroyed: true, description: "Planeta natal de los Namekianos. Escenario de importantes batallas y la obtención de las Dragon Balls de Namek.", image: "https://dragonball-api.com/planetas/Namek_U7.webp", deletedAt: nil)
     return CardPlanetView(planet:  planet)
 }
+

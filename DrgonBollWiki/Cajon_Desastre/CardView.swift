@@ -178,6 +178,7 @@ struct CardView: View {
 
 #Preview {
     CardView(dbSwiftDataModel: [])
+        .environment(DbSwiftDataViewModel())
 }
 
 
