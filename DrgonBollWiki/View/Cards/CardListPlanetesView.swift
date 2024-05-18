@@ -80,16 +80,19 @@ struct CardListPlanetesView: View {
                                 }
                             }
                             .disabled(isAnimating)
-                        Text(selectedPlanet.description).foregroundStyle(Color.primary)
+                        Text(selectedPlanet.description)
+                            .font(.system(size: 30))
+                            .foregroundStyle(Color.white)
+                            .shadow(color: .white, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                             .padding()
                     }
-                    .background(Color.yellow.opacity(0.9))
+                    .background(Color.black.opacity(0.3))
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .shadow(radius: 10)
                     .matchedGeometryEffect(id: "Container\(selectedPlanet.id)", in: namespace)
                     .edgesIgnoringSafeArea(.all)
                     .transition(.hero)
-                } .shadow(color: .yellow,radius: 19)
+                } .shadow(color: .white,radius: 19)
                 .zIndex(2)
                 .padding()
             }
