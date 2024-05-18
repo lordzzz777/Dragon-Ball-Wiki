@@ -22,9 +22,10 @@ struct CardPlanetView: View {
         HStack{
             VStack{
             Spacer()
-                Text(planet.name)
-                    .modifier(StyleViewFont(size: 70, color: .red))
-                    .fontWeight(.bold).shadow(color: .white, radius: 5)
+                Text(planet.name).font(.system(size: 35))
+                    .foregroundStyle(.red)
+                  //  .modifier(StyleViewFont(size: 70, color: .red))
+                    .fontWeight(.bold).shadow(color: .white, radius: 6)
                     
                     
                 

@@ -64,14 +64,7 @@ struct Home: View {
                     }
                     
                 }
-  
-//                VStack{
-//                    Image("Boll7")
-//                        .resizable()
-//                        .frame(width: 450, height: 450)
-//                        .offset(x: -200, y: 375)
-//                        .shadow(radius: 8)
-//                }
+                
                 if showListAudio{
                     CardListAudioView()
                         .matchedGeometryEffect(id: "reproduction", in: winAnimation)
