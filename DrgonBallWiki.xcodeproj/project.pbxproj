@@ -36,7 +36,7 @@
 		5AEB501F2B9567BF007C51B2 /* SinglePlanetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB501E2B9567BF007C51B2 /* SinglePlanetViewModel.swift */; };
 		6E0B84A92BA1346F00AB6366 /* Card2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0B84A82BA1346F00AB6366 /* Card2.swift */; };
 		6E12F5A02B963C7100110633 /*  DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E12F59F2B963C7000110633 /*  DetailsView.swift */; };
-		6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */; };
+		6E2E176F2B92473000C8AB2E /* DrgonBallWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E176E2B92473000C8AB2E /* DrgonBallWikiApp.swift */; };
 		6E2E17712B92473000C8AB2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E17702B92473000C8AB2E /* ContentView.swift */; };
 		6E2E17732B92473400C8AB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17722B92473400C8AB2E /* Assets.xcassets */; };
 		6E2E17762B92473400C8AB2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */; };
@@ -105,8 +105,8 @@
 		5AEB501E2B9567BF007C51B2 /* SinglePlanetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlanetViewModel.swift; sourceTree = "<group>"; };
 		6E0B84A82BA1346F00AB6366 /* Card2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card2.swift; sourceTree = "<group>"; };
 		6E12F59F2B963C7000110633 /*  DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " DetailsView.swift"; sourceTree = "<group>"; usesTabs = 0; };
-		6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrgonBollWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrgonBollWikiApp.swift; sourceTree = "<group>"; };
+		6E2E176B2B92473000C8AB2E /* DrgonBallWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrgonBallWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E2E176E2B92473000C8AB2E /* DrgonBallWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrgonBallWikiApp.swift; sourceTree = "<group>"; };
 		6E2E17702B92473000C8AB2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6E2E17722B92473400C8AB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E2E17752B92473400C8AB2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 		6E2E17622B92473000C8AB2E = {
 			isa = PBXGroup;
 			children = (
-				6E2E176D2B92473000C8AB2E /* DrgonBollWiki */,
+				6E2E176D2B92473000C8AB2E /* DrgonBallWiki */,
 				6E2E176C2B92473000C8AB2E /* Products */,
 				5AEB4FED2B94DE9D007C51B2 /* Recovered References */,
 			);
@@ -271,12 +271,12 @@
 		6E2E176C2B92473000C8AB2E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */,
+				6E2E176B2B92473000C8AB2E /* DrgonBallWiki.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6E2E176D2B92473000C8AB2E /* DrgonBollWiki */ = {
+		6E2E176D2B92473000C8AB2E /* DrgonBallWiki */ = {
 			isa = PBXGroup;
 			children = (
 				5A8ECD1F2BA0ED430027BAA2 /* Info.plist */,
@@ -286,12 +286,12 @@
 				5AEB4FEE2B94E0E1007C51B2 /* Model */,
 				6E2E177F2B927F4400C8AB2E /* View */,
 				5AEB4FFE2B94FA9D007C51B2 /* ViewModel */,
-				6E2E176E2B92473000C8AB2E /* DrgonBollWikiApp.swift */,
+				6E2E176E2B92473000C8AB2E /* DrgonBallWikiApp.swift */,
 				6E2E17702B92473000C8AB2E /* ContentView.swift */,
 				6E2E17722B92473400C8AB2E /* Assets.xcassets */,
 				6E2E17742B92473400C8AB2E /* Preview Content */,
 			);
-			path = DrgonBollWiki;
+			path = DrgonBallWiki;
 			sourceTree = "<group>";
 		};
 		6E2E17742B92473400C8AB2E /* Preview Content */ = {
@@ -367,9 +367,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6E2E176A2B92473000C8AB2E /* DrgonBollWiki */ = {
+		6E2E176A2B92473000C8AB2E /* DrgonBallWiki */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E2E17792B92473400C8AB2E /* Build configuration list for PBXNativeTarget "DrgonBollWiki" */;
+			buildConfigurationList = 6E2E17792B92473400C8AB2E /* Build configuration list for PBXNativeTarget "DrgonBallWiki" */;
 			buildPhases = (
 				6E2E17672B92473000C8AB2E /* Sources */,
 				6E2E17682B92473000C8AB2E /* Frameworks */,
@@ -379,11 +379,11 @@
 			);
 			dependencies = (
 			);
-			name = DrgonBollWiki;
+			name = DrgonBallWiki;
 			packageProductDependencies = (
 			);
 			productName = DrgonBollWiki;
-			productReference = 6E2E176B2B92473000C8AB2E /* DrgonBollWiki.app */;
+			productReference = 6E2E176B2B92473000C8AB2E /* DrgonBallWiki.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -401,13 +401,14 @@
 					};
 				};
 			};
-			buildConfigurationList = 6E2E17662B92473000C8AB2E /* Build configuration list for PBXProject "DrgonBollWiki" */;
+			buildConfigurationList = 6E2E17662B92473000C8AB2E /* Build configuration list for PBXProject "DrgonBallWiki" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = es;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 6E2E17622B92473000C8AB2E;
 			packageReferences = (
@@ -416,7 +417,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6E2E176A2B92473000C8AB2E /* DrgonBollWiki */,
+				6E2E176A2B92473000C8AB2E /* DrgonBallWiki */,
 			);
 		};
 /* End PBXProject section */
@@ -485,7 +486,7 @@
 				6E0B84A92BA1346F00AB6366 /* Card2.swift in Sources */,
 				5AEB501D2B9565D2007C51B2 /* MockSinglePlanetDataService.swift in Sources */,
 				5AEB4FF92B94E2DC007C51B2 /* ParallaxHeder.swift in Sources */,
-				6E2E176F2B92473000C8AB2E /* DrgonBollWikiApp.swift in Sources */,
+				6E2E176F2B92473000C8AB2E /* DrgonBallWikiApp.swift in Sources */,
 				6E12F5A02B963C7100110633 /*  DetailsView.swift in Sources */,
 				5AEB4FFB2B94E314007C51B2 /* Card.swift in Sources */,
 				6E95BA542B9EA6280030D28C /* CardViewTribute.swift in Sources */,
@@ -559,7 +560,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -616,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -633,22 +634,21 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DrgonBollWiki/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DrgonBallWiki/Preview Content\"";
 				DEVELOPMENT_TEAM = W5HZTU6SV8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DrgonBollWiki/Info.plist;
+				INFOPLIST_FILE = DrgonBallWiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lordzzz.DrgonBollWiki;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lordzzz.DrgonBallWiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -663,22 +663,21 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DrgonBollWiki/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DrgonBallWiki/Preview Content\"";
 				DEVELOPMENT_TEAM = W5HZTU6SV8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DrgonBollWiki/Info.plist;
+				INFOPLIST_FILE = DrgonBallWiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lordzzz.DrgonBollWiki;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lordzzz.DrgonBallWiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -689,7 +688,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6E2E17662B92473000C8AB2E /* Build configuration list for PBXProject "DrgonBollWiki" */ = {
+		6E2E17662B92473000C8AB2E /* Build configuration list for PBXProject "DrgonBallWiki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E2E17772B92473400C8AB2E /* Debug */,
@@ -698,7 +697,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6E2E17792B92473400C8AB2E /* Build configuration list for PBXNativeTarget "DrgonBollWiki" */ = {
+		6E2E17792B92473400C8AB2E /* Build configuration list for PBXNativeTarget "DrgonBallWiki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E2E177A2B92473400C8AB2E /* Debug */,
