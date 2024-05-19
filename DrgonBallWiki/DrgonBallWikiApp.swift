@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct DrgonBollWikiApp: App {
+struct DrgonBallWikiApp: App {
    
     var body: some Scene {
         WindowGroup {
