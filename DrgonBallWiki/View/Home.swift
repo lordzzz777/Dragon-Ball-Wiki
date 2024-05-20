@@ -74,70 +74,70 @@ struct Home: View {
             
             .toolbar {
                 
-                ToolbarItem(placement: .automatic){
-                    
-                    Button(action: {
-                        withAnimation(.spring( response: 0.5, dampingFraction: 0.8)){
-                            showListAudio.toggle()
-                        }
-                    }, label: {
-                        Image(systemName: "music.note.list")
-                            .foregroundStyle(Color.white)
-                            .shadow(color: .cyan,radius: 10)
-                            .bold()
-                            .font(.title2)
-                    })
-                    
-                }
+//                ToolbarItem(placement: .automatic){
+//                    
+//                    Button(action: {
+//                        withAnimation(.spring( response: 0.5, dampingFraction: 0.8)){
+//                            showListAudio.toggle()
+//                        }
+//                    }, label: {
+//                        Image(systemName: "music.note.list")
+//                            .foregroundStyle(Color.white)
+//                            .shadow(color: .cyan,radius: 10)
+//                            .bold()
+//                            .font(.title2)
+//                    })
+//                    
+//                }
                 
-                ToolbarItem(placement: .automatic) {
-                    Menu{
-                        Button(action: {
-                            withAnimation(.spring){
-                                selectedView = .characters
-                            }
-                        }) {
-                            Text("Personajes")
-                            Image("GokuPeque")
-                                .resizable()
-                                .frame(width: 10, height: 10)
-                                .foregroundStyle(Color.white)
-                        }
-                        .disabled(selectedView == .characters)
-                        
-                        Button {
-                            withAnimation(.spring){
-                                selectedView = .planets
-                            }
-                        } label: {
-                            Text("Planetas")
-                            Image("planeta")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 1, height: 1)
-                        }
-                        .disabled(selectedView == .planets)
-                        
-                        Button(action: {
-                            selectedView = .favoriteCharacters
-                        }) {
-                            Text("Personajes favoritos")
-                            
-                            Image("Boll7")
-                                .resizable()
-                                .frame(width: 10, height: 10)
-                        }
-                        .disabled(selectedView == .favoriteCharacters)
-                    } label: {
-                        Image("logoGoku")
-                            .resizable()
-                            .renderingMode(.template)
-                            .frame(width: 40, height: 50)
-                            .foregroundStyle(Color.white)
-                            .shadow(color: .cyan, radius: 10)
-                        
-                    }
-                }
+//                ToolbarItem(placement: .automatic) {
+//                    Menu{
+//                        Button(action: {
+//                            withAnimation(.spring){
+//                                selectedView = .characters
+//                            }
+//                        }) {
+//                            Text("Personajes")
+//                            Image("GokuPeque")
+//                                .resizable()
+//                                .frame(width: 10, height: 10)
+//                                .foregroundStyle(Color.white)
+//                        }
+//                        .disabled(selectedView == .characters)
+//                        
+//                        Button {
+//                            withAnimation(.spring){
+//                                selectedView = .planets
+//                            }
+//                        } label: {
+//                            Text("Planetas")
+//                            Image("planeta")
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: 1, height: 1)
+//                        }
+//                        .disabled(selectedView == .planets)
+//                        
+//                        Button(action: {
+//                            selectedView = .favoriteCharacters
+//                        }) {
+//                            Text("Personajes favoritos")
+//                            
+//                            Image("Boll7")
+//                                .resizable()
+//                                .frame(width: 10, height: 10)
+//                        }
+//                        .disabled(selectedView == .favoriteCharacters)
+//                    } label: {
+//                        Image("logoGoku")
+//                            .resizable()
+//                            .renderingMode(.template)
+//                            .frame(width: 40, height: 50)
+//                            .foregroundStyle(Color.white)
+//                            .shadow(color: .cyan, radius: 10)
+//                        
+//                    }
+//                }
                 
                 ToolbarItem(placement: .navigation) {
                     Menu{
@@ -165,14 +165,64 @@ struct Home: View {
                 CardViewTribute()
             })
         }
+        
         .overlay {
+           
             if showCharacterDetails {
                 CharacterDetailView(showDetails: $showCharacterDetails, animation: animation)
                     .environment(singleCharacterViewModel)
                     .onDisappear {
                         favoriteDataBaseViewModel.getFavorites()
                     }
+                
             }
+            
+            
+            
+        }
+        .overlay(alignment: .bottomLeading) {
+            FloatingButton{
+                FloatingAction(symbol: "iconFavorito") {
+                    withAnimation(.spring){
+                        selectedView = .favoriteCharacters
+                    }
+                }
+                
+                FloatingAction(symbol: "iconoPlanet") {
+                    withAnimation(.spring){
+                        selectedView = .planets
+                    }
+                }
+                
+                FloatingAction(symbol: "iconCherater") {
+                    withAnimation(.spring){
+                        selectedView = .characters
+                    }
+                }
+                
+                FloatingAction(symbol: "iconoMusica") {
+                    withAnimation(.spring){
+                        showListAudio.toggle()
+                    }
+                }
+                
+            } label: { isExpande in
+                Image("Ball1").resizable()
+              //  Image(systemName: "plus")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white)
+                    .rotationEffect(.init(degrees: isExpande ?  45 : 0 ))
+                    .scaleEffect(1.02)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.clear, in: .circle)
+                    /// Scaling effect When Expanded
+                    .scaleEffect(isExpande ? 0.9 : 1)
+                    
+            }
+            .padding(.bottom, 40)
+            .padding(.horizontal, 20)
+
         }
     }
 }
