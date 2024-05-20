@@ -24,7 +24,10 @@ struct CardListAudioView: View {
             ZStack{
             
                 VStack{
-                  
+                    HStack{
+                        
+                        Spacer()
+                    }
                     List {
                         VStack(alignment: .leading){
                             ForEach(viewModel.arrayOfSounds, id: \.self) { sound in

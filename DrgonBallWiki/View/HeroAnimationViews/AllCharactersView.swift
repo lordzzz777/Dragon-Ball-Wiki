@@ -258,11 +258,11 @@ struct AllCharactersView: View {
                     .padding()
                 }
                 VStack{
-                    Image("Ball1")
-                        .resizable()
-                        .frame(width: 370, height: 370)
-                        .offset(x: -140, y: 380)
-                        .shadow(radius: 8)
+//                    Image("Ball1")
+//                        .resizable()
+//                        .frame(width: 370, height: 370)
+//                        .offset(x: -140, y: 380)
+//                        .shadow(radius: 8)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

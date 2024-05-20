@@ -28,8 +28,9 @@ struct CardListPlanetesView: View {
                 Text("Planetas")
                     .modifier(StyleViewFont(size: 60, color: .red))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 10)
-                
+                    .padding(.leading, 10).padding(.top, -120)
+                    
+            
                 ScrollView(.horizontal,  showsIndicators: false){
                     HStack{
                         ForEach(planets.items, id:\.id){ planet in
@@ -97,13 +98,13 @@ struct CardListPlanetesView: View {
                 .padding()
             }
             
-            VStack{
-                Image("Ball1")
-                    .resizable()
-                    .frame(width: 370, height: 370)
-                    .offset(x: -140, y: 380)
-                    .shadow(radius: 8)
-            }
+//            VStack{
+//                Image("Ball1")
+//                    .resizable()
+//                    .frame(width: 370, height: 370)
+//                    .offset(x: -140, y: 380)
+//                    .shadow(radius: 8)
+//            }
         }
         
     }
