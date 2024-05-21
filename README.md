@@ -1,8 +1,21 @@
-# Dragon Boll Wiki
+# Dragon Ball Wiki
 
 Aplicación iOS de aprendizaje/colaborativa creada por participantes del grupo de estudio **[100 días de Swift con MoureDev!](https://discord.com/channels/729672926432985098/1164618377973727263)** del servidor de discord de **[MoureDev](https://discord.gg/mouredev)**
 
+
+
+
+
+
+
+
+
+
+
+
+
 ## 🟢 Estado actual del proyecto: En desarrollo
+https://github.com/lordzzz777/DrgonBollWiki/assets/114311106/121d6a85-c0bc-468e-85a9-d5d4c45516c1
 
 ## 🎯 Objetivo del proyecto
 El objetivo este proyecto es comenzar a aplicar lo aprendido por los integrantes del grupo de estudio en un proyecto utilizadno una API de [Dragon Ball](https://web.dragonball-api.com/), Swift y SwiftUI. Y también, aprender a colaborar utilizando Git y Github.
