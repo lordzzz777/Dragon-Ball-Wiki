@@ -54,8 +54,11 @@ struct Home: View {
                 case .planets:
                     
                     ZStack{
-                        Image("Cosmos2").resizable().frame(width: .infinity, height: 1000, alignment: .center)
-                          
+                        Image("Cosmos2") 
+                                      .resizable()
+                                      .scaledToFill() // Escala la imagen para que llene todo el espacio
+                                      .frame(width: .infinity, height: .infinity) // Ajusta el tamaño de la imagen
+                                      .edgesIgnoringSafeArea(.all) // Ignora los bordes seguros y extiende la imagen a toda la pantalla
                         VStack{
                            
                             CardListPlanetesView(planets: planetsViewModel.allPlanets!)
@@ -66,7 +69,7 @@ struct Home: View {
                 }
                 
                 if showListAudio{
-                    CardListAudioView()
+                    CardListAudioView(showListAudio:  $showListAudio)
                         .matchedGeometryEffect(id: "reproduction", in: winAnimation)
                         .padding()
                 }
@@ -182,6 +185,13 @@ struct Home: View {
         }
         .overlay(alignment: .bottomLeading) {
             FloatingButton{
+                
+                FloatingAction(symbol: "iconoMusica") {
+                    withAnimation(.spring){
+                        showListAudio.toggle()
+                    }
+                }
+                
                 FloatingAction(symbol: "iconFavorito") {
                     withAnimation(.spring){
                         selectedView = .favoriteCharacters
@@ -200,11 +210,7 @@ struct Home: View {
                     }
                 }
                 
-                FloatingAction(symbol: "iconoMusica") {
-                    withAnimation(.spring){
-                        showListAudio.toggle()
-                    }
-                }
+              
                 
             } label: { isExpande in
                 Image("Ball1").resizable()
