@@ -53,7 +53,7 @@ struct ReproductionView: View {
                     .onTapGesture {
                         
                     }
-                
+               
                 Text(title)
                     .font(.custom("SaiyanSans", size: 50)).bold()
                     .foregroundStyle(Color.yellow)
@@ -67,6 +67,7 @@ struct ReproductionView: View {
                     ).padding(.horizontal, 3)
                     .shadow(radius: 10)
                 
+               
                 HStack{
                     Button(action: {
                         showStatus.toggle()
@@ -98,7 +99,8 @@ struct ReproductionView: View {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
                         .fill(.ultraThinMaterial)
                 }
-                .padding()
+            
+               .padding()
             
         }else{
             VStack{
@@ -133,11 +135,11 @@ struct ReproductionView: View {
                                 .frame(width: 50, height: 50)
                                 .padding(4)
                         })
-                        
+                        Spacer()
                         Text(title)
                             .modifier(StyleViewFont(size: 25, color: .red))
                             .padding(.horizontal, 5)
-                        
+                        Spacer()
                         Button(action: {
                             showStatus.toggle()
                             audioViewModel.tooglePlayback(for: showStatus == true ? .play : .pause, title: title)
