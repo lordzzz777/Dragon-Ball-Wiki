@@ -42,22 +42,28 @@ struct Home: View {
     var body: some View {
         NavigationStack{
             ZStack{
+                
                 switch selectedView {
                 case .characters:
                     AllCharactersView(animation: animation, showDetails: $showCharacterDetails, selectedCharacter: $selectedCharacter, selectedKiColor: $characterKiColor)
                         .environment(singleCharacterViewModel)
                         .padding(.horizontal, 25)
                 case .favoriteCharacters:
-                    FavoritesView(favoriteDataBaseViewModel: DbSwiftDataViewModel(), animation: animation)
-                        .environment(singleCharacterViewModel)
-                        .padding(.horizontal, 30)
+                    Image("Cosmos4")
+                                  .resizable()
+                                  .scaledToFill()
+                                  .edgesIgnoringSafeArea(.all)
+                                  .overlay{
+                                      FavoritesView(favoriteDataBaseViewModel: DbSwiftDataViewModel(), animation: animation)
+                                          .environment(singleCharacterViewModel)
+                                          .padding(.horizontal, 30)
+                                  }
                 case .planets:
                     
                     ZStack{
                         Image("Cosmos2") 
                                       .resizable()
                                       .scaledToFill() // Escala la imagen para que llene todo el espacio
-                                   //   .frame(width: .infinity, height: .infinity) // Ajusta el tamaño de la imagen
                                       .edgesIgnoringSafeArea(.all) // Ignora los bordes seguros y extiende la imagen a toda la pantalla
                         VStack{
                            
