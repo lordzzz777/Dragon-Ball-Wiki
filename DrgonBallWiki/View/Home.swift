@@ -57,13 +57,13 @@ struct Home: View {
                         Image("Cosmos2") 
                                       .resizable()
                                       .scaledToFill() // Escala la imagen para que llene todo el espacio
-                                      .frame(width: .infinity, height: .infinity) // Ajusta el tamaño de la imagen
+                                   //   .frame(width: .infinity, height: .infinity) // Ajusta el tamaño de la imagen
                                       .edgesIgnoringSafeArea(.all) // Ignora los bordes seguros y extiende la imagen a toda la pantalla
                         VStack{
                            
                             CardListPlanetesView(planets: planetsViewModel.allPlanets!)
                                
-                        }.frame(width: .infinity, height: 680, alignment: .center)
+                        }//.frame(width: .infinity, height: 680, alignment: .center)
                     }
                     
                 }

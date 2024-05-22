@@ -28,7 +28,7 @@ struct CardListPlanetesView: View {
                 Text("Planetas")
                     .modifier(StyleViewFont(size: 60, color: .red))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 10).padding(.top, -120)
+                    .padding(.leading, 10).padding(.top, -80)
                     
             
                 ScrollView(.horizontal,  showsIndicators: false){
