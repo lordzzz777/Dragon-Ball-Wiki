@@ -8,7 +8,6 @@
 import Foundation
 import AVFAudio
 
-
 enum PlayStatus {
     case play
     case pause
@@ -17,7 +16,6 @@ enum PlayStatus {
 
 @Observable
 class DetailAudioViewModel{
-    
     
     //Audio player
     var audioPlayer: AVAudioPlayer?
@@ -31,14 +29,12 @@ class DetailAudioViewModel{
             print("audios no disponibles")
             return
         }
-        
             audioPlayer = try! AVAudioPlayer(contentsOf: audioData)
             audioPlayer?.currentTime = time
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
             isPlay = true
             print("reproduciendo audio ...")
-        
     }
     
     /// Pausar el audio

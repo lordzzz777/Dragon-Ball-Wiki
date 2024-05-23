@@ -19,14 +19,10 @@ struct ContentView: View {
         ZStack {
             SplashScreenView()
                 .offset(x: 0, y: animation ? -1400 : 0)
-//                .cornerRadius(animation ? 400 : 0)
-//                .animation(.easeIn, value: 0.8)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             Home()
                 .offset(x: 0, y: animation ? 0 : 1400)
-//                .cornerRadius(animation ? 0 : 300)
-//                .scaleEffect(animation ? 1 : 0)
         }
         .ignoresSafeArea()
         .onAppear {
