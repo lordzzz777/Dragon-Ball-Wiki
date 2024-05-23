@@ -94,6 +94,7 @@ struct ReproductionView: View {
                         
                     }).padding(.horizontal, 5)
                 }.padding()
+                
             }.matchedGeometryEffect(id: "reproduction", in: winAnimation)
                 .background{
                     RoundedRectangle(cornerRadius: 15, style: .continuous)

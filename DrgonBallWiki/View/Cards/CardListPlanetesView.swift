@@ -29,14 +29,12 @@ struct CardListPlanetesView: View {
                     .modifier(StyleViewFont(size: 60, color: .red))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 10).padding(.top, -80)
-                    
-            
                 ScrollView(.horizontal,  showsIndicators: false){
                     HStack{
-                        ForEach(planets.items, id:\.id){ planet in
-                            if planet.id != selectedPlanet?.id {
-                                VStack{
-                                    CardPlanetView(planet: planet)
+                      ForEach(planets.items, id:\.id){ planet in
+                        if planet.id != selectedPlanet?.id {
+                            VStack{
+                             CardPlanetView(planet: planet)
                                         .matchedGeometryEffect(id: planet.id, in: namespace)
                                         .frame(width: 350, height: 350, alignment: .center)
                                         .onTapGesture {
@@ -97,14 +95,6 @@ struct CardListPlanetesView: View {
                 .zIndex(2)
                 .padding()
             }
-            
-//            VStack{
-//                Image("Ball1")
-//                    .resizable()
-//                    .frame(width: 370, height: 370)
-//                    .offset(x: -140, y: 380)
-//                    .shadow(radius: 8)
-//            }
         }
         
     }
