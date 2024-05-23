@@ -59,19 +59,18 @@ struct Home: View {
                                     .padding(.horizontal, 30)
                             }
                 case .planets:
-                    
-                    ZStack{
+                    ZStack {
                         Image("Cosmos2") 
                             .resizable()
                             .scaledToFill() // Escala la imagen para que llene todo el espacio
                             .edgesIgnoringSafeArea(.all) // Ignora los bordes seguros y extiende la imagen a toda la pantalla
-                        VStack{
+                        VStack {
                             CardListPlanetesView(planets: planetsViewModel.allPlanets!)
                         }
                     }
                 }
                 
-                if showListAudio{
+                if showListAudio {
                     CardListAudioView(showListAudio:  $showListAudio)
                         .matchedGeometryEffect(id: "reproduction", in: winAnimation)
                         .padding()
