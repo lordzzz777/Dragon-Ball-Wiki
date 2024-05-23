@@ -43,8 +43,6 @@ struct FavoritesView: View {
                 .padding(.top, isOffsetableScrollViewDraggedUp ? 200 : 200)
                 
             }
-//            .contentMargins(10, for: .scrollContent)
-//            .scrollTargetBehavior(.viewAligned)
             
             VStack {
                 ZStack {
@@ -69,8 +67,6 @@ struct FavoritesView: View {
             print("lista actualizada ...")
         }
         .task {
-            
-            
             await favoriteDataBaseViewModel.getFavoriteCharactersInfo()
         }
         .toolbarBackground(.hidden, for: .navigationBar)

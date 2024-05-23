@@ -27,11 +27,7 @@ struct CharacterDetailView: View {
     
     var body: some View {
         ZStack {
-            ZStack {
-//                RoundedRectangle(cornerRadius: 0)
-//                    .fill(.black)
-//                    .opacity(0.45)
-                
+            ZStack {                
                 RoundedRectangle(cornerRadius: 0)
                     .fill(.ultraThinMaterial)
             }
