@@ -15,7 +15,7 @@ class CardListAudioViewModel {
         .init(title: "Dragon Ball", imageCoves: "DragonBall_CD"),
         .init(title: "Dragon Ball Z", imageCoves: "DragonBallZ_CD"),
         .init(title: "Dragon Ball GT", imageCoves: "DragonBallGT_CD"),
-        .init(title: "DragonBall Super", imageCoves: "DragonBallSuper_CD"),
+        .init(title: "Dragon Ball Super", imageCoves: "DragonBallSuper_CD"),
         .init(title: "Dragon Ball Z Kai", imageCoves: "DragonBallKai_CD")
     ]
 }

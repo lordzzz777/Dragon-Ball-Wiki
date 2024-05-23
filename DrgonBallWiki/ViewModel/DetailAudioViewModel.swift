@@ -15,7 +15,7 @@ enum PlayStatus {
 }
 
 @Observable
-class DetailAudioViewModel{
+final class DetailAudioViewModel{
     
     //Audio player
     var audioPlayer: AVAudioPlayer?
