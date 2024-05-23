@@ -52,23 +52,21 @@ struct Home: View {
                         .environment(singleCharacterViewModel)
                         .padding(.horizontal, 30)
                 case .planets:
-                    
-                    ZStack{
-                        Image("Cosmos2") 
-                                      .resizable()
-                                      .scaledToFill() // Escala la imagen para que llene todo el espacio
-                                      .frame(width: .infinity, height: .infinity) // Ajusta el tamaño de la imagen
-                                      .edgesIgnoringSafeArea(.all) // Ignora los bordes seguros y extiende la imagen a toda la pantalla
-                        VStack{
-                           
+                    ZStack {
+                        Image("Cosmos2")
+                            .resizable()
+                            .scaledToFill() // Escala la imagen para que llene todo el espacio
+                            .frame(maxWidth: .infinity, maxHeight: .infinity) // Ajusta el tamaño de la imagen
+                            .edgesIgnoringSafeArea(.all) // Ignora los bordes seguros y extiende la imagen a toda la pantalla
+                        VStack {
                             CardListPlanetesView(planets: planetsViewModel.allPlanets!)
                                
-                        }.frame(width: .infinity, height: 680, alignment: .center)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: 680, alignment: .center)
                     }
-                    
                 }
                 
-                if showListAudio{
+                if showListAudio {
                     CardListAudioView(showListAudio:  $showListAudio)
                         .matchedGeometryEffect(id: "reproduction", in: winAnimation)
                         .padding()
