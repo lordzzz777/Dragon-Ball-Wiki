@@ -1,4 +1,4 @@
-# Dragon Boll Wiki
+# Dragon Ball Wiki
 
 Aplicación iOS de aprendizaje/colaborativa creada por participantes del grupo de estudio **[100 días de Swift con MoureDev!](https://discord.com/channels/729672926432985098/1164618377973727263)** del servidor de discord de **[MoureDev](https://discord.gg/mouredev)**
 
