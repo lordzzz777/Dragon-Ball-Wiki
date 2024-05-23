@@ -23,7 +23,6 @@ struct CardListAudioView: View {
             VStack {
                 List {
                     VStack(alignment: .leading) {
-
                         HStack(alignment: .firstTextBaseline) {
                             Spacer()
                             Text("Lista de reproducciones")
@@ -48,6 +47,7 @@ struct CardListAudioView: View {
                                     }
                             }
                         }
+                        .padding()
 
                         Divider()
 

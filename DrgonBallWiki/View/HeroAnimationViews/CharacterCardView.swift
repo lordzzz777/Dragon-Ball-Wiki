@@ -51,10 +51,6 @@ struct CharacterCardView: View {
     var body: some View {
         ZStack {
             ZStack {
-//                RoundedRectangle(cornerRadius: 15)
-//                    .fill(.black)
-//                    .opacity(0.45)
-                
                 RoundedRectangle(cornerRadius: 15)
                     .fill(.ultraThinMaterial)
             }
