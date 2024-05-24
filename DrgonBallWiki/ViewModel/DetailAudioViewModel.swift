@@ -15,22 +15,14 @@ enum PlayStatus {
     case stop
 }
 
-<<<<<<< Updated upstream
+
 @Observable
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
 final class DetailAudioViewModel{
 
      var showStatus = false
      var statusButtonStop = false
      var mostrarButtonMnu = true
 
-=======
-@Observable
-final class DetailAudioViewModel{
-    
->>>>>>> main
     //Audio player
     private var audioPlayer: AVAudioPlayer?
     private var time: Double = 0.0
