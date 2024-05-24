@@ -40,3 +40,5 @@ Nota: Dado que este proyecto es solo con fines de aprendizaje y no se publicará
 - [Grupo de estudio '100 días de Swift con MoureDev!'](https://discord.com/channels/729672926432985098/1164618377973727263)
 - [Dragonball API](https://web.dragonball-api.com/)
 
+## Listado de tareas por hacer:
+https://github.com/lordzzz777/Dragon-Ball-Wiki/issues/89
