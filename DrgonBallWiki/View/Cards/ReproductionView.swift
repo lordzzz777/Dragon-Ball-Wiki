@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReproductionView: View {
 
-    @ObservedObject var audioViewModel: DetailAudioViewModel
+    @State var audioViewModel: DetailAudioViewModel
 
     @Binding var mostrarButton: Bool
     @Binding var title: String

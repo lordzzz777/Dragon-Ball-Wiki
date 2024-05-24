@@ -15,11 +15,12 @@ enum PlayStatus {
     case stop
 }
 
-final class DetailAudioViewModel: ObservableObject {
+@Observable
+final class DetailAudioViewModel{
 
-    @Published var showStatus = false
-    @Published var statusButtonStop = false
-    @Published var mostrarButtonMnu = true
+     var showStatus = false
+     var statusButtonStop = false
+     var mostrarButtonMnu = true
 
     //Audio player
     private var audioPlayer: AVAudioPlayer?
