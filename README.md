@@ -41,4 +41,6 @@ Nota: Dado que este proyecto es solo con fines de aprendizaje y no se publicará
 - [Dragonball API](https://web.dragonball-api.com/)
 
 ## Listado de tareas por hacer:
-https://github.com/lordzzz777/Dragon-Ball-Wiki/issues/89
+- [Solucionar el bug que no permite detener la reproducción de la canción previa al seleccionar una nueva canción
+](https://github.com/lordzzz777/Dragon-Ball-Wiki/issues/87)
+- [Agregar funcionalidad de barra de estado al reproducir audio en pantalla extendida](https://github.com/lordzzz777/Dragon-Ball-Wiki/issues/88)
