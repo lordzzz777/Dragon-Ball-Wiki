@@ -15,6 +15,7 @@ enum PlayStatus {
     case stop
 }
 
+
 @Observable
 final class DetailAudioViewModel{
 

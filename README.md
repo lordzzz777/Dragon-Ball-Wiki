@@ -40,3 +40,7 @@ Nota: Dado que este proyecto es solo con fines de aprendizaje y no se publicará
 - [Grupo de estudio '100 días de Swift con MoureDev!'](https://discord.com/channels/729672926432985098/1164618377973727263)
 - [Dragonball API](https://web.dragonball-api.com/)
 
+## Listado de tareas por hacer:
+- [Solucionar el bug que no permite detener la reproducción de la canción previa al seleccionar una nueva canción
+](https://github.com/lordzzz777/Dragon-Ball-Wiki/issues/87)
+- [Agregar funcionalidad de barra de estado al reproducir audio en pantalla extendida](https://github.com/users/lordzzz777/projects/1/views/1?pane=issue&itemId=64236295)
