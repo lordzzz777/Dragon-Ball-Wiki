@@ -70,6 +70,7 @@ struct CardListAudioView: View {
                         }
                     }
                     .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
                     .background {
                         RoundedRectangle(cornerRadius: 15, style: .continuous)
                             .fill(.ultraThinMaterial)
@@ -81,13 +82,13 @@ struct CardListAudioView: View {
             }
             .overlay {
                 if showWinAudio {
-                    let audioViewModel = DetailAudioViewModel()
+                    let audioViewModel = DetailAudioViewModel(title: audioL, cover: covers)
 
-                    ReproductionView(audioViewModel: audioViewModel, mostrarButton: $mostrarButton, title: $audioL, cover: $covers)
-                        .padding(.top, 30)
+                    ReproductionView(audioViewModel: audioViewModel, mostrarButton: $mostrarButton)
+                        .padding(.horizontal, 5)
                         .onChange(of: mostrarButton) {
                             if !mostrarButton {
-                                audioViewModel.tooglePlayback(for: .stop, title: audioL)
+                                audioViewModel.tooglePlayback(for: .stop)
                             }
                         }
                 }
