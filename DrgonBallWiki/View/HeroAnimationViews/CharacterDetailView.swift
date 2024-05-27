@@ -40,7 +40,7 @@ struct CharacterDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .matchedGeometryEffect(id: "image\(selectedCharacter.id)", in: animation)
-                            .shadow(color: singleCharacterViewModel.selectedCharacterKiColor , radius: 15, x: 0, y: 0 )
+                            .shadow(color: selectedCharacter.characterKiColor, radius: 15, x: 0, y: 0 )
                     } placeholder: {
                         ProgressView()
                     }
@@ -82,7 +82,7 @@ struct CharacterDetailView: View {
                             VStack(alignment: .trailing) {
                                 Text("\(selectedCharacter.race)")
                                     .font(.custom("SaiyanSans", size: 25))
-                                    .foregroundStyle(singleCharacterViewModel.selectedCharacterKiColor)
+                                    .foregroundStyle(selectedCharacter.characterKiColor)
                                 
                                 Text("\(selectedCharacter.affiliation)")
                                     .font(.custom("SaiyanSans", size: 25))
@@ -131,7 +131,7 @@ struct CharacterDetailView: View {
                                                 .padding(7)
                                                 .background {
                                                     RoundedRectangle(cornerRadius: 8)
-                                                        .fill(singleCharacterViewModel.selectedCharacterKiColor)
+                                                        .fill(character.characterKiColor)
                                                         .matchedGeometryEffect(id: "transformation", in: animation)
                                                 }
                                                 .onTapGesture {
@@ -155,14 +155,14 @@ struct CharacterDetailView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 300, height: 450)
-                                        .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
+                                        .shadow(color: character.characterKiColor, radius: 15, x: 0, y: 0)
                                         .padding(.top, 10)
                                 } else if character.id == 16 && idTranformation == 27 {
                                     Image("trunksssj2")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(height: 500)
-                                        .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
+                                        .shadow(color: character.characterKiColor, radius: 15, x: 0, y: 0)
                                 } else {
                                     AsyncImage(url: URL(string: selectedTransformation.image)) { image in
                                         image
@@ -172,7 +172,7 @@ struct CharacterDetailView: View {
                                         ProgressView()
                                     }
                                     .frame(height: 450)
-                                    .shadow(color: singleCharacterViewModel.selectedCharacterKiColor, radius: 15, x: 0, y: 0)
+                                    .shadow(color: character.characterKiColor, radius: 15, x: 0, y: 0)
                                     .padding(.top, 10)
                                 }
                             }
