@@ -14,7 +14,6 @@ class SingleCharacterViewModel {
     
     var character: SingleCharacter?
     var selectedCharacter: Character?
-    var selectedCharacterKiColor: Color = .yellow
     var isLoading: Bool = false
     var showErrorMessage: Bool = false
     var errorMessage: String = ""
@@ -32,39 +31,6 @@ class SingleCharacterViewModel {
             print(error)
             errorMessage = "Error al intentar obtener los datos del personaje desde el servidor"
             showErrorMessage.toggle()
-        }
-    }
-    
-    func getKiColor(character: Character) {
-        switch character.race {
-        case "Evil":
-            selectedCharacterKiColor = .black
-        case "Android":
-            selectedCharacterKiColor = .cyan
-        case "Majin":
-            selectedCharacterKiColor = .pink
-        case "Nucleico":
-            selectedCharacterKiColor = .white
-        case "Namekian":
-            selectedCharacterKiColor = .green
-        case "Saiyan":
-            selectedCharacterKiColor = .yellow
-        case "Jiren Race":
-            selectedCharacterKiColor = .red
-        case "Frieza Race":
-            selectedCharacterKiColor = .gray
-        case "Nucleico benigno":
-            selectedCharacterKiColor = .brown
-        case "Human":
-            selectedCharacterKiColor = .blue
-        case "Angel":
-            selectedCharacterKiColor = .mint
-        case "God":
-            selectedCharacterKiColor = .indigo
-        case "Unknown":
-            selectedCharacterKiColor = .white
-        default:
-            selectedCharacterKiColor = .white
         }
     }
 }

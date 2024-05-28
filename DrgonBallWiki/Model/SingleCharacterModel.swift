@@ -5,7 +5,7 @@
 //  Created by Jacob Aguilar on 02-03-24.
 //
 
-import Foundation
+import SwiftUI
 
 // MARK: - SingleCharacter
 struct SingleCharacter: Codable {
@@ -17,6 +17,10 @@ struct SingleCharacter: Codable {
     let deletedAt: Date?
     let originPlanet: OriginPlanet
     let transformations: [Transformation]
+
+    var characterKiColor: Color {
+        Race(rawValue: race)?.color ?? .white
+    }
 }
 
 // MARK: - OriginPlanet

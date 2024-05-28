@@ -15,46 +15,10 @@ struct FavoriteCardView: View {
     
     var animation: Namespace.ID
     @State private var isFavorite: Bool = false
-    var singleCharacterKiColor: Color {
-        switch singleCharacter.race {
-        case "Evil":
-            .black
-        case "Android":
-            .cyan
-        case "Majin":
-            .pink
-        case "Nucleico":
-            .white
-        case "Namekian":
-            .green
-        case "Saiyan":
-            .yellow
-        case "Jiren Race":
-            .red
-        case "Frieza Race":
-            .gray
-        case "Nucleico benigno":
-            .brown
-        case "Human":
-            .blue
-        case "Angel":
-            .mint
-        case "God":
-            .indigo
-        case "Unknown":
-            .white
-        default:
-            .white
-        }
-    }
     
     var body: some View {
         ZStack {
             ZStack {
-//                RoundedRectangle(cornerRadius: 15)
-//                    .fill(.black)
-//                    .opacity(0.45)
-                
                 RoundedRectangle(cornerRadius: 15)
                     .fill(.ultraThinMaterial)
             }
@@ -65,7 +29,7 @@ struct FavoriteCardView: View {
                     .resizable()
                     .scaledToFit()
                     .matchedGeometryEffect(id: "image\(singleCharacter.id)", in: animation)
-                    .shadow(color: singleCharacterKiColor , radius: 15, x: 0, y: 0 )
+                    .shadow(color: singleCharacter.characterKiColor, radius: 15, x: 0, y: 0 )
             } placeholder: {
                 ProgressView()
             }
