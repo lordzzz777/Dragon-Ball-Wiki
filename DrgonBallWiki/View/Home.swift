@@ -29,7 +29,6 @@ struct Home: View {
     @Namespace var winAnimation
     
     @State var showCharacterDetails: Bool = false
-    @State var characterKiColor: Color = .yellow
     
     enum SelectedView {
         case characters, favoriteCharacters, planets
@@ -44,8 +43,7 @@ struct Home: View {
                 case .characters:
                       AllCharactersView(animation: animation,
                       showDetails: $showCharacterDetails,
-                      selectedCharacter: $selectedCharacter,
-                      selectedKiColor: $characterKiColor)
+                      selectedCharacter: $selectedCharacter)
                         .environment(singleCharacterViewModel)
                         .padding(.horizontal, 25)
                 case .favoriteCharacters:

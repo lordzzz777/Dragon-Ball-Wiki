@@ -13,38 +13,6 @@ struct CharacterCardView: View {
     @Environment(SingleCharacterViewModel.self) var singleCharacterViewModel: SingleCharacterViewModel
     @State var character: Character
     @State private var isFavorite: Bool = false
-    var characterKiColor: Color {
-        switch character.race {
-        case "Evil":
-            .black
-        case "Android":
-            .cyan
-        case "Majin":
-            .pink
-        case "Nucleico":
-            .white
-        case "Namekian":
-            .green
-        case "Saiyan":
-            .yellow
-        case "Jiren Race":
-            .red
-        case "Frieza Race":
-            .gray
-        case "Nucleico benigno":
-            .brown
-        case "Human":
-            .blue
-        case "Angel":
-            .mint
-        case "God":
-            .indigo
-        case "Unknown":
-            .white
-        default:
-            .white
-        }
-    }
     
     var animation: Namespace.ID
     
@@ -61,7 +29,7 @@ struct CharacterCardView: View {
                     .resizable()
                     .scaledToFit()
                     .matchedGeometryEffect(id: "image\(character.id)", in: animation)
-                    .shadow(color: characterKiColor , radius: 15, x: 0, y: 0 )
+                    .shadow(color: character.characterKiColor, radius: 15, x: 0, y: 0 )
             } placeholder: {
                 ProgressView()
             }
