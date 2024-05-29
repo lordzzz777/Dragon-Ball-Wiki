@@ -41,4 +41,4 @@ Nota: Dado que este proyecto es solo con fines de aprendizaje y no se publicará
 - [Dragonball API](https://web.dragonball-api.com/)
 
 ## Listado de tareas por hacer:
-- [Agregar funcionalidad de barra de estado al reproducir audio en pantalla extendida](https://github.com/users/lordzzz777/projects/1/views/1?pane=issue&itemId=64236295)
+
