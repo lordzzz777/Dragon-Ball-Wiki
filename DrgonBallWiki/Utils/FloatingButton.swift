@@ -21,7 +21,7 @@ struct FloatingButton<Label: View>: View {
         self.label = label
     }
     
-    /// View Proviedad
+    /// View Propiedad
     @State private var isExpanded: Bool = false
     @State private var dragLocaltion: CGPoint = .zero
     @State private var selectedAction: FloatingAction?
@@ -145,7 +145,7 @@ fileprivate struct PressableButtonStyle: ButtonStyle {
     }
 }
 
-/// Propiedades del boton, color de fondo,  color
+/// Propiedades del boton, color de fondo, y color
 struct FloatingAction: Identifiable {
     private (set) var id: UUID = .init()
     var symbol: String
@@ -155,7 +155,7 @@ struct FloatingAction: Identifiable {
     var action: () -> ()
 }
 
-/// SwoftUI View like Builder to get array of action using ResultBuilder
+/// SwiftUI View like Builder to get array of action using ResultBuilder
 @resultBuilder
 struct FloationActionBuilder {
     static func buildBlock(_ components: FloatingAction...) -> [FloatingAction] {
