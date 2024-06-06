@@ -15,7 +15,11 @@ Aplicación iOS de aprendizaje/colaborativa creada por participantes del grupo d
 
 
 ## 🟢 Estado actual del proyecto: En desarrollo
-https://github.com/lordzzz777/DrgonBollWiki/assets/114311106/121d6a85-c0bc-468e-85a9-d5d4c45516c1
+<img width="203" alt="Captura de pantalla 2024-06-05 a las 6 58 55" src="https://github.com/kontroldev/Dragon-Ball-Wiki/assets/75795616/df9b0eba-affa-46f5-8e6c-d71fb0873bc2">
+<img width="203" alt="Captura de pantalla 2024-06-05 a las 6 59 05" src="https://github.com/kontroldev/Dragon-Ball-Wiki/assets/75795616/37e97b52-480d-461b-a9b9-dabdc7af40b2">
+<img width="203" alt="Captura de pantalla 2024-06-05 a las 6 59 21" src="https://github.com/kontroldev/Dragon-Ball-Wiki/assets/75795616/e678816f-116c-4a39-9ebb-7e8197f43ad9">
+
+
 
 ## 🎯 Objetivo del proyecto
 El objetivo este proyecto es comenzar a aplicar lo aprendido por los integrantes del grupo de estudio en un proyecto utilizadno una API de [Dragon Ball](https://web.dragonball-api.com/), Swift y SwiftUI. Y también, aprender a colaborar utilizando Git y Github.
